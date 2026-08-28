@@ -24,3 +24,29 @@ Each entry: what the file is, which script makes it, when it was last fetched.
 * Sources: Wikimedia sitematrix API, per-wiki MediaWiki API,
   Wikistats REST API, Wikidata Query Service.
 * Last fetched: 2026-08-27
+
+## snapshot.csv
+
+* What: current Special:Statistics numbers for every open wiki,
+  one row per wiki, with the fetch date.
+* Caution: `activeusers` = users with any activity in the last
+  30 days. This is NOT the Wikistats "active editors" metric
+  (registered non-bot users with 5+ edits in a month, in
+  wikistats_monthly.csv). Do not mix the two on one slide.
+* Script: `scripts/fetch_snapshot.py`
+* Source: per-wiki siteinfo API (siprop=statistics).
+* Last fetched: 2026-08-28
+
+## wikistats_monthly.csv
+
+* What: monthly time series per open wiki, full history since launch.
+  Columns: edits (all / registered users / anonymous; bot edits =
+  all - user - anon), registered non-bot editors in four activity
+  buckets (1-4, 5-24, 25-99, 100+ edits per month; "active editors"
+  = sum of the top three), new content pages, new registered users.
+* Caution: cumulative new_pages approximates article growth but
+  drifts from the true count (deletions, redirect churn).
+* Script: `scripts/fetch_wikistats.py` (appends per wiki; resumes an
+  interrupted run; delete the file for a full refresh)
+* Source: Wikistats REST API (wikimedia.org/api/rest_v1/metrics).
+* Last fetched: 2026-08-28
