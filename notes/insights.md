@@ -5,7 +5,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
 
 ## From the inventory (A)
 
-* **105 Indic wikis exist**: 33 Wikipedias, 26 Wiktionaries,
+* **103 Indic wikis exist**: 32 Wikipedias, 25 Wiktionaries,
   14 Wikisources, plus Wikiquote, Wikibooks, Wikinews, Wikivoyage,
   Wikiversity. The family is much bigger than "Wikipedia".
 * **First revision timestamps lie.** Bhojpuri Wikipedia launched on
@@ -17,7 +17,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   2002-2006: 22 Wikipedias in five years (or, as, ne, pa in June 2002
   through bpy in 2006). Then pnb alone in 2008, and total silence
   2009-2014. Incubator-graduation wave 2014-2026: mai 2014, gom 2015,
-  tcy 2016, dty 2017, sat 2018, awa 2020, skr 2020, mni 2021,
+  tcy 2016, dty 2017, sat 2018, awa 2020, mni 2021,
   anp 2023, mag 2026. Cohort story: what closed the pipeline, and
   what reopened it? (Dates confirmed by List of Wikipedias and
   Wikidata; two-wave picture confirmed by Santhosh.)
@@ -51,7 +51,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   articles). Tamil Wiktionary: 409k entries. Gujarati Wikisource
   (66k text pages) is the largest Indic Wikisource, while Gujarati
   Wikipedia (31k) is mid-table. Celebration material, by name.
-* **Admin capacity is thin at the edges**: 13 Wikipedias run with
+* **Admin capacity is thin at the edges**: 12 Wikipedias run with
   1-2 admins; tcy.wiktionary has zero. Newar Wikipedia holds 74k
   articles with 2 admins and 32 active users (bot-created legacy?).
 * **Newar and Bishnupriya paradox**: large article counts (74k, 25k)

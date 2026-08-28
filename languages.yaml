@@ -127,12 +127,6 @@ languages:
     script: Sinhala
     status: include
     note: Sri Lanka. In scope by typology.
-  - code: skr
-    name: Saraiki
-    family: indo-aryan
-    script: Perso-Arabic
-    status: include
-    note: Pakistan. In scope by typology.
   - code: ur
     name: Urdu
     family: indo-aryan
@@ -215,7 +209,12 @@ languages:
     status: include
     note: No wiki yet (verified 2026-08). In incubator.
 
-  # --- Excluded by decision (2026-08-27) ---
+  # --- Excluded by decision (2026-08-27; skr on 2026-08-29) ---
+  - code: skr
+    name: Saraiki
+    family: indo-aryan
+    script: Perso-Arabic
+    status: exclude
   - code: bo
     name: Tibetan
     family: tibeto-burman
