@@ -82,3 +82,34 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   reverse this?", not as failure.
 * **Angika's deletion rate**: 3,184 articles created, 1,694 survive
   (47% deleted). Quality-control signal worth a mention with care.
+
+## From the readers data (C, fetched 2026-08-29)
+
+* **The pageview cliff.** All-Indic Wikipedia pageviews (human,
+  per the API): 197M in 2015 (half year), climbing to a 1.73B peak
+  in 2023, then 1.47B (2024) and 968M (2025). MANDATORY CAVEAT:
+  bot detection improved in 2024-25, so pre-2024 numbers are
+  inflated; the drop is partly measurement correction, partly real
+  (AI answers, changed search). Frame as "the AI era is visible in
+  our charts" — a keynote moment, handled honestly.
+* **Readers are mobile-first: 78-88% mobile** for major wikis
+  (Hindi 88%). Editing tools and editor culture remain desktop-first.
+  Structural friction worth naming. Exceptions: Urdu and Punjabi
+  (~57% mobile) — Urdu's country pattern (US 32%, BR 10%, MX 4%,
+  PK invisible) suggests automated traffic still passing the user
+  filter; treat Urdu reader numbers with suspicion.
+* **The diaspora keeps wikis alive.** The US is the #2 reader
+  country for nearly every Indic wiki: Nepali 23%, Sinhala 19%,
+  Bengali 18%, Malayalam 11%, Tamil 10%. Nepali reads more from
+  the US+diaspora than from Nepal (34% NP). Caveat: Bangladesh and
+  Pakistan are absent from the dataset (privacy protection list),
+  so Bengali and Urdu home-country shares are invisible.
+* **Readership resilience differs from editor resilience.**
+  Punjabi readership hit its all-time high in 2025; Sanskrit (95%),
+  Urdu (94%), Nepali (88%) hold near peak. Kannada readers are at
+  23% of the 2022 peak — Kannada declines on both axes (editors 25%
+  of peak, readers 23%). The single most worrying wiki in the data.
+* **Top-articles trivia (July 2026):** Hindi #1 is the Ramayanam
+  2026 film (319k views). Lamine Yamal appears in the Malayalam AND
+  Bengali top-5. Malayalam's list mixes Basheer, S. Janaki, and
+  Kathakali with football. Good "what do our readers want" slide.

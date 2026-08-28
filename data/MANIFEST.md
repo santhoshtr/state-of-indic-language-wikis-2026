@@ -55,3 +55,37 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   interrupted run; delete the file for a full refresh)
 * Source: Wikistats REST API (wikimedia.org/api/rest_v1/metrics).
 * Last fetched: 2026-08-28
+
+## pageviews_monthly.csv
+
+* What: monthly pageviews per open wiki since 2015-07 (the API
+  start), split by access method (desktop, mobile web, mobile app).
+  Human traffic only (agent=user).
+* Caution: bot detection improved in 2024-2025 and reclassified much
+  traffic from "user" to automated. Pre-2024 "user" numbers are
+  inflated by then-undetected bots. Present the post-2023 decline as
+  partly measurement correction, partly real (AI answers, search
+  changes). Do not present it as raw reader loss.
+* Script: `scripts/fetch_pageviews.py` (appends per wiki; resumes)
+* Source: Wikimedia Pageviews API.
+* Last fetched: 2026-08-29
+
+## top_articles.csv
+
+* What: top 50 viewed pages per wiki, last full month, all access.
+  Includes non-article pages (Main Page, Special:...).
+* Note: mag.wikipedia (launched 2026-06) and mni.wiktionary have no
+  top-pages data in the API yet.
+* Script: `scripts/fetch_pageviews.py`
+* Last fetched: 2026-08-29 (month 2026-07)
+
+## pageviews_by_country.csv
+
+* What: pageviews by reader country per wiki, last full month.
+  Counts are privacy ceilings (views_ceil), not exact.
+* Caution: countries on the WMF country protection list are absent.
+  Bangladesh and Pakistan are absent: reader-country stories for
+  Bengali and Urdu are structurally incomplete. Nepal and Sri Lanka
+  are present.
+* Script: `scripts/fetch_pageviews.py`
+* Last fetched: 2026-08-29 (month 2026-07)
