@@ -28,11 +28,18 @@ from wmapi import REPO, get
 BASE = ("https://analytics.wikimedia.org/published/datasets/"
         "periodic/reports/metrics/cx")
 
+# The CX datasets use ISO codes where the wiki domain differs.
+CX_ALIASES = {"bho": "bh"}
+
 
 def load_codes():
     with open(REPO / "languages.yaml") as f:
         langs = yaml.safe_load(f)["languages"]
     return {l["code"] for l in langs if l["status"] == "include"}
+
+
+def norm(code):
+    return CX_ALIASES.get(code, code)
 
 
 def fetch_tsv(name):
@@ -56,7 +63,7 @@ def main():
 
     monthly = defaultdict(int)
     for row in fetch_tsv("published_cx_translations_per_wiki.tsv"):
-        lang = row["language"]
+        lang = norm(row["language"])
         if lang in codes:
             month = row["published_date"][:7]
             monthly[(month, lang)] += int(row["cx2_published_translations"])
@@ -66,24 +73,26 @@ def main():
 
     pairs = []
     for row in fetch_tsv("translation_language_pairs.tsv"):
-        if row["source_language"] in codes or row["target_language"] in codes:
-            pairs.append((row["source_language"], row["target_language"],
-                          int(row["no_translations"])))
+        source = norm(row["source_language"])
+        target = norm(row["target_language"])
+        if source in codes or target in codes:
+            pairs.append((source, target, int(row["no_translations"])))
     pairs.sort(key=lambda r: -r[2])
     write("cx_language_pairs.csv",
           ["source_lang", "target_lang", "translations"], pairs)
 
     deletions = defaultdict(int)
     for row in fetch_tsv("cx_deletions.tsv"):
-        if row["wiki"] in codes:
-            deletions[row["wiki"]] += int(row["count"])
+        if norm(row["wiki"]) in codes:
+            deletions[norm(row["wiki"])] += int(row["count"])
     write("cx_deletions.csv", ["target_lang", "deleted"],
           sorted(deletions.items()))
 
     translators = [
-        (row["translation_target_language"], int(row["number_of_translators"]))
+        (norm(row["translation_target_language"]),
+         int(row["number_of_translators"]))
         for row in fetch_tsv("translators_per_wiki.tsv")
-        if row["translation_target_language"] in codes
+        if norm(row["translation_target_language"]) in codes
     ]
     write("cx_translators.csv", ["target_lang", "translators"],
           sorted(translators, key=lambda r: -r[1]))

@@ -85,8 +85,13 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   scope. Monthly published translations per target language;
   lifetime source-target pair counts (either side Indic); lifetime
   deleted translations per target; lifetime translators per target.
-* Caution: language codes are wiki codes (bh = Bhojpuri). The pair
-  and translator files hold lifetime totals, not time series.
+* Caution: language codes are wiki codes. The script maps CX ISO
+  codes to wiki codes (bho -> bh). The pair and translator files
+  hold lifetime totals, not time series.
+* Caution: "share of articles from translation" divides lifetime
+  published translations by current surviving articles; the ~7%
+  deleted translations sit in the numerator, so true surviving
+  shares are a few points lower.
 * Script: `scripts/fetch_cx_stats.py`
 * Source: public CX TSV datasets on analytics.wikimedia.org
   (the same files behind cxstats.toolforge.org).

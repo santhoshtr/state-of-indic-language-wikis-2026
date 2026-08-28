@@ -24,6 +24,7 @@ ur,ps,816
 bn,en,805
 hi,pa,568
 en,new,563
+en,bh,551
 es,bn,441
 fa,ur,428
 hi,gu,402
@@ -58,7 +59,7 @@ simple,pa,73
 mr,en,72
 ta,ml,72
 ne,new,69
-hi,bho,68
+hi,bh,68
 ar,ks,67
 hi,bn,61
 hi,sa,59
@@ -286,7 +287,7 @@ id,bn,4
 ta,as,4
 it,hi,4
 as,ha,4
-mai,bho,4
+mai,bh,4
 ro,hi,4
 sv,bn,4
 uz,bn,4
@@ -331,7 +332,7 @@ hi,th,3
 sat,en,3
 hi,ang,3
 pt,dv,3
-ne,bho,3
+ne,bh,3
 et,bn,3
 arz,ur,3
 bn,ms,3
@@ -344,7 +345,7 @@ bn,ru,3
 ja,dv,3
 sa,en,3
 pl,bn,3
-bho,gu,3
+bh,gu,3
 bn,eo,3
 fr,or,3
 iu,ta,3
@@ -354,6 +355,7 @@ nl,hi,3
 ko,ur,3
 hi,it,3
 ceb,ta,3
+simple,bh,3
 ckb,hi,3
 es,gu,3
 bn,arz,3
@@ -369,7 +371,7 @@ mr,kn,3
 ml,es,3
 ta,es,2
 mai,gom,2
-bho,hi,2
+bh,hi,2
 bn,si,2
 sq,ur,2
 ko,hi,2
@@ -392,7 +394,7 @@ ur,it,2
 sr,ur,2
 pnb,mzn,2
 simple,sat,2
-bho,as,2
+bh,as,2
 bn,de,2
 ur,kn,2
 hi,pt,2
@@ -425,14 +427,14 @@ pt,te,2
 ur,ckb,2
 hi,jv,2
 ru,ml,2
-mr,bho,2
+mr,bh,2
 so,hi,2
 sd,ar,2
 pa,bn,2
 fi,gu,2
 ps,hi,2
 ur,gu,2
-as,bho,2
+as,bh,2
 sd,ks,2
 de,as,2
 bn,nl,2
@@ -489,6 +491,7 @@ ne,kn,2
 bn,da,2
 bn,pdc,2
 es,mai,1
+bh,en,1
 ml,gu,1
 mr,ta,1
 ne,ru,1
@@ -509,10 +512,11 @@ as,ta,1
 or,ru,1
 da,hi,1
 ban,gu,1
+de,bh,1
 de,ks,1
 bg,ne,1
 tr,ta,1
-bho,mr,1
+bh,mr,1
 ml,mr,1
 bn,sr,1
 sl,hi,1
@@ -644,6 +648,7 @@ fr,gom,1
 pnb,skr,1
 tr,kn,1
 ps,or,1
+bh,es,1
 gl,hi,1
 it,mr,1
 bn,en-simple,1
@@ -662,7 +667,9 @@ eo,sa,1
 simple,as,1
 mai,gu,1
 ps,pnb,1
+bh,ko,1
 bn,et,1
+ha,bh,1
 ur,my,1
 ne,ur,1
 vi,ks,1
@@ -697,6 +704,7 @@ jv,ks,1
 fa,mni,1
 sv,ta,1
 ko,anp,1
+fr,bh,1
 war,ml,1
 hy,si,1
 sh,bn,1
@@ -746,7 +754,7 @@ si,ja,1
 ig,sat,1
 be-tarask,bn,1
 pt,as,1
-bn,bho,1
+bn,bh,1
 gu,ks,1
 br,bn,1
 ja,pa,1
@@ -778,6 +786,7 @@ hyw,ur,1
 sd,simple,1
 si,ur,1
 simple,dty,1
+es,bh,1
 pnb,hi,1
 ml,eo,1
 ms,hi,1
@@ -791,7 +800,7 @@ ast,sat,1
 az,bn,1
 pa,simple,1
 ps,ne,1
-bho,awa,1
+bh,awa,1
 bn,el,1
 gom,pt,1
 ur,ko,1
@@ -822,7 +831,7 @@ ckb,ur,1
 te,it,1
 or,or,1
 gd,ks,1
-bho,mai,1
+bh,mai,1
 bn,eu,1
 gpe,as,1
 ml,ko,1

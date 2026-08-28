@@ -130,10 +130,11 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   For several communities, translation is not a side channel;
   it is how the wiki grows.
 * **Translation is the counter-trend to the editor decline.**
-  Active editors fell ~27% since 2020; CX output kept climbing:
-  18.7k (2020), 24.9k (2021), 32.4k (2022), 51.2k (2023), and a
-  steady ~51-53k/year through 2025. Fewer editors, better tools,
-  more articles. A hopeful keynote beat after the honest decline.
+  Active editors fell ~27% since 2020; CX output nearly tripled:
+  18.7k (2020), 24.9k (2021), 32.4k (2022), 51.2k (2023), ~53k
+  (2025). Fewer editors, better tools, more articles. A hopeful
+  keynote beat after the honest decline. Honesty note: 2026 is
+  pacing lower, ~40k annualized from 25k through mid-August.
 * **2,612 people have translated into Bengali** (1,766 Hindi,
   1,347 Tamil). Translation has the widest participation funnel
   of any editing workflow. Bengali is the largest Indic CX user
