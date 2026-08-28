@@ -79,6 +79,19 @@ Each entry: what the file is, which script makes it, when it was last fetched.
 * Script: `scripts/fetch_pageviews.py`
 * Last fetched: 2026-08-29 (month 2026-07)
 
+## cx_translations_monthly.csv, cx_language_pairs.csv, cx_deletions.csv, cx_translators.csv
+
+* What: Content Translation statistics filtered to the languages in
+  scope. Monthly published translations per target language;
+  lifetime source-target pair counts (either side Indic); lifetime
+  deleted translations per target; lifetime translators per target.
+* Caution: language codes are wiki codes (bh = Bhojpuri). The pair
+  and translator files hold lifetime totals, not time series.
+* Script: `scripts/fetch_cx_stats.py`
+* Source: public CX TSV datasets on analytics.wikimedia.org
+  (the same files behind cxstats.toolforge.org).
+* Last fetched: 2026-08-29
+
 ## pageviews_by_country.csv
 
 * What: pageviews by reader country per wiki, last full month.

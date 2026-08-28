@@ -120,3 +120,31 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   2026 film (319k views). Lamine Yamal appears in the Malayalam AND
   Bengali top-5. Malayalam's list mixes Basheer, S. Janaki, and
   Kathakali with football. Good "what do our readers want" slide.
+
+## From Content Translation (F, fetched 2026-08-29)
+
+* **~300,000 articles came to Indic wikis through translation**
+  (298k of the 2.5M global CX total, 12%). Per wiki, the share of
+  current articles that arrived via CX: Punjabi 48%, Kashmiri 46%,
+  Bengali 33%, Telugu 23%, Tamil 23%, Kannada 20%, Malayalam 15%.
+  For several communities, translation is not a side channel;
+  it is how the wiki grows.
+* **Translation is the counter-trend to the editor decline.**
+  Active editors fell ~27% since 2020; CX output kept climbing:
+  18.7k (2020), 24.9k (2021), 32.4k (2022), 51.2k (2023), and a
+  steady ~51-53k/year through 2025. Fewer editors, better tools,
+  more articles. A hopeful keynote beat after the honest decline.
+* **2,612 people have translated into Bengali** (1,766 Hindi,
+  1,347 Tamil). Translation has the widest participation funnel
+  of any editing workflow. Bengali is the largest Indic CX user
+  (64k articles) and en->bn is the largest single pair (62k).
+* **English is 93% of the source.** Indic-to-Indic translation is
+  just 2.1% (6.4k articles). Urdu->Sindhi (1.1k), Hindi->Punjabi
+  (568), Kannada->Tulu (334) show what is possible. A missed
+  opportunity to name from the stage: sibling languages barely
+  speak to each other. Arabic is the #2 source (4.4%), almost all
+  into Urdu (12k) — a reminder that not every gap fills from English.
+* **Quality holds: the median CX deletion ratio is 7.4%** of
+  published translations, lifetime. The tool's bad reputation for
+  raw machine dumps is not supported by survival numbers on most
+  Indic wikis.
