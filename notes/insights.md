@@ -68,6 +68,8 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   declined ~27% to ~1,060 in 2025.** Growth 2004-2020 was almost
   monotonic; the decline since is steady. The honest health headline,
   and the reason this conference matters. (COVID bump in 2020-21?)
+  Caveat: the sum over wikis counts a person once per wiki they are
+  active on. The trend shape holds; the absolute number is inflated.
 * **Per-wiki peaks cluster in two eras**: 2016-2018 (kn 2016, or 2016,
   sa 2016, ta 2017, pa 2017, mr 2018) and 2020-2022 (hi 2020, bn 2021,
   ur 2022). Worth asking: what were the programs behind each era?

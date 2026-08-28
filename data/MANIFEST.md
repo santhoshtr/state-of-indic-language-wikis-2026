@@ -46,6 +46,11 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   = sum of the top three), new content pages, new registered users.
 * Caution: cumulative new_pages approximates article growth but
   drifts from the true count (deletions, redirect churn).
+  Verified 2026-08-28: median drift vs snapshot articles is 1%.
+* Caution: the newest month in a series can be incomplete (data lag).
+  Drop the last month when a chart shows a tail dip.
+* Caution: summing editors across wikis counts a person once per
+  wiki they are active on. Use sums for trend shape, not headcount.
 * Script: `scripts/fetch_wikistats.py` (appends per wiki; resumes an
   interrupted run; delete the file for a full refresh)
 * Source: Wikistats REST API (wikimedia.org/api/rest_v1/metrics).
