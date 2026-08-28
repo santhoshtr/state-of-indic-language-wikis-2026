@@ -87,5 +87,9 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   Bangladesh and Pakistan are absent: reader-country stories for
   Bengali and Urdu are structurally incomplete. Nepal and Sri Lanka
   are present.
+* Caution: BR or MX appear in the top-5 for 31 of 32 Wikipedias.
+  That is residual automated traffic passing the agent=user filter,
+  not real readers. Home-country shares (IN, NP, LK) are the
+  trustworthy part; diaspora shares are directional only.
 * Script: `scripts/fetch_pageviews.py`
 * Last fetched: 2026-08-29 (month 2026-07)

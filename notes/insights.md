@@ -92,23 +92,30 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   inflated; the drop is partly measurement correction, partly real
   (AI answers, changed search). Frame as "the AI era is visible in
   our charts" — a keynote moment, handled honestly.
+  VERIFY BEFORE USE: the bot-reclassification claim needs the WMF
+  Diff announcement (late 2025) as the citation on the slide.
 * **Readers are mobile-first: 78-88% mobile** for major wikis
   (Hindi 88%). Editing tools and editor culture remain desktop-first.
   Structural friction worth naming. Exceptions: Urdu and Punjabi
   (~57% mobile) — Urdu's country pattern (US 32%, BR 10%, MX 4%,
   PK invisible) suggests automated traffic still passing the user
   filter; treat Urdu reader numbers with suspicion.
-* **The diaspora keeps wikis alive.** The US is the #2 reader
-  country for nearly every Indic wiki: Nepali 23%, Sinhala 19%,
-  Bengali 18%, Malayalam 11%, Tamil 10%. Nepali reads more from
-  the US+diaspora than from Nepal (34% NP). Caveat: Bangladesh and
-  Pakistan are absent from the dataset (privacy protection list),
-  so Bengali and Urdu home-country shares are invisible.
-* **Readership resilience differs from editor resilience.**
-  Punjabi readership hit its all-time high in 2025; Sanskrit (95%),
-  Urdu (94%), Nepali (88%) hold near peak. Kannada readers are at
-  23% of the 2022 peak — Kannada declines on both axes (editors 25%
-  of peak, readers 23%). The single most worrying wiki in the data.
+* **Diaspora readership is real but contaminated.** Clear signals:
+  Nepal is only 34% of Nepali readership; Sri Lanka 44% of Sinhala;
+  the US is #2 for nearly every wiki. But BR or MX sit in the top-5
+  reader countries of 31 of 32 Wikipedias — residual bot traffic
+  passing the user filter, fleet-wide. Use US share as directional
+  only; NP/LK/IN home shares are the trustworthy part. Bangladesh
+  and Pakistan are absent by design (privacy protection list).
+* **Small-wiki "resilience" is partly bots.** Punjabi's 2025
+  readership all-time high comes with IN at only 31% (US 28%,
+  BR 6%): likely inflated. Sanskrit reads 95% of peak but IN is 9%
+  of its readers (US 32%, SG 10%): mostly not human. Do NOT
+  celebrate these numbers. The smaller the wiki, the larger the
+  bot share of its "readers".
+* **Kannada declines on both axes** (editors at 25% of peak,
+  readers at 23% of the 2022 peak, IN-share 68% so the reader
+  signal is real). The single most worrying wiki in the data.
 * **Top-articles trivia (July 2026):** Hindi #1 is the Ramayanam
   2026 film (319k views). Lamine Yamal appears in the Malayalam AND
   Bengali top-5. Malayalam's list mixes Basheer, S. Janaki, and
