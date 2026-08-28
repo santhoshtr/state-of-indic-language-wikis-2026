@@ -1,0 +1,8 @@
+[project]
+name = "state-of-indic-language-wikis"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+]

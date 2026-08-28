@@ -1,0 +1,238 @@
+# Canonical list of Indic languages for this research.
+# "Indic" means the language typology of the Indian subcontinent,
+# not the geography of India. See .plans/brief.md.
+#
+# code:   Wikimedia language code (subdomain), not always ISO 639.
+# family: indo-aryan | dravidian | munda | tibeto-burman
+# status: include = in scope.
+#         exclude = out of scope by decision. Kept as a record.
+# The fetch_inventory.py script validates each code against the
+# Wikimedia sitematrix. A code with no wiki is reported, not an error.
+
+languages:
+  # --- Indo-Aryan ---
+  - code: anp
+    name: Angika
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: as
+    name: Assamese
+    family: indo-aryan
+    script: Bengali-Assamese
+    status: include
+  - code: awa
+    name: Awadhi
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: bh
+    name: Bhojpuri
+    family: indo-aryan
+    script: Devanagari
+    status: include
+    note: Domain is bh, the language is Bhojpuri (ISO bho).
+  - code: bn
+    name: Bengali
+    family: indo-aryan
+    script: Bengali-Assamese
+    status: include
+  - code: bpy
+    name: Bishnupriya Manipuri
+    family: indo-aryan
+    script: Bengali-Assamese
+    status: include
+  - code: dty
+    name: Doteli
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: dv
+    name: Dhivehi
+    family: indo-aryan
+    script: Thaana
+    status: include
+    note: Maldives. In scope by typology.
+  - code: gom
+    name: Konkani
+    family: indo-aryan
+    script: Devanagari and Latin
+    status: include
+  - code: gu
+    name: Gujarati
+    family: indo-aryan
+    script: Gujarati
+    status: include
+  - code: hi
+    name: Hindi
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: ks
+    name: Kashmiri
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+  - code: mai
+    name: Maithili
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: mr
+    name: Marathi
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: ne
+    name: Nepali
+    family: indo-aryan
+    script: Devanagari
+    status: include
+    note: Nepal. In scope by typology.
+  - code: or
+    name: Odia
+    family: indo-aryan
+    script: Odia
+    status: include
+  - code: pa
+    name: Punjabi (Gurmukhi)
+    family: indo-aryan
+    script: Gurmukhi
+    status: include
+  - code: pi
+    name: Pali
+    family: indo-aryan
+    script: Devanagari
+    status: include
+    note: Classical liturgical language. The wiki may be locked.
+  - code: pnb
+    name: Punjabi (Shahmukhi)
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+    note: Western Punjabi, Pakistan. Same language as pa, different script.
+  - code: sa
+    name: Sanskrit
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: sd
+    name: Sindhi
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+  - code: si
+    name: Sinhala
+    family: indo-aryan
+    script: Sinhala
+    status: include
+    note: Sri Lanka. In scope by typology.
+  - code: skr
+    name: Saraiki
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+    note: Pakistan. In scope by typology.
+  - code: ur
+    name: Urdu
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+  # Uncertain codes. The script checks if these wikis exist.
+  - code: doi
+    name: Dogri
+    family: indo-aryan
+    script: Devanagari
+    status: include
+    note: No wiki yet (verified 2026-08). In incubator.
+  - code: mag
+    name: Magahi
+    family: indo-aryan
+    script: Devanagari
+    status: include
+  - code: khw
+    name: Khowar
+    family: indo-aryan
+    script: Perso-Arabic
+    status: include
+    note: No wiki yet (verified 2026-08). In incubator (Wp/khw).
+
+  # --- Dravidian ---
+  - code: kn
+    name: Kannada
+    family: dravidian
+    script: Kannada
+    status: include
+  - code: ml
+    name: Malayalam
+    family: dravidian
+    script: Malayalam
+    status: include
+  - code: ta
+    name: Tamil
+    family: dravidian
+    script: Tamil
+    status: include
+  - code: tcy
+    name: Tulu
+    family: dravidian
+    script: Kannada
+    status: include
+  - code: te
+    name: Telugu
+    family: dravidian
+    script: Telugu
+    status: include
+
+  # --- Munda (Austroasiatic) ---
+  - code: sat
+    name: Santali
+    family: munda
+    script: Ol Chiki
+    status: include
+
+  # --- Tibeto-Burman (Indian subcontinent) ---
+  - code: mni
+    name: Meitei (Manipuri)
+    family: tibeto-burman
+    script: Meitei Mayek
+    status: include
+  - code: new
+    name: Newar (Nepal Bhasa)
+    family: tibeto-burman
+    script: Devanagari
+    status: include
+  - code: lus
+    name: Mizo
+    family: tibeto-burman
+    script: Latin
+    status: include
+    note: No wiki yet (verified 2026-08). In incubator.
+  - code: brx
+    name: Bodo
+    family: tibeto-burman
+    script: Devanagari
+    status: include
+    note: No wiki yet (verified 2026-08). In incubator.
+
+  # --- Excluded by decision (2026-08-27) ---
+  - code: bo
+    name: Tibetan
+    family: tibeto-burman
+    script: Tibetan
+    status: exclude
+  - code: dz
+    name: Dzongkha
+    family: tibeto-burman
+    script: Tibetan
+    status: exclude
+  - code: hif
+    name: Fiji Hindi
+    family: indo-aryan
+    script: Latin
+    status: exclude
+  - code: rmy
+    name: Vlax Romani
+    family: indo-aryan
+    script: Latin
+    status: exclude
