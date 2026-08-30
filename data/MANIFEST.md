@@ -141,6 +141,9 @@ Each entry: what the file is, which script makes it, when it was last fetched.
 * Caution: Hindi and Urdu lexemes are mostly filed under
   Hindustani (Q11051), which is counted in both rows. Wikidata
   splits some label languages by script; variants are summed.
+* Caution: rows for languages without a wiki (doi, khw, lus, brx)
+  are unverified; a label code QLever does not know counts 0
+  silently.
 * Script: `scripts/fetch_wikidata.py`
 * Source: QLever Wikidata endpoint (qlever.dev) — a periodic
   snapshot, so numbers can trail live Wikidata by days. The WDQS

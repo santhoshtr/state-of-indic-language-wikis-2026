@@ -200,7 +200,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   and Tulu Wikisource are at all-time highs; so is Santali
   Wiktionary (~12 active). Celebration moments by name.
 * **Malayalam is #6 in the WORLD for Wikidata lexemes** (67,372) —
-  ahead of Spanish, Italian, French, and Arabic, and about 4x all
+  ahead of Spanish, Italian, French, and Arabic, and about 3x all
   other Indic languages combined (bn 11.8k, pa 3.8k, hi 2.6k,
   sa 1.5k, ta 1.1k). The single biggest Indic celebration in the
   data. (Hindi and Urdu lexemes live under "Hindustani" on
