@@ -1,4 +1,4 @@
-target,reference,snapshot_date,rank,category_qid,category_en,gap,overlap_target,overlap_reference,coverage_pct,weighted_score
+target,reference,snapshot_date,rank,category_qid,category_title,gap,overlap_target,overlap_reference,coverage_pct,weighted_score
 anpwiki,enwiki,2026-06-23,1,1410960,United_States,211794,39,211833,0.0002,850278007
 anpwiki,enwiki,2026-06-23,2,3919762,American_people,123441,21,123462,0.0002,776016290
 anpwiki,enwiki,2026-06-23,3,5479723,Film_actors,36774,4,36778,0.0001,531339137

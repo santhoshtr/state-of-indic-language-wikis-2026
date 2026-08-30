@@ -161,8 +161,9 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   global topics. A defining slide.
 * **Readers and editors mostly align.** 7-8 of the top-10 reader
   categories are also top-10 editor categories on hi, as, kn, ne.
-  Lowest alignment on the bot-built wikis (bpy, anp, new) where
-  editing is mechanical.
+  Lowest alignment: bpy, anp, new (bot-built wikis), but also
+  Tamil and Sindhi (3 of 10) — editors editing what readers do not
+  read. Program-driven editing? Worth a look before presenting.
 * **Bhojpuri anomaly: its top reader category is Gambling, top
   article Sports betting.** Likely SEO-driven traffic. Investigate
   before showing; interesting either way.

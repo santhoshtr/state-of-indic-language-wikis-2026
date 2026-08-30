@@ -147,7 +147,7 @@ def main():
     with open(path, "w", newline="") as f:
         writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["target", "reference", "snapshot_date", "rank",
-                         "category_qid", "category_en", "gap",
+                         "category_qid", "category_title", "gap",
                          "overlap_target", "overlap_reference",
                          "coverage_pct", "weighted_score"])
         writer.writerows(gap_rows)

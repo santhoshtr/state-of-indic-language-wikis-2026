@@ -120,6 +120,11 @@ Each entry: what the file is, which script makes it, when it was last fetched.
 * Caution: the ranking weight uses the REFERENCE wiki's pageviews,
   so gaps vs English skew to high-traffic American topics. That
   skew is a finding, not an error; peer references avoid it.
+* Caution: category_title is in the reference wiki's language for
+  peer rows (Tamil titles for reference tawiki, and so on).
+* Caution: one category label leaks in Bashkir
+  (a person-by-alphabet category) in the enwiki-reference top-10 of
+  most wikis. Filter it before charting.
 * Script: `scripts/fetch_topictrends.py`
 * Source: topictrends.wmcloud.org, coverage snapshot 2026-06-23.
 * Last fetched: 2026-08-30
