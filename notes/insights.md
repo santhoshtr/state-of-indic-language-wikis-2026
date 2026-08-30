@@ -188,3 +188,28 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   These make great "gap postcards" between communities.
 * topictrends does not index magwiki (too new). Window data is
   recent-only by design; no historic topic shifts.
+
+## From sister projects and Wikidata (G, fetched 2026-08-30)
+
+* **Sister projects buck the Wikipedia editor decline.** Indic
+  Wiktionary active editors hit a record in 2025 (59 vs 44 in
+  2015). Wikisource recovered from its 2023 dip (137 -> 173).
+  While Wikipedias lose editors, the sister projects hold or grow.
+* **Tamil Wikisource has ~40 active editors** (2025) — a larger
+  active community than most Indic Wikipedias. Bengali Wikisource
+  and Tulu Wikisource are at all-time highs; so is Santali
+  Wiktionary (~12 active). Celebration moments by name.
+* **Malayalam is #6 in the WORLD for Wikidata lexemes** (67,372) —
+  ahead of Spanish, Italian, French, and Arabic, and about 4x all
+  other Indic languages combined (bn 11.8k, pa 3.8k, hi 2.6k,
+  sa 1.5k, ta 1.1k). The single biggest Indic celebration in the
+  data. (Hindi and Urdu lexemes live under "Hindustani" on
+  Wikidata — a trivia point of its own.)
+* **India's knowledge graph speaks English.** Of 912,073 Wikidata
+  items about India (country = India), 89% have an English label.
+  The best Indic coverage: Hindi 7.8%, Malayalam 7.2%, Tamil 6.2%,
+  Telugu 5.8%, Bengali 4.8%. Fewer than 1 in 12 items about India
+  can say its own name in an Indian language. The starkest gap in
+  the whole research, and it feeds every reuse of Wikidata
+  (infoboxes, search, assistants). Strong closing slide before
+  "what this conference is for".

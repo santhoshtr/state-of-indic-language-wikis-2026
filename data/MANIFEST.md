@@ -129,6 +129,24 @@ Each entry: what the file is, which script makes it, when it was last fetched.
 * Source: topictrends.wmcloud.org, coverage snapshot 2026-06-23.
 * Last fetched: 2026-08-30
 
+## wikidata_stats.csv
+
+* What: per language, the count of Wikidata entities with a label
+  in the language; the count of India-related items (P17=Q668)
+  with a label (denominator repeated in india_items_total); and
+  the lexeme count.
+* Caution: labels_total counts all entity types and is inflated by
+  mass bot imports on some languages (bn above 10M). The
+  India-item coverage is the honest comparison metric.
+* Caution: Hindi and Urdu lexemes are mostly filed under
+  Hindustani (Q11051), which is counted in both rows. Wikidata
+  splits some label languages by script; variants are summed.
+* Script: `scripts/fetch_wikidata.py`
+* Source: QLever Wikidata endpoint (qlever.dev) — a periodic
+  snapshot, so numbers can trail live Wikidata by days. The WDQS
+  60s limit cannot serve these counts.
+* Last fetched: 2026-08-30
+
 ## pageviews_by_country.csv
 
 * What: pageviews by reader country per wiki, last full month.
