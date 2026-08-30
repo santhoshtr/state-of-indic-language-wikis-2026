@@ -682,7 +682,7 @@ function init(){
     const svg = document.getElementById('chart-eras');
     const W = 1740, H = 560;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    const X = y => 60 + (y-2005)/(2021) * (W-120);
+    const X = y => 60 + (y-2005)/(2026-2005) * (W-120);
     el('line', {x1:40, x2:W-30, y1:H-80, y2:H-80, class:'axis'}, svg);
     for (let y = 2006; y <= 2026; y += 2)
       el('text', {x:X(y), y:H-36, 'text-anchor':'middle', class:'ticklabel'}, svg).textContent = y;

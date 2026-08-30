@@ -164,3 +164,14 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   trustworthy part; diaspora shares are directional only.
 * Script: `scripts/fetch_pageviews.py`
 * Last fetched: 2026-08-29 (month 2026-07)
+
+## deck_data.json
+
+* What: the aggregates the presentation embeds, derived from the
+  files above. One JSON with per-Wikipedia cards, yearly series,
+  CX summaries, gap postcards, and Wikidata coverage.
+* Script: `scripts/build_deck_data.py` (also injects the JSON into
+  presentation.html between the DECK-DATA markers).
+* Caution: the world lexeme top-10 is a static constant in the
+  script, fetched from QLever on 2026-08-30.
+* Last built: 2026-08-30
