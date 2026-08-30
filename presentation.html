@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>State of Indic Language Wikis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Malayalam&family=Noto+Sans+Tamil&family=Noto+Sans+Telugu&family=Noto+Sans+Bengali&family=Noto+Sans+Devanagari&family=Noto+Sans+Kannada&family=Noto+Sans+Gurmukhi&family=Noto+Sans+Oriya&family=Noto+Sans+Ol+Chiki&family=Noto+Sans+Sinhala&family=Noto+Sans+Arabic&family=Noto+Sans+Thaana&family=Noto+Sans+Meetei+Mayek&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+img, video, canvas, svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+@media print {
+    html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+    .deck-viewport { position: static; overflow: visible; background: #fff; }
+    .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+    .slide { position: relative; display: block !important; visibility: visible !important;
+        opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px;
+        break-after: page; page-break-after: always; }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .deck-controls { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* === BLUE PROFESSIONAL TOKENS (design.md, scaled to the 1920 stage) === */
+:root{
+  --stage-bg:#101019;
+  --slide-bg:#fdfae7;
+  --bg:#fdfae7;
+  --primary:#1e2bfa;
+  --text:#111111;
+  --muted:#6b6b6b;
+  --light:#9a9a9a;
+  --accent-light:rgba(30,43,250,.08);
+  --border:rgba(30,43,250,.2);
+  --card:rgba(30,43,250,.04);
+  --pos:#059669;
+  --neg:#dc2626;
+  --grot:'Space Grotesk',sans-serif;
+  --inter:'Inter',sans-serif;
+  --indic:'Noto Sans Malayalam','Noto Sans Tamil','Noto Sans Telugu','Noto Sans Bengali',
+          'Noto Sans Devanagari','Noto Sans Kannada','Noto Sans Gurmukhi','Noto Sans Oriya',
+          'Noto Sans Ol Chiki','Noto Sans Sinhala','Noto Sans Arabic','Noto Sans Thaana',
+          'Noto Sans Meetei Mayek','Inter',sans-serif;
+}
+
+/* === SLIDE SKELETON === */
+.slide{font-family:var(--inter);color:var(--text);padding:70px 90px 120px;box-sizing:border-box}
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.eyebrow{font-family:var(--grot);font-weight:600;font-size:24px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--primary)}
+.tag{font-family:var(--grot);font-weight:500;font-size:21px;color:var(--primary);
+  background:var(--accent-light);padding:9px 26px;border-radius:100px}
+h2{font-family:var(--grot);font-weight:600;font-size:62px;line-height:1.1;letter-spacing:-.02em;
+  margin:0 0 36px;color:var(--text)}
+h2 .dim{color:var(--muted);font-weight:500}
+.body{font-family:var(--inter);font-weight:400;font-size:27px;line-height:1.6;color:var(--muted)}
+.note{position:absolute;bottom:70px;left:90px;right:600px;font-family:var(--inter);
+  font-size:20px;line-height:1.45;color:var(--light)}
+.note b{color:var(--muted);font-weight:600}
+
+/* === CARDS AND METRICS === */
+.card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:30px 34px;box-sizing:border-box}
+.metric-value{font-family:var(--grot);font-weight:700;font-size:86px;line-height:1;color:var(--primary)}
+.metric-label{font-family:var(--inter);font-weight:600;font-size:27px;color:var(--text);margin-top:14px}
+.metric-desc{font-family:var(--inter);font-size:22px;line-height:1.5;color:var(--muted);margin-top:10px}
+.chip-neg{color:var(--neg);font-family:var(--grot);font-weight:600}
+.chip-pos{color:var(--pos);font-family:var(--grot);font-weight:600}
+.accent-line{width:60px;height:4px;background:var(--primary);border-radius:2px}
+
+/* === CHART FRAMES === */
+.chart{position:absolute;left:90px;right:90px;top:290px;bottom:150px}
+.chart svg{width:100%;height:100%;overflow:visible}
+.chart text{font-family:var(--grot)}
+.axis{stroke:var(--border);stroke-width:1.5}
+.gridline{stroke:rgba(30,43,250,.08);stroke-width:1}
+.ticklabel{fill:var(--light);font-size:20px}
+.serieslabel{fill:var(--text);font-size:22px;font-weight:600}
+
+/* === BAR LIST (horizontal bars) === */
+.bars{display:flex;flex-direction:column;gap:18px}
+.bar-row{display:grid;grid-template-columns:330px 1fr 130px;align-items:center;gap:24px}
+.bar-row .bar-label{font-family:var(--inter);font-weight:500;font-size:26px;color:var(--text)}
+.bar-row .bar-sub{font-size:19px;color:var(--light);font-weight:400}
+.bar-track{height:34px;background:var(--accent-light);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;background:var(--primary);border-radius:6px;width:0;transition:width .8s ease}
+.bar-fill.dim{opacity:.35}
+.bar-pct{font-family:var(--grot);font-weight:600;font-size:26px;color:var(--primary)}
+
+/* === COVER === */
+.cover{padding:0}
+.cover-decoration{position:absolute;right:0;top:0;width:36%;height:100%;background:var(--accent-light);
+  clip-path:polygon(30% 0,100% 0,100% 100%,0% 100%)}
+.cover-dots{position:absolute;right:120px;top:110px;display:grid;grid-template-columns:repeat(3,6px);gap:12px;opacity:.25}
+.cover-dots i{width:6px;height:6px;background:var(--primary);border-radius:50%}
+.cover-inner{position:absolute;left:100px;top:230px;width:1250px}
+.cover .meta-row{font-family:var(--grot);font-size:25px;letter-spacing:.05em;color:var(--muted);margin-top:16px}
+.cover h1{font-family:var(--grot);font-weight:700;font-size:118px;line-height:1.06;letter-spacing:-.02em;margin:34px 0 0}
+.cover .scripts{font-family:var(--indic);font-size:42px;color:var(--muted);margin-top:56px;line-height:1.8;width:1150px}
+.cover .scripts b{color:var(--primary);font-weight:400}
+.cover .who{position:absolute;left:100px;bottom:90px;font-family:var(--grot);font-size:26px;color:var(--muted)}
+
+/* === QUOTE-CLASS SLIDE === */
+.quotemark{font-family:var(--grot);font-weight:700;font-size:220px;line-height:.5;color:var(--primary);opacity:.15}
+.blockquote{font-family:var(--grot);font-weight:500;font-size:76px;line-height:1.3;color:var(--text);margin:40px 0 60px}
+.insights{list-style:none;margin:0;padding:0}
+.insights li{position:relative;padding-left:96px;font-size:31px;line-height:1.55;color:var(--muted);margin-bottom:30px;max-width:1400px}
+.insights li b{color:var(--text)}
+.insights li::before{content:"0" counter(ins);counter-increment:ins;position:absolute;left:0;top:6px;
+  font-family:var(--grot);font-weight:600;font-size:26px;color:var(--primary)}
+.insights{counter-reset:ins}
+
+/* === GRIDS === */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.pillrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}
+.pill{font-family:var(--grot);font-weight:500;font-size:24px;color:var(--primary);
+  background:var(--accent-light);padding:12px 30px;border-radius:100px}
+
+/* === HIGHLIGHT CALLOUT === */
+.highlight{background:var(--accent-light);border-left:6px solid var(--primary);border-radius:12px;
+  padding:26px 32px;font-family:var(--grot);font-weight:500;font-size:29px;line-height:1.45;color:var(--text)}
+
+/* === TOP ARTICLE CARDS === */
+.tacards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tacard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 24px}
+.tacard .l{font-family:var(--grot);font-weight:600;font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary)}
+.tacard .t{font-family:var(--indic);font-size:29px;color:var(--text);margin-top:10px;line-height:1.35;
+  overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tacard .v{font-family:var(--grot);font-weight:600;font-size:20px;color:var(--muted);margin-top:8px}
+
+/* === SELECTORS (interactive) === */
+select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primary);
+  background:var(--accent-light);border:1.5px solid var(--border);border-radius:100px;padding:10px 26px;outline:none}
+
+/* === FIND YOUR WIKI CARD === */
+.fyw{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:30px}
+.fyw .card{padding:24px 28px}
+.fyw .metric-value{font-size:58px}
+.fyw .metric-label{font-size:22px;margin-top:8px}
+.fyw .metric-desc{font-size:18px;margin-top:4px}
+.celebration{margin-top:30px}
+
+/* === CLOSING === */
+.closing-circles i{position:absolute;border:1px solid var(--border);border-radius:50%;opacity:.35}
+.cta{display:inline-block;background:var(--primary);color:var(--bg);font-family:var(--grot);font-weight:600;
+  font-size:27px;padding:16px 44px;border-radius:100px;text-decoration:none}
+
+/* === PERSISTENT CHROME (inside stage for uniform scaling) === */
+.counter{position:absolute;left:58px;bottom:30px;z-index:10;font-family:var(--grot);font-weight:500;
+  font-size:23px;letter-spacing:.05em;color:var(--muted);z-index:5}
+.navbtns{position:absolute;right:58px;bottom:22px;display:flex;gap:14px;z-index:5}
+.navbtn{width:64px;height:64px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg);
+  color:var(--primary);font-size:26px;cursor:pointer;transition:all .2s}
+.navbtn:hover{background:var(--primary);color:var(--bg)}
+.navbtn:disabled{opacity:.3;pointer-events:none}
+.progress{position:absolute;left:0;bottom:0;height:5px;background:var(--primary);width:0;transition:width .4s ease;z-index:5}
+
+/* === ENTRY ANIMATION === */
+.slide.active .rise{opacity:0;transform:translateY(24px);animation:rise .7s .1s forwards}
+.slide.active .rise2{opacity:0;transform:translateY(24px);animation:rise .7s .3s forwards}
+.slide.active .rise3{opacity:0;transform:translateY(24px);animation:rise .7s .5s forwards}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="stage">
+
+<!-- === 1 · COVER === -->
+<section class="slide cover" data-name="cover">
+  <div class="cover-decoration"></div>
+  <div class="cover-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="cover-inner">
+    <div class="accent-line rise"></div>
+    <div class="meta-row rise">Wiki Conference India 2026 · Keynote · Kochi · 4 September</div>
+    <h1 class="rise2">State of Indic<br>Language Wikis</h1>
+    <div class="scripts rise3">വിക്കി · விக்கி · উইকি · विकि · వికీ · <b>ವಿಕಿ</b> · ਵਿਕੀ · ଉଇକି · ᱣᱤᱠᱤ · විකි · ویکی</div>
+  </div>
+  <div class="who">Santhosh Thottingal</div>
+</section>
+
+<!-- === 2 · THE QUESTION === -->
+<section class="slide" data-name="question">
+  <div class="slide-header"><div class="eyebrow">Opening</div><div class="tag">Why this talk</div></div>
+  <div class="quotemark rise">&ldquo;</div>
+  <div class="blockquote rise">How healthy is my wiki?</div>
+  <ol class="insights rise2">
+    <li><b>Against our own history</b> — where was each wiki at its best, and where is it now?</li>
+    <li><b>Against our peers</b> — wikis with similar demography, not against English.</li>
+    <li><b>Honestly</b> — the numbers that celebrate us and the numbers that worry us, side by side.</li>
+  </ol>
+  <div class="note rise3">All data is public and reproducible. Every chart in this deck comes from open APIs and open scripts.</div>
+</section>
+
+<!-- === 3 · THE FAMILY === -->
+<section class="slide" data-name="family">
+  <div class="slide-header"><div class="eyebrow">Opening</div><div class="tag">The family</div></div>
+  <h2 class="rise">Wiki does not mean only Wikipedia.<br><span class="dim">103 Indic wikis, eight projects.</span></h2>
+  <div class="grid3 rise2" style="margin-top:50px">
+    <div class="card"><div class="metric-value">32</div><div class="metric-label">Wikipedias</div><div class="metric-desc">from Odia (2002) to Magahi (2026)</div></div>
+    <div class="card"><div class="metric-value">25</div><div class="metric-label">Wiktionaries</div><div class="metric-desc">including two larger than their Wikipedias</div></div>
+    <div class="card"><div class="metric-value">14</div><div class="metric-label">Wikisources</div><div class="metric-desc">the digital libraries of our languages</div></div>
+  </div>
+  <div class="pillrow rise3" style="margin-top:40px">
+    <div class="pill">+ Wikiquote</div><div class="pill">+ Wikibooks</div><div class="pill">+ Wikinews</div>
+    <div class="pill">+ Wikivoyage</div><div class="pill">+ Wikiversity</div><div class="pill">15+ writing systems</div>
+  </div>
+  <div class="note">Scope: languages of Indic typology, not geography — Sinhala, Nepali, and Dhivehi are in. Counts exclude closed wikis.</div>
+</section>
+
+<!-- === 4 · TWO WAVES === -->
+<section class="slide" data-name="waves">
+  <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Founding waves</div></div>
+  <h2 class="rise">Two founding waves — and six silent years between</h2>
+  <div class="chart rise2"><svg id="chart-waves"></svg></div>
+  <div class="note"><b>Odia was first (1 June 2002)</b>; Assamese, Nepali, and Punjabi followed within the week. What closed the pipeline in 2009, and what reopened it in 2014?</div>
+</section>
+
+<!-- === 5 · NEWBORN === -->
+<section class="slide" data-name="newborn">
+  <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">The newest of us</div></div>
+  <h2 class="rise">A wiki younger than these slides</h2>
+  <div class="grid2 rise2" style="margin-top:50px">
+    <div class="card">
+      <div class="metric-value" style="font-size:72px">18 June 2026</div>
+      <div class="metric-label">Magahi Wikipedia (mag) launched</div>
+      <div class="metric-desc">The 32nd Indic Wikipedia — eleven weeks old today. A newborn wiki is in this room.</div>
+    </div>
+    <div class="card">
+      <div class="metric-value" style="font-size:72px">4 waiting</div>
+      <div class="metric-label">Still in the Incubator</div>
+      <div class="pillrow"><div class="pill">Dogri</div><div class="pill">Khowar</div><div class="pill">Mizo</div><div class="pill">Bodo</div></div>
+      <div class="metric-desc" style="margin-top:18px">Who in this room helps one of them graduate next?</div>
+    </div>
+  </div>
+</section>
+
+<!-- === 6 · GROWTH === -->
+<section class="slide" data-name="growth">
+  <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Content growth</div></div>
+  <h2 class="rise">Twenty-four years of building</h2>
+  <div class="chart rise2"><svg id="chart-growth"></svg></div>
+  <div class="note">Cumulative content pages created per wiki (Wikistats). <b>That vertical jump on Urdu? ~390k pages mass-created between March and July 2026</b> — hold that thought for the next slide.</div>
+</section>
+
+<!-- === 7 · SIZE ≠ COMMUNITY === -->
+<section class="slide" data-name="bots">
+  <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Size is not community</div></div>
+  <h2 class="rise">The largest wikis were not written the same way <span class="dim">— bot share of lifetime edits</span></h2>
+  <div class="chart rise2" style="top:300px"><div class="bars" id="chart-bots"></div></div>
+  <div class="note">Article count and community size are different facts. Present them together, always.</div>
+</section>
+
+<!-- === 8 · EDITOR HEADLINE === -->
+<section class="slide" data-name="editors">
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The honest headline</div></div>
+  <h2 class="rise">Active editors grew for sixteen years.<br><span class="dim">Then 2020 happened — and we are</span> <span class="chip-neg">−27%</span> <span class="dim">since.</span></h2>
+  <div class="chart rise2" style="top:340px"><svg id="chart-editors"></svg></div>
+  <div class="note">Registered editors with 5+ edits per month, summed over all Indic Wikipedias (shape is reliable; a person active on two wikis counts twice).</div>
+</section>
+
+<!-- === 9 · PEAK ERAS === -->
+<section class="slide" data-name="eras">
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">When each wiki peaked</div></div>
+  <h2 class="rise">Peaks cluster in two eras. <span class="dim">What were the programs behind them?</span></h2>
+  <div class="chart rise2"><svg id="chart-eras"></svg></div>
+  <div class="note">Each dot is one Wikipedia, placed at the year its active-editor count peaked. A question for this room, not for the data.</div>
+</section>
+
+<!-- === 10 · CELEBRATIONS === -->
+<section class="slide" data-name="resilience">
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">Celebrations</div></div>
+  <h2 class="rise">Bengali held the line. Assamese is at its all-time high.</h2>
+  <div class="chart rise2" style="top:300px"><svg id="chart-bnas"></svg></div>
+  <div class="note"><b>Bengali</b>: 2025 activity at 92% of its peak — now the largest active Indic community. <b>Assamese</b>: still setting records in 2024-25.</div>
+</section>
+
+<!-- === 11 · SOBERING === -->
+<section class="slide" data-name="sobering">
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The other list</div></div>
+  <h2 class="rise">2025 activity as a share of each wiki's best year <span class="dim">— what will reverse this?</span></h2>
+  <div class="chart rise2" style="top:300px"><div class="bars" id="chart-sober"></div></div>
+  <div class="note">Not a list of failures — a list of communities whose best years prove what is possible. The agenda for these three days.</div>
+</section>
+
+<!-- === 12 · MOBILE === -->
+<section class="slide" data-name="mobile">
+  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">How we are read</div></div>
+  <h2 class="rise">Our readers moved to phones. <span class="dim">Our editing culture did not.</span></h2>
+  <div class="chart rise2" style="top:300px"><div class="bars" id="chart-mobile"></div></div>
+  <div class="note">Share of 2025 pageviews from mobile. Urdu's low share comes with a suspicious reader-country pattern — treat it as bot residue, not desktop love.</div>
+</section>
+
+<!-- === 13 · PAGEVIEW CLIFF === -->
+<section class="slide" data-name="cliff">
+  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">The AI era, in our charts</div></div>
+  <h2 class="rise">Pageviews: a peak in 2023, then a cliff</h2>
+  <div class="chart rise2" style="right:640px"><svg id="chart-pv"></svg></div>
+  <div class="highlight rise3" style="position:absolute;right:90px;top:330px;width:460px">
+    Read this honestly: bot detection improved in 2024-25, so the old numbers were inflated —
+    and AI answers really are keeping readers away. Both things are true.
+  </div>
+  <div class="note">Human pageviews per year, all Indic Wikipedias, millions (Wikimedia Pageviews API).</div>
+</section>
+
+<!-- === 14 · WHO READS US === -->
+<section class="slide" data-name="diaspora">
+  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">Where readers are</div></div>
+  <h2 class="rise">The diaspora keeps our wikis alive</h2>
+  <div class="grid3 rise2" style="margin-top:40px">
+    <div class="card"><div class="metric-value">34%</div><div class="metric-label">of Nepali Wikipedia readers are in Nepal</div><div class="metric-desc">23% read from the United States</div></div>
+    <div class="card"><div class="metric-value">44%</div><div class="metric-label">of Sinhala readers are in Sri Lanka</div><div class="metric-desc">19% from the United States</div></div>
+    <div class="card"><div class="metric-value">#2</div><div class="metric-label">the US is the second reader country</div><div class="metric-desc">for nearly every Indic wiki</div></div>
+  </div>
+  <div class="highlight rise3" style="margin-top:44px">Every reader far from home who opens their language's wiki is a vote for what you build.</div>
+  <div class="note">July 2026, Pageviews API by country. Bangladesh and Pakistan are excluded by privacy policy; small residual bot traffic inflates minor countries.</div>
+</section>
+
+<!-- === 15 · IDENTITY === -->
+<section class="slide" data-name="identity">
+  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">What readers want</div></div>
+  <h2 class="rise">We are the identity encyclopedias <span class="dim">— July's most-read article, per wiki</span></h2>
+  <div class="tacards rise2" id="tacards" style="margin-top:20px"></div>
+  <div class="note">"India" is the #1 reading category on almost every wiki. Readers come to us for who we are — and to English for everything else.</div>
+</section>
+
+<!-- === 16 · COUNTER-TREND === -->
+<section class="slide" data-name="cxtrend">
+  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend</div></div>
+  <h2 class="rise">Fewer editors, better tools, more articles</h2>
+  <div class="chart rise2" style="top:300px"><svg id="chart-cx"></svg></div>
+  <div class="note">Indexed to 2020 = 100. Editors: active editors per year. Translations: articles published with Content Translation per year (2026 is pacing lower, ~40k annualized).</div>
+</section>
+
+<!-- === 17 · CX SHARE === -->
+<section class="slide" data-name="cxshare">
+  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">300,000 articles</div></div>
+  <h2 class="rise">For some wikis, translation <i>is</i> how the wiki grows <span class="dim">— share of current articles created with translation</span></h2>
+  <div class="chart rise2" style="top:320px;right:640px"><div class="bars" id="chart-cxshare"></div></div>
+  <div style="position:absolute;right:90px;top:340px;width:460px" class="rise3">
+    <div class="card"><div class="metric-value">2,612</div><div class="metric-label">people have translated into Bengali</div><div class="metric-desc">the widest participation funnel of any editing workflow</div></div>
+    <div class="card" style="margin-top:22px"><div class="metric-value">299k</div><div class="metric-label">articles translated into Indic wikis</div><div class="metric-desc">12% of the 2.5M global Content Translation total</div></div>
+  </div>
+</section>
+
+<!-- === 18 · CX SOURCES === -->
+<section class="slide" data-name="cxsources">
+  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The missed opportunity</div></div>
+  <h2 class="rise">93% of it flows from English.<br><span class="dim">Sibling languages barely translate each other: </span><span style="color:var(--primary)">2.1%</span></h2>
+  <div class="grid3 rise2" style="margin-top:50px">
+    <div class="card"><div class="metric-value" style="font-family:var(--indic);font-size:56px">اردو → سنڌي</div><div class="metric-label">Urdu → Sindhi · 1,147 articles</div></div>
+    <div class="card"><div class="metric-value" style="font-family:var(--indic);font-size:56px">हिन्दी → ਪੰਜਾਬੀ</div><div class="metric-label">Hindi → Punjabi · 568 articles</div></div>
+    <div class="card"><div class="metric-value" style="font-family:var(--indic);font-size:56px">ಕನ್ನಡ → ತುಳು</div><div class="metric-label">Kannada → Tulu · 334 articles</div></div>
+  </div>
+  <div class="highlight rise3" style="margin-top:46px">It works — these pairs prove it. It is just rare. Arabic alone sends more into Urdu (12k) than all Indic languages send each other.</div>
+</section>
+
+<!-- === 19 · ENGLISH GAP === -->
+<section class="slide" data-name="engap">
+  <div class="slide-header"><div class="eyebrow">Knowledge gaps</div><div class="tag">Choose your reference</div></div>
+  <h2 class="rise">The "gap to English" is mostly a gap of American actors</h2>
+  <div class="body rise2" style="max-width:1500px;margin-top:6px">Top missing categories against English, weighted by English readership — <b style="color:var(--text)">identical for all 31 wikis measured:</b></div>
+  <div class="pillrow rise2" style="margin-top:34px" id="engap-pills"></div>
+  <div class="highlight rise3" style="margin-top:52px;max-width:1500px">
+    Measuring against English measures your distance from American pop culture.
+    That is not the gap our communities need to close. Measure against peers instead.
+  </div>
+</section>
+
+<!-- === 20 · GAP POSTCARDS === -->
+<section class="slide" data-name="postcards">
+  <div class="slide-header"><div class="eyebrow">Knowledge gaps</div><div class="tag">Peer gaps · interactive</div></div>
+  <h2 class="rise">Gap postcards between neighbours</h2>
+  <div class="rise2" style="display:flex;gap:26px;align-items:center;margin-top:6px">
+    <select id="pc-target"></select>
+    <span class="body" style="font-size:29px">is missing, compared with</span>
+    <select id="pc-ref"></select>
+  </div>
+  <div class="grid3" id="pc-cards" style="margin-top:44px"></div>
+  <div class="note" id="pc-note">Category names appear in the reference wiki's language — the neighbour describing what it can offer. Data: topictrends gap discovery, coverage snapshot 2026-06.</div>
+</section>
+
+<!-- === 21 · SISTER PROJECTS === -->
+<section class="slide" data-name="sisters">
+  <div class="slide-header"><div class="eyebrow">Sister projects</div><div class="tag">The quiet counter-trend</div></div>
+  <h2 class="rise">While Wikipedias lose editors, the sister projects hold or grow</h2>
+  <div class="chart rise2" style="top:300px;right:700px"><svg id="chart-sisters"></svg></div>
+  <div style="position:absolute;right:90px;top:320px;width:520px" class="rise3">
+    <div class="card"><div class="metric-value">~40</div><div class="metric-label">active editors on Tamil Wikisource</div><div class="metric-desc">a larger community than most Indic Wikipedias</div></div>
+    <div class="card" style="margin-top:20px"><div class="metric-value">7×</div><div class="metric-label">Kannada Wiktionary vs Kannada Wikipedia</div><div class="metric-desc">266k entries against 36k articles</div></div>
+  </div>
+  <div class="note">Active editors per year, summed per project family. Wiktionary set an all-time record in 2025; Wikisource has grown every year since 2023.</div>
+</section>
+
+<!-- === 22 · LEXEMES === -->
+<section class="slide" data-name="lexemes">
+  <div class="slide-header"><div class="eyebrow">Sister projects · Wikidata</div><div class="tag">A world ranking</div></div>
+  <h2 class="rise">Malayalam is #6 in the world for Wikidata lexemes</h2>
+  <div class="chart rise2" style="top:300px"><div class="bars" id="chart-lexemes"></div></div>
+  <div class="note">Ahead of Spanish, Italian, French, and Arabic — and ~3× all other Indic languages combined. Trivia: Hindi and Urdu lexemes live under "Hindustani".</div>
+</section>
+
+<!-- === 23 · LABEL GAP === -->
+<section class="slide" data-name="labels">
+  <div class="slide-header"><div class="eyebrow">Sister projects · Wikidata</div><div class="tag">The closing challenge</div></div>
+  <h2 class="rise">India's knowledge graph speaks English <span class="dim">— 912,073 Wikidata items about India; who can name them?</span></h2>
+  <div class="chart rise2" style="top:330px"><div class="bars" id="chart-labels"></div></div>
+  <div class="note">Fewer than 1 in 12 items about India carries a label in any Indian language. Every infobox, every search result, every assistant that reuses Wikidata inherits this gap.</div>
+</section>
+
+<!-- === 24 · FIND YOUR WIKI === -->
+<section class="slide" data-name="findyourwiki">
+  <div class="slide-header"><div class="eyebrow">Close</div><div class="tag">Interactive</div></div>
+  <h2 class="rise" style="display:flex;align-items:center;gap:36px">Find your wiki <select id="fyw-select"></select></h2>
+  <div class="fyw rise2" id="fyw-cards"></div>
+  <div class="highlight celebration rise3" id="fyw-celebration"></div>
+</section>
+
+<!-- === 25 · CLOSING === -->
+<section class="slide" data-name="closing">
+  <div class="closing-circles"><i style="width:500px;height:500px;right:120px;top:290px"></i><i style="width:360px;height:360px;right:190px;top:360px"></i></div>
+  <div class="slide-header"><div class="eyebrow">Close</div><div class="tag">For the three days ahead</div></div>
+  <h2 class="rise">Five questions this conference can answer</h2>
+  <ol class="insights rise2" style="margin-top:30px">
+    <li><b>What reopened the founding pipeline in 2014</b> — and how do we keep it open for Dogri, Khowar, Mizo, and Bodo?</li>
+    <li><b>What reverses the editor decline?</b> Bengali and Assamese show it can be done.</li>
+    <li><b>Where is mobile editing?</b> Our readers are 80% mobile; our tools are not.</li>
+    <li><b>Why don't sibling languages translate each other?</b> 2.1% is a choice, not a limit.</li>
+    <li><b>Who labels India?</b> 912k items are waiting to say their own names.</li>
+  </ol>
+  <div class="rise3" style="margin-top:44px">
+    <span class="cta">All data, scripts, and this deck: github.com/santhoshtr/state-of-indic-language-wikis</span>
+  </div>
+</section>
+
+<div class="counter" id="counter">01 / 25</div>
+<div class="navbtns">
+  <button class="navbtn" id="prev" aria-label="Previous">←</button>
+  <button class="navbtn" id="next" aria-label="Next">→</button>
+</div>
+<div class="progress" id="progress"></div>
+</div>
+</div>
+
+<script>
+/* DECK-DATA-START */window.DECK={"generated":"2026-08-30","wikipedias":[{"lang":"anp","name":"Angika","family":"indo-aryan","script":"Devanagari","launch":"2023-03-22","articles":1694,"bot_pct":12.9,"active":{"2004":0.0,"2005":0.2,"2006":0.5,"2007":0.1,"2008":0.3,"2009":0.0,"2010":0.6,"2011":0.8,"2012":0.0,"2013":0.0,"2014":0.0,"2015":2.6,"2016":1.0,"2017":1.7,"2018":0.5,"2019":0.2,"2020":0.0,"2021":0.0,"2022":6.5,"2023":4.2,"2024":1.8,"2025":1.7,"2026":1.7},"active_2025":1.7,"peak":6.5,"peak_year":2022,"mobile_pct":49,"pv_2025_m":1.2,"cx_total":64,"cx_share":3.8,"growth":[[2004,0],[2005,0],[2006,0],[2007,0],[2008,0],[2009,0],[2010,52],[2011,135],[2012,137],[2013,137],[2014,137],[2015,751],[2016,759],[2017,811],[2018,811],[2019,812],[2020,812],[2021,812],[2022,2086],[2023,2390],[2024,2945],[2025,3165],[2026,3184]],"admins":1,"top_article":["कंप्यूटर",4135],"countries":[["US",29.7],["IN",13.3],["SG",8.6],["BR",4.7],["GB",2.3]],"india_label_pct":0.0,"lexemes":254,"sisters":{}},{"lang":"as","name":"Assamese","family":"indo-aryan","script":"Bengali-Assamese","launch":"2002-06-02","articles":25370,"bot_pct":16.2,"active":{"2002":0.0,"2003":0.0,"2004":0.1,"2005":0.2,"2006":0.7,"2007":2.5,"2008":2.8,"2009":2.0,"2010":2.8,"2011":11.0,"2012":29.0,"2013":17.2,"2014":16.5,"2015":18.9,"2016":11.7,"2017":11.6,"2018":13.1,"2019":23.7,"2020":32.7,"2021":37.1,"2022":34.1,"2023":35.7,"2024":39.1,"2025":39.3,"2026":37.0},"active_2025":39.3,"peak":39.3,"peak_year":2025,"mobile_pct":75,"pv_2025_m":15.8,"cx_total":2173,"cx_share":8.6,"growth":[[2002,0],[2003,0],[2004,0],[2005,2],[2006,15],[2007,74],[2008,95],[2009,140],[2010,182],[2011,678],[2012,1712],[2013,2457],[2014,3061],[2015,3855],[2016,4330],[2017,4792],[2018,5080],[2019,6176],[2020,7638],[2021,9797],[2022,10858],[2023,12602],[2024,14599],[2025,21219],[2026,25082]],"admins":6,"top_article":["জুবিন গাৰ্গ",7514],"countries":[["IN",58.5],["US",17.9],["SG",5.2],["BR",2.4],["MX",0.9]],"india_label_pct":0.4,"lexemes":13,"sisters":{"wikisource":4222,"wikiquote":1350}},{"lang":"awa","name":"Awadhi","family":"indo-aryan","script":"Devanagari","launch":"2020-05-21","articles":2995,"bot_pct":1.5,"active":{"2005":0.0,"2006":0.0,"2007":0.0,"2008":0.0,"2009":0.0,"2010":0.0,"2011":0.1,"2012":0.0,"2013":0.1,"2014":1.6,"2015":3.1,"2016":1.8,"2017":0.5,"2018":0.4,"2019":1.2,"2020":3.3,"2021":0.7,"2022":0.3,"2023":1.5,"2024":1.5,"2025":3.7,"2026":7.3},"active_2025":3.7,"peak":7.3,"peak_year":2026,"mobile_pct":70,"pv_2025_m":2.6,"cx_total":110,"cx_share":3.7,"growth":[[2005,0],[2006,0],[2007,0],[2008,1],[2009,1],[2010,1],[2011,2],[2012,2],[2013,5],[2014,908],[2015,1497],[2016,2048],[2017,2220],[2018,2220],[2019,2350],[2020,3628],[2021,3633],[2022,3636],[2023,3646],[2024,3700],[2025,3844],[2026,4168]],"admins":2,"top_article":["हनुमान चालीसा",160148],"countries":[["IN",61.4],["US",13.1],["SG",3.7],["BR",2.0],["GB",1.3]],"india_label_pct":0.1,"lexemes":3,"sisters":{}},{"lang":"bh","name":"Bhojpuri","family":"indo-aryan","script":"Devanagari","launch":"2003-02-21","articles":9192,"bot_pct":12.1,"active":{"2001":0.0,"2002":0.1,"2003":0.2,"2004":6.2,"2005":8.9,"2006":11.2,"2007":19.8,"2008":19.5,"2009":19.1,"2010":21.3,"2011":20.8,"2012":18.4,"2013":18.7,"2014":17.3,"2015":22.2,"2016":16.4,"2017":10.5,"2018":8.1,"2019":6.1,"2020":8.3,"2021":7.2,"2022":6.6,"2023":12.2,"2024":6.9,"2025":6.4,"2026":4.4},"active_2025":6.4,"peak":22.2,"peak_year":2015,"mobile_pct":61,"pv_2025_m":6.6,"cx_total":638,"cx_share":6.9,"growth":[[2001,0],[2002,1],[2003,1],[2004,4],[2005,11],[2006,163],[2007,337],[2008,351],[2009,379],[2010,551],[2011,575],[2012,600],[2013,645],[2014,1321],[2015,2436],[2016,4782],[2017,5677],[2018,6664],[2019,7000],[2020,7389],[2021,7616],[2022,8132],[2023,8639],[2024,8778],[2025,8903],[2026,9206]],"admins":2,"top_article":["सट्टा",70976],"countries":[["IN",39.5],["US",16.4],["BR",6.1],["SG",5.3],["MX",2.1]],"india_label_pct":0.3,"lexemes":15,"sisters":{}},{"lang":"bn","name":"Bengali","family":"indo-aryan","script":"Bengali-Assamese","launch":"2004-01-27","articles":190909,"bot_pct":33.5,"active":{"2004":0.8,"2005":2.0,"2006":23.5,"2007":28.5,"2008":32.5,"2009":40.2,"2010":50.6,"2011":55.6,"2012":71.1,"2013":79.2,"2014":102.8,"2015":152.7,"2016":172.8,"2017":191.6,"2018":230.1,"2019":275.6,"2020":329.2,"2021":347.6,"2022":339.3,"2023":312.3,"2024":316.6,"2025":322.7,"2026":312.0},"active_2025":322.7,"peak":347.6,"peak_year":2021,"mobile_pct":81,"pv_2025_m":184.8,"cx_total":63888,"cx_share":33.5,"growth":[[2004,10],[2005,377],[2006,8879],[2007,12785],[2008,15200],[2009,17211],[2010,18864],[2011,20049],[2012,22409],[2013,26052],[2014,32295],[2015,39072],[2016,45775],[2017,53944],[2018,62608],[2019,78707],[2020,99922],[2021,115367],[2022,131360],[2023,144808],[2024,161257],[2025,179876],[2026,190271]],"admins":16,"top_article":["শ্যামাপ্রসাদ মুখোপাধ্যায়",104068],"countries":[["IN",53.1],["US",18.4],["SG",5.0],["BR",3.8],["MY",1.3]],"india_label_pct":4.8,"lexemes":11798,"sisters":{"wiktionary":134016,"wikisource":38859,"wikiquote":2906,"wikibooks":4155,"wikivoyage":2405}},{"lang":"bpy","name":"Bishnupriya Manipuri","family":"indo-aryan","script":"Bengali-Assamese","launch":"2006-09-30","articles":25097,"bot_pct":85.1,"active":{"2006":1.2,"2007":2.8,"2008":5.6,"2009":5.2,"2010":4.8,"2011":3.8,"2012":2.5,"2013":2.3,"2014":1.5,"2015":1.3,"2016":1.8,"2017":3.2,"2018":2.3,"2019":3.6,"2020":4.6,"2021":3.8,"2022":2.4,"2023":1.8,"2024":1.8,"2025":1.1,"2026":2.0},"active_2025":1.1,"peak":5.6,"peak_year":2008,"mobile_pct":38,"pv_2025_m":3.1,"cx_total":19,"cx_share":0.1,"growth":[[2006,10632],[2007,22050],[2008,23349],[2009,24674],[2010,24682],[2011,24700],[2012,24703],[2013,25052],[2014,25066],[2015,25070],[2016,25075],[2017,25085],[2018,25088],[2019,25093],[2020,25108],[2021,25150],[2022,25156],[2023,25164],[2024,25164],[2025,25171],[2026,25179]],"admins":2,"top_article":[".বিএফ",5717],"countries":[["US",36.1],["TH",12.8],["SG",7.0],["BR",5.8],["IN",5.8]],"india_label_pct":0.5,"lexemes":1,"sisters":{}},{"lang":"dty","name":"Doteli","family":"indo-aryan","script":"Devanagari","launch":"2017-04-24","articles":3759,"bot_pct":1.1,"active":{"2002":0.0,"2003":0.0,"2004":0.3,"2005":2.2,"2006":0.9,"2007":0.7,"2008":0.6,"2009":0.7,"2010":0.2,"2011":0.5,"2012":0.4,"2013":0.6,"2014":2.7,"2015":2.4,"2016":3.9,"2017":6.8,"2018":5.8,"2019":7.2,"2020":4.7,"2021":3.0,"2022":2.8,"2023":3.0,"2024":3.6,"2025":3.2,"2026":4.6},"active_2025":3.2,"peak":7.2,"peak_year":2019,"mobile_pct":36,"pv_2025_m":1.4,"cx_total":79,"cx_share":2.1,"growth":[[2002,0],[2003,0],[2004,0],[2005,0],[2006,0],[2007,0],[2008,0],[2009,0],[2010,0],[2011,0],[2012,0],[2013,0],[2014,699],[2015,885],[2016,2022],[2017,3138],[2018,3301],[2019,3542],[2020,3588],[2021,3601],[2022,3610],[2023,3645],[2024,3883],[2025,3930],[2026,4047]],"admins":2,"top_article":["राणा शासन",1027],"countries":[["US",28.7],["SG",8.7],["BR",6.7],["IN",4.7],["NP",3.3]],"india_label_pct":0.0,"lexemes":1,"sisters":{}},{"lang":"dv","name":"Dhivehi","family":"indo-aryan","script":"Thaana","launch":"2004-08-28","articles":3221,"bot_pct":62.6,"active":{"2004":0.0,"2005":0.2,"2006":1.8,"2007":5.7,"2008":4.6,"2009":5.2,"2010":4.5,"2011":2.8,"2012":2.7,"2013":2.1,"2014":1.3,"2015":1.3,"2016":0.7,"2017":1.0,"2018":1.0,"2019":1.2,"2020":1.2,"2021":2.4,"2022":3.0,"2023":1.7,"2024":2.3,"2025":1.6,"2026":2.0},"active_2025":1.6,"peak":5.7,"peak_year":2007,"mobile_pct":19,"pv_2025_m":3.2,"cx_total":72,"cx_share":2.2,"growth":[[2004,0],[2005,2],[2006,243],[2007,2355],[2008,3006],[2009,3640],[2010,3884],[2011,3929],[2012,4008],[2013,4037],[2014,4049],[2015,4061],[2016,4072],[2017,4118],[2018,4149],[2019,4256],[2020,4268],[2021,4310],[2022,4336],[2023,4360],[2024,4542],[2025,4582],[2026,4609]],"admins":2,"top_article":["މަނަދޫ ބަސްފޮތް",963],"countries":[["US",21.0],["BR",9.4],["IN",6.3],["SG",5.2],["MX",2.4]],"india_label_pct":0.0,"lexemes":7,"sisters":{"wiktionary":254}},{"lang":"gom","name":"Konkani","family":"indo-aryan","script":"Devanagari and Latin","launch":"2015-06-16","articles":3644,"bot_pct":3.2,"active":{"2004":2.6,"2005":9.2,"2006":17.2,"2007":7.8,"2008":4.5,"2009":4.6,"2010":3.2,"2011":4.8,"2012":2.7,"2013":5.8,"2014":10.2,"2015":12.7,"2016":14.7,"2017":8.7,"2018":17.1,"2019":11.9,"2020":4.0,"2021":4.8,"2022":2.5,"2023":2.5,"2024":0.9,"2025":2.8,"2026":1.3},"active_2025":2.8,"peak":17.2,"peak_year":2006,"mobile_pct":40,"pv_2025_m":1.4,"cx_total":97,"cx_share":2.7,"growth":[[2004,0],[2005,0],[2006,1],[2007,33],[2008,36],[2009,36],[2010,47],[2011,48],[2012,48],[2013,226],[2014,707],[2015,2150],[2016,3290],[2017,3452],[2018,3845],[2019,4007],[2020,4099],[2021,4219],[2022,4239],[2023,4267],[2024,4278],[2025,4316],[2026,4323]],"admins":3,"top_article":["Arya Samaj",2309],"countries":[["US",33.3],["IN",11.8],["SG",7.5],["BR",5.4],["GB",3.2]],"india_label_pct":0.1,"lexemes":2,"sisters":{"wiktionary":2756}},{"lang":"gu","name":"Gujarati","family":"indo-aryan","script":"Gujarati","launch":"2004-07-01","articles":30909,"bot_pct":33.9,"active":{"2002":0.5,"2003":0.0,"2004":3.2,"2005":5.5,"2006":5.9,"2007":11.8,"2008":17.8,"2009":18.9,"2010":22.0,"2011":21.8,"2012":27.9,"2013":21.8,"2014":18.2,"2015":18.0,"2016":17.0,"2017":20.6,"2018":22.0,"2019":20.2,"2020":20.7,"2021":20.0,"2022":16.1,"2023":14.9,"2024":13.0,"2025":14.0,"2026":12.7},"active_2025":14.0,"peak":27.9,"peak_year":2012,"mobile_pct":78,"pv_2025_m":14.8,"cx_total":2984,"cx_share":9.7,"growth":[[2002,0],[2003,1],[2004,31],[2005,183],[2006,224],[2007,406],[2008,2530],[2009,11647],[2010,17612],[2011,21471],[2012,22043],[2013,24888],[2014,25333],[2015,26011],[2016,26728],[2017,27576],[2018,28360],[2019,28854],[2020,29321],[2021,29858],[2022,30160],[2023,30425],[2024,30594],[2025,30856],[2026,30993]],"admins":3,"top_article":["ગુરુ પૂર્ણિમા",6700],"countries":[["IN",60.5],["US",17.3],["SG",3.8],["BR",2.8],["MX",1.0]],"india_label_pct":2.8,"lexemes":123,"sisters":{"wiktionary":684,"wikisource":65992,"wikiquote":511}},{"lang":"hi","name":"Hindi","family":"indo-aryan","script":"Devanagari","launch":"2003-07-11","articles":171077,"bot_pct":27.7,"active":{"2001":0.0,"2002":0.0,"2003":0.7,"2004":4.2,"2005":10.7,"2006":21.8,"2007":40.6,"2008":50.3,"2009":68.1,"2010":75.8,"2011":81.2,"2012":83.5,"2013":72.7,"2014":121.7,"2015":147.8,"2016":174.0,"2017":238.6,"2018":246.4,"2019":280.9,"2020":327.0,"2021":263.0,"2022":251.8,"2023":264.4,"2024":204.7,"2025":135.8,"2026":116.1},"active_2025":135.8,"peak":327.0,"peak_year":2020,"mobile_pct":88,"pv_2025_m":279.7,"cx_total":15428,"cx_share":9.0,"growth":[[2001,1],[2002,3],[2003,47],[2004,349],[2005,965],[2006,3905],[2007,13595],[2008,21547],[2009,48837],[2010,54250],[2011,77015],[2012,81053],[2013,85232],[2014,90629],[2015,95721],[2016,109726],[2017,117879],[2018,125028],[2019,131479],[2020,141250],[2021,149375],[2022,155685],[2023,161397],[2024,165626],[2025,170708],[2026,174586]],"admins":8,"top_article":["रामायणम् (2026 फिल्म)",318725],"countries":[["IN",86.1],["US",5.0],["BR",1.3],["SG",0.8],["NL",0.6]],"india_label_pct":7.8,"lexemes":2613,"sisters":{"wiktionary":184999,"wikisource":6050,"wikiquote":937,"wikibooks":1283,"wikivoyage":193,"wikiversity":335}},{"lang":"kn","name":"Kannada","family":"dravidian","script":"Kannada","launch":"2003-06-01","articles":35671,"bot_pct":20.1,"active":{"2002":0.0,"2003":1.2,"2004":16.7,"2005":20.7,"2006":30.8,"2007":33.0,"2008":33.7,"2009":37.2,"2010":41.6,"2011":42.5,"2012":41.0,"2013":58.9,"2014":85.7,"2015":140.1,"2016":155.7,"2017":116.2,"2018":119.8,"2019":131.8,"2020":70.8,"2021":36.7,"2022":60.1,"2023":70.6,"2024":66.6,"2025":40.1,"2026":39.3},"active_2025":40.1,"peak":155.7,"peak_year":2016,"mobile_pct":83,"pv_2025_m":34.3,"cx_total":7172,"cx_share":20.1,"growth":[[2002,0],[2003,1],[2004,179],[2005,835],[2006,3904],[2007,4836],[2008,6055],[2009,7543],[2010,9766],[2011,11037],[2012,11938],[2013,14269],[2014,16578],[2015,18382],[2016,20913],[2017,22558],[2018,24268],[2019,26023],[2020,27637],[2021,28831],[2022,30776],[2023,32293],[2024,34123],[2025,35290],[2026,36306]],"admins":4,"top_article":["ಕುವೆಂಪು",8819],"countries":[["IN",68.2],["US",13.2],["BR",2.8],["SG",2.4],["MX",1.0]],"india_label_pct":1.4,"lexemes":26,"sisters":{"wiktionary":265553,"wikisource":1555,"wikiquote":380}},{"lang":"ks","name":"Kashmiri","family":"indo-aryan","script":"Perso-Arabic","launch":"2004-03-25","articles":11557,"bot_pct":29.8,"active":{"2003":0.0,"2004":0.4,"2005":0.2,"2006":0.3,"2007":0.5,"2008":0.8,"2009":0.8,"2010":0.9,"2011":1.2,"2012":1.0,"2013":0.4,"2014":0.2,"2015":0.7,"2016":0.2,"2017":0.4,"2018":0.2,"2019":0.0,"2020":1.2,"2021":5.0,"2022":7.3,"2023":6.3,"2024":4.3,"2025":5.1,"2026":6.3},"active_2025":5.1,"peak":7.3,"peak_year":2022,"mobile_pct":34,"pv_2025_m":1.7,"cx_total":5278,"cx_share":45.7,"growth":[[2003,1],[2004,9],[2005,10],[2006,10],[2007,10],[2008,10],[2009,12],[2010,12],[2011,95],[2012,105],[2013,106],[2014,117],[2015,308],[2016,309],[2017,361],[2018,373],[2019,373],[2020,515],[2021,874],[2022,2559],[2023,4645],[2024,6107],[2025,8627],[2026,11462]],"admins":2,"top_article":["راوَلپِنڈی",2167],"countries":[["US",31.2],["SG",10.2],["IN",8.8],["BR",6.5],["MX",2.3]],"india_label_pct":0.2,"lexemes":107,"sisters":{"wiktionary":4426}},{"lang":"mag","name":"Magahi","family":"indo-aryan","script":"Devanagari","launch":"2026-06-18","articles":3663,"bot_pct":5.6,"active":{"2022":1.0,"2023":1.0,"2024":3.4,"2025":4.8,"2026":5.6},"active_2025":4.8,"peak":5.6,"peak_year":2026,"mobile_pct":null,"pv_2025_m":0.0,"cx_total":0,"cx_share":0.0,"growth":[[2022,40],[2023,408],[2024,2427],[2025,3443],[2026,3679]],"admins":1,"top_article":null,"countries":[["US",91.1],["ID",0.8],["PH",0.8],["IN",0.8],["MY",0.6]],"india_label_pct":0.1,"lexemes":5,"sisters":{}},{"lang":"mai","name":"Maithili","family":"indo-aryan","script":"Devanagari","launch":"2014-11-06","articles":14359,"bot_pct":5.6,"active":{"2002":0.0,"2003":0.0,"2004":1.8,"2005":7.3,"2006":3.2,"2007":3.4,"2008":2.6,"2009":2.6,"2010":4.4,"2011":6.1,"2012":3.8,"2013":4.5,"2014":8.5,"2015":9.8,"2016":14.5,"2017":12.8,"2018":11.4,"2019":9.4,"2020":7.8,"2021":7.0,"2022":6.0,"2023":9.5,"2024":6.3,"2025":6.7,"2026":6.6},"active_2025":6.7,"peak":14.5,"peak_year":2016,"mobile_pct":43,"pv_2025_m":2.6,"cx_total":149,"cx_share":1.0,"growth":[[2002,0],[2003,0],[2004,1],[2005,2],[2006,2],[2007,3],[2008,4],[2009,4],[2010,4],[2011,409],[2012,411],[2013,414],[2014,1318],[2015,2519],[2016,10796],[2017,12917],[2018,13981],[2019,14320],[2020,14433],[2021,14533],[2022,14562],[2023,14893],[2024,14987],[2025,15118],[2026,15263]],"admins":4,"top_article":["मेरा पिक",1890],"countries":[["US",57.0],["IN",11.6],["SG",4.4],["BR",3.7],["MX",1.3]],"india_label_pct":0.2,"lexemes":3,"sisters":{}},{"lang":"ml","name":"Malayalam","family":"dravidian","script":"Malayalam","launch":"2002-12-21","articles":88747,"bot_pct":19.7,"active":{"2002":0.4,"2003":1.0,"2004":12.2,"2005":39.0,"2006":68.0,"2007":109.7,"2008":125.6,"2009":127.1,"2010":144.0,"2011":165.5,"2012":176.3,"2013":171.5,"2014":137.7,"2015":123.0,"2016":129.1,"2017":110.1,"2018":110.9,"2019":104.7,"2020":111.0,"2021":99.8,"2022":83.8,"2023":85.8,"2024":82.0,"2025":65.7,"2026":62.0},"active_2025":65.7,"peak":176.3,"peak_year":2012,"mobile_pct":78,"pv_2025_m":60.6,"cx_total":12854,"cx_share":14.5,"growth":[[2002,5],[2003,33],[2004,123],[2005,303],[2006,1797],[2007,4909],[2008,8451],[2009,11686],[2010,16290],[2011,22025],[2012,28099],[2013,34248],[2014,37893],[2015,41314],[2016,47310],[2017,54010],[2018,61538],[2019,67572],[2020,72116],[2021,77689],[2022,81106],[2023,85934],[2024,87378],[2025,88334],[2026,89151]],"admins":13,"top_article":["വൈക്കം മുഹമ്മദ് ബഷീർ",32850],"countries":[["IN",75.1],["US",11.1],["SG",2.6],["BR",1.6],["MX",0.7]],"india_label_pct":7.2,"lexemes":67372,"sisters":{"wiktionary":131446,"wikisource":20834,"wikiquote":335,"wikibooks":107}},{"lang":"mni","name":"Meitei (Manipuri)","family":"tibeto-burman","script":"Meitei Mayek","launch":"2021-02-22","articles":10549,"bot_pct":4.6,"active":{"2012":0.0,"2018":2.0,"2019":1.5,"2020":1.8,"2021":5.0,"2022":3.8,"2023":2.2,"2024":2.9,"2025":3.0,"2026":3.6},"active_2025":3.0,"peak":5.0,"peak_year":2021,"mobile_pct":35,"pv_2025_m":2.8,"cx_total":201,"cx_share":1.9,"growth":[[2012,0],[2018,125],[2019,241],[2020,1024],[2021,10579],[2022,10800],[2023,10893],[2024,11072],[2025,11130],[2026,11168]],"admins":3,"top_article":["꯱꯲꯰꯶",4561],"countries":[["US",16.0],["BR",13.2],["IN",8.0],["AR",3.6],["MX",3.4]],"india_label_pct":0.0,"lexemes":3,"sisters":{"wiktionary":2599}},{"lang":"mr","name":"Marathi","family":"indo-aryan","script":"Devanagari","launch":"2003-05-01","articles":102863,"bot_pct":44.4,"active":{"2003":0.0,"2004":0.9,"2005":5.2,"2006":16.6,"2007":24.3,"2008":24.2,"2009":28.1,"2010":34.4,"2011":40.8,"2012":53.6,"2013":39.5,"2014":33.7,"2015":33.0,"2016":32.2,"2017":64.6,"2018":83.9,"2019":82.0,"2020":79.2,"2021":56.8,"2022":55.2,"2023":53.3,"2024":45.2,"2025":43.6,"2026":50.0},"active_2025":43.6,"peak":83.9,"peak_year":2018,"mobile_pct":81,"pv_2025_m":60.3,"cx_total":8536,"cx_share":8.3,"growth":[[2003,4],[2004,40],[2005,1488],[2006,6185],[2007,13692],[2008,19155],[2009,23748],[2010,29055],[2011,32336],[2012,36150],[2013,37972],[2014,39502],[2015,41348],[2016,43575],[2017,48002],[2018,50673],[2019,53841],[2020,65427],[2021,80669],[2022,88131],[2023,93832],[2024,98450],[2025,101510],[2026,103107]],"admins":10,"top_article":["लोकमान्य टिळक",22521],"countries":[["IN",75.9],["US",8.9],["BR",2.3],["SG",2.1],["MX",0.8]],"india_label_pct":1.3,"lexemes":82,"sisters":{"wiktionary":2707,"wikisource":4797,"wikiquote":44,"wikibooks":989}},{"lang":"ne","name":"Nepali","family":"indo-aryan","script":"Devanagari","launch":"2002-06-03","articles":30068,"bot_pct":22.2,"active":{"2002":0.0,"2003":0.0,"2004":0.8,"2005":3.2,"2006":6.0,"2007":13.0,"2008":9.0,"2009":8.9,"2010":16.6,"2011":21.4,"2012":22.7,"2013":26.1,"2014":38.8,"2015":39.9,"2016":36.6,"2017":32.8,"2018":32.7,"2019":33.4,"2020":33.2,"2021":25.4,"2022":22.0,"2023":24.6,"2024":25.3,"2025":23.6,"2026":24.4},"active_2025":23.6,"peak":39.9,"peak_year":2015,"mobile_pct":56,"pv_2025_m":11.6,"cx_total":2638,"cx_share":8.8,"growth":[[2002,1],[2003,1],[2004,17],[2005,49],[2006,240],[2007,1469],[2008,1637],[2009,1806],[2010,4535],[2011,9372],[2012,10846],[2013,13331],[2014,14650],[2015,16792],[2016,18694],[2017,19871],[2018,21382],[2019,22980],[2020,23997],[2021,24707],[2022,25715],[2023,27535],[2024,28616],[2025,29554],[2026,30378]],"admins":5,"top_article":["भानुभक्त आचार्य",2751],"countries":[["NP",33.5],["US",23.3],["SG",5.5],["BR",5.0],["IN",4.7]],"india_label_pct":0.3,"lexemes":23,"sisters":{"wiktionary":600,"wikibooks":80}},{"lang":"new","name":"Newar (Nepal Bhasa)","family":"tibeto-burman","script":"Devanagari","launch":"2006-06-04","articles":74454,"bot_pct":91.0,"active":{"2006":2.3,"2007":3.8,"2008":4.1,"2009":3.6,"2010":3.6,"2011":3.4,"2012":3.8,"2013":3.1,"2014":3.9,"2015":2.2,"2016":2.8,"2017":1.8,"2018":2.1,"2019":2.2,"2020":1.7,"2021":1.5,"2022":1.6,"2023":1.2,"2024":2.5,"2025":2.6,"2026":3.7},"active_2025":2.6,"peak":4.1,"peak_year":2008,"mobile_pct":31,"pv_2025_m":4.3,"cx_total":683,"cx_share":0.9,"growth":[[2006,3003],[2007,39345],[2008,43990],[2009,58712],[2010,69320],[2011,69409],[2012,69728],[2013,70417],[2014,71707],[2015,72461],[2016,72515],[2017,72544],[2018,72627],[2019,72664],[2020,72773],[2021,72801],[2022,72812],[2023,72815],[2024,73009],[2025,73468],[2026,74274]],"admins":2,"top_article":["सूर्या (सन् १९८९या संकिपा)",2270],"countries":[["US",14.1],["BR",13.7],["IN",10.2],["MX",3.8],["SG",3.4]],"india_label_pct":3.1,"lexemes":3,"sisters":{}},{"lang":"or","name":"Odia","family":"indo-aryan","script":"Odia","launch":"2002-06-01","articles":21024,"bot_pct":30.7,"active":{"2002":0.0,"2003":0.0,"2004":0.2,"2005":2.8,"2006":5.7,"2007":5.8,"2008":4.6,"2009":5.4,"2010":6.4,"2011":16.2,"2012":21.9,"2013":21.2,"2014":22.9,"2015":23.2,"2016":37.7,"2017":30.7,"2018":28.6,"2019":22.7,"2020":22.2,"2021":16.2,"2022":14.5,"2023":15.1,"2024":14.5,"2025":13.2,"2026":11.3},"active_2025":13.2,"peak":37.7,"peak_year":2016,"mobile_pct":55,"pv_2025_m":6.2,"cx_total":3854,"cx_share":18.3,"growth":[[2002,1],[2003,1],[2004,1],[2005,2],[2006,6],[2007,360],[2008,378],[2009,383],[2010,476],[2011,1732],[2012,2773],[2013,3847],[2014,6170],[2015,7926],[2016,9633],[2017,11069],[2018,12328],[2019,13218],[2020,14141],[2021,15038],[2022,16241],[2023,17528],[2024,19073],[2025,20228],[2026,21050]],"admins":4,"top_article":["ରଥଯାତ୍ରା",2800],"countries":[["IN",31.5],["US",24.6],["SG",6.9],["BR",5.9],["MX",2.0]],"india_label_pct":0.8,"lexemes":284,"sisters":{"wiktionary":108659,"wikisource":1310}},{"lang":"pa","name":"Punjabi (Gurmukhi)","family":"indo-aryan","script":"Gurmukhi","launch":"2002-06-03","articles":59698,"bot_pct":23.0,"active":{"2002":0.0,"2004":0.1,"2005":1.2,"2006":0.8,"2007":2.1,"2008":3.2,"2009":2.4,"2010":4.2,"2011":4.8,"2012":11.3,"2013":14.3,"2014":18.4,"2015":37.2,"2016":42.4,"2017":42.6,"2018":41.6,"2019":41.9,"2020":39.8,"2021":30.8,"2022":32.2,"2023":34.2,"2024":29.8,"2025":31.3,"2026":25.3},"active_2025":31.3,"peak":42.6,"peak_year":2017,"mobile_pct":57,"pv_2025_m":12.2,"cx_total":28580,"cx_share":47.9,"growth":[[2002,1],[2004,1],[2005,24],[2006,43],[2007,192],[2008,328],[2009,1298],[2010,1705],[2011,3054],[2012,4462],[2013,7919],[2014,16140],[2015,21397],[2016,25520],[2017,28883],[2018,32295],[2019,34944],[2020,36615],[2021,38416],[2022,41042],[2023,51597],[2024,55939],[2025,59595],[2026,59961]],"admins":10,"top_article":["ਜਸਵੰਤ ਸਿੰਘ ਖਾਲੜਾ",16345],"countries":[["IN",30.7],["US",28.1],["BR",6.3],["SG",4.6],["MX",1.9]],"india_label_pct":1.9,"lexemes":3781,"sisters":{"wiktionary":15451,"wikisource":2529,"wikibooks":78}},{"lang":"pi","name":"Pali","family":"indo-aryan","script":"Devanagari","launch":"2005-01-01","articles":304,"bot_pct":31.5,"active":{"2004":0.0,"2005":0.2,"2006":0.3,"2007":0.5,"2008":0.8,"2009":0.6,"2010":1.0,"2011":1.5,"2012":1.5,"2013":0.4,"2014":0.2,"2015":0.7,"2016":0.2,"2017":0.3,"2018":0.2,"2019":0.2,"2020":0.5,"2021":0.4,"2022":0.8,"2023":0.3,"2024":0.4,"2025":0.5,"2026":0.3},"active_2025":0.5,"peak":1.5,"peak_year":2011,"mobile_pct":25,"pv_2025_m":0.7,"cx_total":7,"cx_share":2.3,"growth":[[2004,1],[2005,3],[2006,85],[2007,90],[2008,92],[2009,93],[2010,93],[2011,262],[2012,278],[2013,278],[2014,282],[2015,289],[2016,290],[2017,290],[2018,303],[2019,311],[2020,316],[2021,317],[2022,317],[2023,319],[2024,320],[2025,321],[2026,326]],"admins":1,"top_article":["नेपाल भाषा",757],"countries":[["US",18.3],["BR",8.5],["IN",5.6],["SG",3.5],["AR",2.8]],"india_label_pct":0.0,"lexemes":14,"sisters":{}},{"lang":"pnb","name":"Punjabi (Shahmukhi)","family":"indo-aryan","script":"Perso-Arabic","launch":"2008-10-24","articles":75728,"bot_pct":47.8,"active":{"2004":0.0,"2005":0.5,"2006":0.1,"2007":0.0,"2008":1.4,"2009":6.2,"2010":8.4,"2011":9.0,"2012":10.9,"2013":7.6,"2014":7.6,"2015":8.9,"2016":9.8,"2017":6.2,"2018":6.3,"2019":7.2,"2020":7.5,"2021":7.8,"2022":10.6,"2023":9.2,"2024":10.0,"2025":12.1,"2026":10.0},"active_2025":12.1,"peak":12.1,"peak_year":2025,"mobile_pct":35,"pv_2025_m":6.9,"cx_total":326,"cx_share":0.4,"growth":[[2004,0],[2005,0],[2006,0],[2007,0],[2008,481],[2009,3073],[2010,10112],[2011,20441],[2012,25435],[2013,29825],[2014,32917],[2015,37979],[2016,42483],[2017,45193],[2018,46720],[2019,51820],[2020,58860],[2021,64220],[2022,66873],[2023,72684],[2024,74119],[2025,75617],[2026,76509]],"admins":2,"top_article":["وڈا گھلوگھارا",1856],"countries":[["US",40.1],["BR",8.0],["SG",7.4],["IN",5.6],["MX",3.0]],"india_label_pct":0.4,"lexemes":0,"sisters":{"wiktionary":9323}},{"lang":"sa","name":"Sanskrit","family":"indo-aryan","script":"Devanagari","launch":"2003-12-01","articles":12533,"bot_pct":30.3,"active":{"2003":0.0,"2004":1.7,"2005":3.7,"2006":3.9,"2007":4.5,"2008":5.5,"2009":6.8,"2010":7.6,"2011":16.8,"2012":17.5,"2013":17.1,"2014":19.2,"2015":21.2,"2016":35.5,"2017":11.7,"2018":17.8,"2019":23.2,"2020":19.8,"2021":11.5,"2022":14.8,"2023":15.8,"2024":10.8,"2025":10.1,"2026":8.0},"active_2025":10.1,"peak":35.5,"peak_year":2016,"mobile_pct":39,"pv_2025_m":3.3,"cx_total":467,"cx_share":3.7,"growth":[[2003,0],[2004,469],[2005,480],[2006,869],[2007,3543],[2008,3570],[2009,3583],[2010,3745],[2011,7293],[2012,9024],[2013,9951],[2014,10361],[2015,11027],[2016,11084],[2017,11192],[2018,11406],[2019,11506],[2020,11578],[2021,11664],[2022,11866],[2023,12157],[2024,12376],[2025,12761],[2026,12832]],"admins":3,"top_article":["भारतम्",706],"countries":[["US",32.3],["SG",10.0],["IN",9.2],["BR",7.2],["MX",2.4]],"india_label_pct":0.3,"lexemes":1466,"sisters":{"wiktionary":6034,"wikisource":20429,"wikiquote":139,"wikibooks":843}},{"lang":"sat","name":"Santali","family":"munda","script":"Ol Chiki","launch":"2018-08-02","articles":15883,"bot_pct":6.1,"active":{"2004":0.0,"2005":0.3,"2006":1.2,"2007":0.3,"2008":0.3,"2009":0.2,"2010":0.3,"2011":0.1,"2012":0.2,"2013":1.4,"2014":0.8,"2015":0.5,"2016":1.0,"2017":1.5,"2018":9.7,"2019":14.9,"2020":20.5,"2021":12.0,"2022":11.2,"2023":13.5,"2024":11.0,"2025":12.5,"2026":13.3},"active_2025":12.5,"peak":20.5,"peak_year":2020,"mobile_pct":30,"pv_2025_m":2.3,"cx_total":1588,"cx_share":10.0,"growth":[[2004,0],[2005,0],[2006,0],[2007,0],[2008,0],[2009,0],[2010,0],[2011,0],[2012,3],[2013,3],[2014,3],[2015,3],[2016,4],[2017,166],[2018,919],[2019,2602],[2020,5549],[2021,6875],[2022,7746],[2023,10162],[2024,11938],[2025,15135],[2026,16870]],"admins":2,"top_article":["ᱠᱮᱛᱷᱨᱤᱱ ᱢᱟᱦᱮᱨ",1536],"countries":[["US",25.8],["IN",12.0],["SG",8.3],["BR",6.9],["MX",2.8]],"india_label_pct":1.4,"lexemes":138,"sisters":{"wiktionary":1384}},{"lang":"sd","name":"Sindhi","family":"indo-aryan","script":"Perso-Arabic","launch":"2006-02-06","articles":22185,"bot_pct":17.1,"active":{"2003":0.0,"2004":0.0,"2005":0.2,"2006":1.5,"2007":2.0,"2008":2.5,"2009":1.4,"2010":2.2,"2011":2.4,"2012":1.6,"2013":0.8,"2014":1.7,"2015":5.9,"2016":6.9,"2017":8.0,"2018":9.5,"2019":9.5,"2020":10.7,"2021":8.1,"2022":7.2,"2023":5.9,"2024":8.7,"2025":8.7,"2026":10.6},"active_2025":8.7,"peak":10.7,"peak_year":2020,"mobile_pct":36,"pv_2025_m":3.4,"cx_total":3913,"cx_share":17.6,"growth":[[2003,0],[2004,0],[2005,2],[2006,88],[2007,250],[2008,270],[2009,284],[2010,312],[2011,381],[2012,404],[2013,443],[2014,669],[2015,4339],[2016,8240],[2017,9200],[2018,12920],[2019,14135],[2020,15469],[2021,16490],[2022,16769],[2023,16863],[2024,19286],[2025,20552],[2026,22702]],"admins":4,"top_article":["برج اسد",1722],"countries":[["US",32.8],["SG",9.8],["BR",8.5],["IN",5.2],["MX",3.6]],"india_label_pct":0.1,"lexemes":258,"sisters":{"wiktionary":2358}},{"lang":"si","name":"Sinhala","family":"indo-aryan","script":"Sinhala","launch":"2005-07-01","articles":25651,"bot_pct":11.2,"active":{"2003":0.0,"2004":0.0,"2005":0.4,"2006":2.7,"2007":11.0,"2008":11.8,"2009":25.1,"2010":31.8,"2011":31.5,"2012":20.3,"2013":21.2,"2014":28.3,"2015":17.7,"2016":18.8,"2017":18.6,"2018":16.4,"2019":15.5,"2020":17.4,"2021":21.8,"2022":19.0,"2023":14.7,"2024":19.3,"2025":18.1,"2026":18.0},"active_2025":18.1,"peak":31.8,"peak_year":2010,"mobile_pct":72,"pv_2025_m":20.3,"cx_total":4374,"cx_share":17.1,"growth":[[2003,0],[2004,0],[2005,9],[2006,128],[2007,408],[2008,904],[2009,3527],[2010,5598],[2011,7024],[2012,8022],[2013,10339],[2014,13112],[2015,14475],[2016,16131],[2017,17739],[2018,18470],[2019,19142],[2020,19943],[2021,21183],[2022,22103],[2023,23644],[2024,25470],[2025,28590],[2026,29278]],"admins":3,"top_article":["සූනන් ඇඟ වැටීමේ ඵලාඵල",10811],"countries":[["LK",44.0],["US",18.5],["BR",5.1],["SG",3.5],["IN",3.2]],"india_label_pct":0.1,"lexemes":13,"sisters":{"wiktionary":11321,"wikibooks":1579}},{"lang":"ta","name":"Tamil","family":"dravidian","script":"Tamil","launch":"2003-09-01","articles":189808,"bot_pct":32.5,"active":{"2003":1.2,"2004":2.2,"2005":11.2,"2006":27.6,"2007":34.8,"2008":35.3,"2009":48.8,"2010":85.3,"2011":89.8,"2012":93.7,"2013":111.1,"2014":109.4,"2015":120.2,"2016":91.9,"2017":190.7,"2018":94.5,"2019":115.2,"2020":110.2,"2021":106.9,"2022":92.7,"2023":84.2,"2024":79.9,"2025":86.6,"2026":103.4},"active_2025":86.6,"peak":190.7,"peak_year":2017,"mobile_pct":80,"pv_2025_m":102.9,"cx_total":43172,"cx_share":22.7,"growth":[[2003,63],[2004,445],[2005,1713],[2006,5631],[2007,12085],[2008,16149],[2009,19901],[2010,25880],[2011,41629],[2012,48961],[2013,57139],[2014,64060],[2015,82748],[2016,90097],[2017,114918],[2018,119844],[2019,126742],[2020,134155],[2021,144071],[2022,151554],[2023,162792],[2024,171968],[2025,181222],[2026,190800]],"admins":31,"top_article":["காமராசர்",57239],"countries":[["IN",68.3],["US",10.2],["LK",2.8],["BR",2.1],["SG",2.0]],"india_label_pct":6.2,"lexemes":1074,"sisters":{"wiktionary":408720,"wikisource":37773,"wikiquote":984,"wikibooks":714}},{"lang":"tcy","name":"Tulu","family":"dravidian","script":"Kannada","launch":"2016-08-06","articles":3929,"bot_pct":2.3,"active":{"2003":0.0,"2004":0.3,"2005":3.6,"2006":5.4,"2007":2.0,"2008":1.5,"2009":1.0,"2010":1.0,"2011":1.9,"2012":1.3,"2013":1.8,"2014":4.4,"2015":6.5,"2016":12.1,"2017":13.0,"2018":14.5,"2019":15.2,"2020":13.1,"2021":9.7,"2022":10.6,"2023":10.8,"2024":15.1,"2025":12.2,"2026":11.0},"active_2025":12.2,"peak":15.2,"peak_year":2019,"mobile_pct":46,"pv_2025_m":1.5,"cx_total":583,"cx_share":14.8,"growth":[[2003,0],[2004,0],[2005,0],[2006,0],[2007,2],[2008,84],[2009,86],[2010,86],[2011,93],[2012,94],[2013,98],[2014,645],[2015,849],[2016,973],[2017,1137],[2018,1232],[2019,1478],[2020,1657],[2021,1812],[2022,2058],[2023,2245],[2024,2853],[2025,3120],[2026,3922]],"admins":5,"top_article":["ದೀಪ್ತಿ ಶರ್ಮ",1183],"countries":[["US",16.4],["IN",11.6],["BR",10.9],["AR",3.3],["MX",2.9]],"india_label_pct":0.1,"lexemes":6,"sisters":{"wiktionary":984,"wikisource":113}},{"lang":"te","name":"Telugu","family":"dravidian","script":"Telugu","launch":"2003-12-10","articles":128158,"bot_pct":22.1,"active":{"2002":0.0,"2003":0.4,"2004":3.6,"2005":15.7,"2006":29.1,"2007":46.3,"2008":59.9,"2009":49.2,"2010":43.0,"2011":45.5,"2012":51.8,"2013":71.8,"2014":96.0,"2015":76.5,"2016":71.2,"2017":57.2,"2018":61.8,"2019":62.7,"2020":66.2,"2021":68.6,"2022":61.6,"2023":63.2,"2024":72.1,"2025":59.2,"2026":56.6},"active_2025":59.2,"peak":96.0,"peak_year":2014,"mobile_pct":78,"pv_2025_m":61.2,"cx_total":29656,"cx_share":23.1,"growth":[[2002,0],[2003,1],[2004,44],[2005,1659],[2006,24578],[2007,35992],[2008,39432],[2009,41672],[2010,43138],[2011,44870],[2012,46172],[2013,49361],[2014,53703],[2015,56369],[2016,59902],[2017,61765],[2018,64066],[2019,66681],[2020,68643],[2021,73570],[2022,79883],[2023,89448],[2024,102166],[2025,117874],[2026,126966]],"admins":11,"top_article":["లెనిన్ (2026 సినిమా)",52760],"countries":[["IN",73.8],["US",12.3],["BR",2.3],["SG",1.3],["MX",0.8]],"india_label_pct":5.8,"lexemes":87,"sisters":{"wiktionary":107743,"wikisource":23890,"wikiquote":884,"wikibooks":287}},{"lang":"ur","name":"Urdu","family":"indo-aryan","script":"Perso-Arabic","launch":"2004-01-24","articles":674395,"bot_pct":66.6,"active":{"2004":1.7,"2005":3.2,"2006":12.1,"2007":20.1,"2008":23.8,"2009":27.5,"2010":22.0,"2011":21.0,"2012":29.4,"2013":26.9,"2014":40.2,"2015":51.2,"2016":52.2,"2017":48.4,"2018":57.7,"2019":66.5,"2020":76.5,"2021":67.7,"2022":81.2,"2023":72.1,"2024":64.3,"2025":65.1,"2026":75.0},"active_2025":65.1,"peak":81.2,"peak_year":2022,"mobile_pct":57,"pv_2025_m":54.1,"cx_total":59551,"cx_share":8.8,"growth":[[2004,148],[2005,499],[2006,3827],[2007,6641],[2008,9317],[2009,11504],[2010,14176],[2011,16391],[2012,21284],[2013,24885],[2014,62230],[2015,98530],[2016,109534],[2017,126108],[2018,142743],[2019,151250],[2020,160256],[2021,167626],[2022,184951],[2023,200824],[2024,217822],[2025,236761],[2026,668734]],"admins":9,"top_article":["ایران جنگ 2026ء",22864],"countries":[["US",32.5],["IN",11.2],["BR",10.2],["SG",4.0],["MX",3.8]],"india_label_pct":3.5,"lexemes":2610,"sisters":{"wiktionary":26100,"wikisource":11921,"wikiquote":614,"wikibooks":225}}],"editors_yearly":{"2003":5,"2004":60,"2005":158,"2006":302,"2007":437,"2008":489,"2009":547,"2010":644,"2011":725,"2012":802,"2013":820,"2014":951,"2015":1101,"2016":1167,"2017":1262,"2018":1268,"2019":1392,"2020":1447,"2021":1288,"2022":1263,"2023":1248,"2024":1167,"2025":1057},"pageviews_yearly":{"2015":197,"2016":487,"2017":810,"2018":1191,"2019":1441,"2020":1412,"2021":1540,"2022":1611,"2023":1731,"2024":1467,"2025":968},"sister_yearly":{"wikisource":{"2006":20,"2007":30,"2008":24,"2009":25,"2010":29,"2011":41,"2012":54,"2013":63,"2014":107,"2015":136,"2016":163,"2017":103,"2018":133,"2019":205,"2020":243,"2021":171,"2022":146,"2023":137,"2024":150,"2025":173},"wiktionary":{"2006":18,"2007":24,"2008":25,"2009":37,"2010":49,"2011":48,"2012":48,"2013":43,"2014":30,"2015":44,"2016":30,"2017":27,"2018":29,"2019":40,"2020":46,"2021":55,"2022":47,"2023":39,"2024":53,"2025":59}},"cx_yearly":{"2015":2361,"2016":6827,"2017":12964,"2018":7732,"2019":12978,"2020":18686,"2021":24907,"2022":32484,"2023":51429,"2024":50640,"2025":53043,"2026":25083},"cx_sources":{"total":299134,"en_pct":92.6,"ar_pct":4.4,"indic_pct":2.2,"indic_pairs":[["ur","sd",1147],["hi","pa",568],["hi","gu",402],["hi","ne",373],["kn","tcy",334],["bn","as",305]]},"cx_translators":{"bn":2612,"hi":1766,"ta":1347,"kn":822,"ml":736,"ur":605,"si":425,"mr":387,"te":386,"pa":362,"gu":286,"ne":262,"as":186,"or":166,"sa":157,"bh":103,"sd":81,"mai":71,"pnb":67,"sat":52,"ks":50,"dv":40,"tcy":39,"new":33,"gom":30,"mni":29,"awa":20,"bpy":15,"dty":15,"anp":10,"pi":7},"gaps_en_common":[["United States",31],["American people",31],["Film actors",31],["Actors",31],["Television actors",31],["American actors",30],["American film actors",30],["American television actors",30]],"gap_postcards":{"anpwiki|hiwiki":[["भारत",7468],["हिन्दू धर्म",2310],["भारत के लोग",3079]],"aswiki|hiwiki":[["भारत",4890],["हिन्दू धर्म",1410],["भारत का इतिहास",1187]],"awawiki|hiwiki":[["भारत",7251],["हिन्दू धर्म",2255],["भारत के लोग",2951]],"bhwiki|hiwiki":[["भारत",5885],["हिन्दू धर्म",1975],["भारत के लोग",2568]],"bnwiki|hiwiki":[["भारत",918],["भारतीय फ़िल्में",2115],["भारत का इतिहास",320]],"bnwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5387],["தமிழ்த் திரைப்படங்கள்",1973],["தமிழ்த் திரைப்பட நடிகர்கள்",727]],"bnwiki|tewiki":[["India",1672],["తెలుగు సినిమా నటులు",581],["తెలుగు సినిమాలు",637]],"bnwiki|mlwiki":[["മലയാളം എഴുത്തുകാർ",426],["മലയാളകവികൾ",252],["Poets from Kerala",125]],"bnwiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",1841],["मराठी व्यक्ती",374],["मराठी लेखक",1130]],"bnwiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",582],["ಕನ್ನಡ ಸಾಹಿತಿಗಳು",212],["ಸಾಹಿತಿಗಳು",769]],"bnwiki|urwiki":[["جغرافیہ",50197],["ریاستہائے متحدہ",41512],["Endrika ampiasaina amin'ny jeografia",19764]],"bpywiki|hiwiki":[["भारत",7132],["भारत के लोग",3101],["हिन्दू धर्म",2269]],"dtywiki|hiwiki":[["भारत",7152],["हिन्दू धर्म",2262],["भारत के लोग",2808]],"dvwiki|hiwiki":[["भारत",7519],["हिन्दू धर्म",2352],["भारत के लोग",3061]],"gomwiki|hiwiki":[["भारत",7386],["हिन्दू धर्म",2237],["भारत के लोग",2943]],"guwiki|hiwiki":[["भारत",5699],["भारत के लोग",2504],["हिन्दू धर्म",1596]],"hiwiki|bnwiki":[["ফুটবল",3149],["বাংলাদেশ",1119],["ঢাকা বিশ্ববিদ্যালয়ের প্রাক্তন শিক্ষার্থী",1504]],"hiwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5414],["தமிழ்த் திரைப்படங்கள்",2025],["தமிழ்த் திரைப்பட நடிகர்கள்",683]],"hiwiki|tewiki":[["తెలుగు సినిమాలు",663],["తెలుగు సినిమా నటులు",560],["తెలుగు సినిమా నటీమణులు",777]],"hiwiki|mlwiki":[["മലയാളം എഴുത്തുകാർ",367],["മലയാളകവികൾ",221],["മലയാളികൾ",496]],"hiwiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",1659],["मराठी लेखक",995],["महाराष्ट्रामधील राजकारणी",406]],"hiwiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",559],["ಸಾಹಿತಿಗಳು",706],["ಕನ್ನಡ ಸಾಹಿತಿಗಳು",167]],"hiwiki|urwiki":[["اسلام",1903],["جغرافیہ",49651],["تاریخ اسلام",765]],"knwiki|bnwiki":[["ভারত",3874],["বাংলাদেশ",1442],["ফুটবল",3548]],"knwiki|hiwiki":[["भारत",4792],["भारत के लोग",1716],["हिन्दू धर्म",939]],"knwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5578],["இந்தியா",4691],["தமிழ்த் திரைப்படங்கள்",2196]],"knwiki|tewiki":[["India",5546],["నటులు",2455],["భారతీయులు",1744]],"knwiki|mlwiki":[["ഇന്ത്യ",1755],["മലയാളം എഴുത്തുകാർ",428],["മലയാളകവികൾ",249]],"knwiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",2389],["भारत",2456],["महाराष्ट्रातील व्यक्ती",593]],"knwiki|urwiki":[["اسلام",3025],["تاریخ اسلام",1277],["Алфавит буйынса ислам шәхестәре",1165]],"kswiki|hiwiki":[["भारत",6004],["हिन्दू धर्म",2186],["भारत के लोग",2200]],"maiwiki|hiwiki":[["भारत",5875],["हिन्दू धर्म",1946],["भारत के लोग",2114]],"mlwiki|bnwiki":[["বাংলাদেশ",1381],["ফুটবল",3254],["ভারত",2119]],"mlwiki|hiwiki":[["भारत",3037],["हिन्दू धर्म",992],["भारत का इतिहास",685]],"mlwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5429],["தமிழ்த் திரைப்படங்கள்",2049],["இந்தியா",2936]],"mlwiki|tewiki":[["India",3791],["తెలుగు సినిమాలు",767],["హిందూమతం",822]],"mlwiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",2161],["महाराष्ट्रातील व्यक्ती",487],["मराठी व्यक्ती",432]],"mlwiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",594],["ಸಾಹಿತಿಗಳು",743],["ಕನ್ನಡ ಸಾಹಿತಿಗಳು",198]],"mlwiki|urwiki":[["اسلام",2332],["تاریخ اسلام",968],["جغرافیہ",50094]],"mniwiki|bnwiki":[["ভারত",6367],["Páginas con errores en secuencias de órdenes",2289],["Gesjreve in 't Mestreechs",1313]],"mrwiki|bnwiki":[["বাংলাদেশ",1271],["ইসলাম",2688],["বাঙালি ব্যক্তি",562]],"mrwiki|hiwiki":[["भारत",2336],["हिन्दू धर्म",1127],["भारत का इतिहास",767]],"mrwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5589],["தமிழ்த் திரைப்படங்கள்",2179],["இந்தியா",2235]],"mrwiki|tewiki":[["India",3090],["హిందూమతం",957],["తెలుగు సినిమాలు",792]],"mrwiki|mlwiki":[["മലയാളം എഴുത്തുകാർ",439],["മലയാളകവികൾ",263],["Poets from Kerala",135]],"mrwiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",608],["ಕನ್ನಡ ಕವಿಗಳು",127],["ಕನ್ನಡ ಸಾಹಿತಿಗಳು",223]],"mrwiki|urwiki":[["اسلام",2920],["تاریخ اسلام",1233],["Алфавит буйынса ислам шәхестәре",1171]],"newiki|hiwiki":[["भारत",5482],["भारत के लोग",2164],["हिन्दू धर्म",1300]],"newwiki|newiki":[["नेपाल",761],["नेपालको इतिहास",272],["Wikipedia administration",12]],"orwiki|hiwiki":[["भारत",5574],["हिन्दू धर्म",1638],["भारत के लोग",2081]],"pawiki|hiwiki":[["हिन्दू धर्म",1468],["भारत",1993],["भारत का इतिहास",859]],"piwiki|hiwiki":[["भारत",7637],["हिन्दू धर्म",2338],["भारत के लोग",3094]],"pnbwiki|hiwiki":[["भारत",4872],["हिन्दू धर्म",1956],["भारत के लोग",1936]],"sawiki|hiwiki":[["भारत",5992],["भारत के लोग",2598],["हिन्दू धर्म",1584]],"satwiki|bnwiki":[["ভারত",3934],["Articol in Milanes",4795],["বাংলাদেশ",1357]],"sdwiki|hiwiki":[["भारत",7159],["भारत के लोग",2850],["हिन्दू धर्म",2123]],"siwiki|hiwiki":[["भारत",7073],["भारत के लोग",2840],["हिन्दू धर्म",2055]],"tawiki|bnwiki":[["ফুটবল",3189],["বাংলাদেশ",1043],["ইসলাম",2311]],"tawiki|hiwiki":[["हिन्दी फ़िल्में",3045],["भारतीय फ़िल्में",2181],["भारतीय अभिनेता",565]],"tawiki|tewiki":[["తెలుగు సినిమాలు",602],["ఆంధ్రప్రదేశ్",2797],["భారతీయ సినిమా నటీమణులు",1418]],"tawiki|mlwiki":[["മലയാളകവികൾ",158],["മലയാളം എഴുത്തുകാർ",195],["കേരളത്തിലെ സസ്യജാലം",778]],"tawiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",1848],["मराठी लेखक",1096],["मराठी व्यक्ती",285]],"tawiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",556],["ಸಾಹಿತಿಗಳು",716],["ಮೈಸೂರು ವಿಶ್ವವಿದ್ಯಾನಿಲಯ ವಿಶ್ವಕೋಶ",1804]],"tawiki|urwiki":[["اسلام",2543],["تاریخ اسلام",1037],["Алфавит буйынса ислам шәхестәре",1087]],"tcywiki|tawiki":[["இந்தியா",7066],["இந்தியத் தமிழ்த் திரைப்படங்கள்",5640],["இந்து சமயம்",2339]],"tewiki|bnwiki":[["ফুটবল",3525],["বাংলাদেশ",1297],["Páginas con errores en secuencias de órdenes",1226]],"tewiki|hiwiki":[["इतिहास",1312],["भारत का इतिहास",567],["Articol in Milanes",2803]],"tewiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",4787],["தமிழ்த் திரைப்படங்கள்",1726],["Articol in Milanes",1478]],"tewiki|mlwiki":[["മലയാളം എഴുത്തുകാർ",341],["മലയാളകവികൾ",221],["ഔഷധസസ്യങ്ങൾ",1107]],"tewiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",2032],["मराठी लेखक",1094],["महाराष्ट्र",316]],"tewiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",561],["ಸಾಹಿತಿಗಳು",749],["ಮೈಸೂರು ವಿಶ್ವವಿದ್ಯಾನಿಲಯ ವಿಶ್ವಕೋಶ",2388]],"tewiki|urwiki":[["اسلام",2883],["تاریخ اسلام",1239],["Алфавит буйынса ислам шәхестәре",1145]],"urwiki|bnwiki":[["বাংলাদেশ",848],["হিন্দুধর্ম",1165],["কলকাতা বিশ্ববিদ্যালয়ের প্রাক্তন শিক্ষার্থী",877]],"urwiki|hiwiki":[["हिन्दू धर्म",1308],["संस्कृत शब्द",498],["भारतीय राजनीतिज्ञ",640]],"urwiki|tawiki":[["இந்தியத் தமிழ்த் திரைப்படங்கள்",5435],["தமிழ்த் திரைப்படங்கள்",2066],["இந்து சமயம்",1476]],"urwiki|tewiki":[["హిందూమతం",1138],["తెలుగు సినిమాలు",681],["తెలుగువారు",487]],"urwiki|mlwiki":[["മലയാളം എഴുത്തുകാർ",392],["മലയാളകവികൾ",240],["Poets from Kerala",126]],"urwiki|mrwiki":[["कायमचे मृत बाह्य दुवे असणारे लेख",1714],["मराठी व्यक्ती",347],["मराठी लेखक",1108]],"urwiki|knwiki":[["ಕನ್ನಡ ಸಾಹಿತ್ಯ",603],["ಕನ್ನಡ ಕವಿಗಳು",121],["ಕನ್ನಡ ಸಾಹಿತಿಗಳು",215]]},"lexemes_world_top10":[["German",241979],["Russian",102347],["Danish",99767],["Estonian",83227],["English",74778],["Malayalam",67372],["Spanish",65788],["Italian",64927],["Arabic",57553],["Latin",56347]],"india_items_total":912073,"india_label_en_pct":89.1};/* DECK-DATA-END */
+</script>
+<script>
+/* === STAGE SCALER === */
+const stage = document.getElementById('stage');
+function fit(){
+  const k = Math.min(innerWidth/1920, innerHeight/1080);
+  stage.style.transform = `translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`;
+  document.querySelector('.counter').style.transform = '';
+}
+addEventListener('resize', fit); fit();
+
+/* === NAVIGATION === */
+const slides = [...document.querySelectorAll('.slide')];
+let cur = 0;
+function show(i){
+  cur = Math.max(0, Math.min(slides.length-1, i));
+  slides.forEach((s, j) => s.classList.toggle('active', j === cur));
+  document.getElementById('counter').textContent =
+    String(cur+1).padStart(2,'0') + ' / ' + slides.length;
+  document.getElementById('progress').style.width = ((cur+1)/slides.length*1920) + 'px';
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === slides.length-1;
+  requestAnimationFrame(() => animateBars(slides[cur]));
+}
+document.getElementById('prev').onclick = () => show(cur-1);
+document.getElementById('next').onclick = () => show(cur+1);
+addEventListener('keydown', e => {
+  if (['ArrowRight',' ','PageDown'].includes(e.key)) { e.preventDefault(); show(cur+1); }
+  if (['ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); show(cur-1); }
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End') show(slides.length-1);
+});
+let touchX = null;
+addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+/* === CHART HELPERS (SVG, single-accent discipline) === */
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function lineChart(svgId, seriesList, opts = {}){
+  const svg = document.getElementById(svgId);
+  const W = svg.clientWidth || 1740, H = svg.clientHeight || 560;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const P = {l: 90, r: 40, t: 30, b: 50};
+  const xs = seriesList.flatMap(s => s.points.map(p => p[0]));
+  const ys = seriesList.flatMap(s => s.points.map(p => p[1]));
+  const x0 = Math.min(...xs), x1 = Math.max(...xs);
+  const y1 = (opts.ymax || Math.max(...ys)) * 1.08;
+  const X = v => P.l + (v-x0)/(x1-x0) * (W-P.l-P.r);
+  const Y = v => H-P.b - v/y1 * (H-P.t-P.b);
+  for (let g = 0; g <= 4; g++){
+    const yv = y1/1.08 * g/4;
+    el('line', {x1:P.l, x2:W-P.r, y1:Y(yv), y2:Y(yv), class:'gridline'}, svg);
+    el('text', {x:P.l-14, y:Y(yv)+7, 'text-anchor':'end', class:'ticklabel'}, svg)
+      .textContent = opts.fmt ? opts.fmt(yv) : Math.round(yv);
+  }
+  const step = Math.ceil((x1-x0)/10);
+  for (let x = x0; x <= x1; x += step)
+    el('text', {x:X(x), y:H-P.b+38, 'text-anchor':'middle', class:'ticklabel'}, svg).textContent = x;
+  el('line', {x1:P.l, x2:W-P.r, y1:H-P.b, y2:H-P.b, class:'axis'}, svg);
+  seriesList.forEach(s => {
+    const d = s.points.map((p,i) => (i?'L':'M') + X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join('');
+    el('path', {d, fill:'none', stroke:'#1e2bfa', 'stroke-width':s.width||6,
+      'stroke-linecap':'round', opacity:s.opacity ?? 1,
+      'stroke-dasharray':s.dash||'none'}, svg);
+    const last = s.points[s.points.length-1];
+    if (s.label) el('text', {x:X(last[0])-8, y:Y(last[1])-18, 'text-anchor':'end',
+      class:'serieslabel', opacity:s.opacity ?? 1}, svg).textContent = s.label;
+    (s.marks||[]).forEach(([mx,my,txt,dy]) => {
+      el('circle', {cx:X(mx), cy:Y(my), r:11, fill:'#1e2bfa'}, svg);
+      const nearEdge = X(mx) > W - 160;
+      el('text', {x:X(mx)+(nearEdge?-18:0), y:Y(my)+(dy||-24),
+        'text-anchor':nearEdge?'end':'middle', class:'serieslabel'}, svg).textContent = txt;
+    });
+  });
+}
+function barList(id, items, opts = {}){
+  const box = document.getElementById(id);
+  box.innerHTML = '';
+  const max = opts.max || Math.max(...items.map(i => i.v));
+  items.forEach(i => {
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `<div class="bar-label">${i.label}` +
+      (i.sub ? ` <span class="bar-sub">${i.sub}</span>` : '') + `</div>
+      <div class="bar-track"><div class="bar-fill${i.dim ? ' dim' : ''}" data-w="${(i.v/max*100).toFixed(1)}%"></div></div>
+      <div class="bar-pct">${i.text ?? i.v + '%'}</div>`;
+    box.appendChild(row);
+  });
+}
+function animateBars(slide){
+  slide.querySelectorAll('.bar-fill').forEach(b => {
+    b.style.width = '0';
+    requestAnimationFrame(() => requestAnimationFrame(() => b.style.width = b.dataset.w));
+  });
+}
+
+/* === BUILD ALL CHARTS FROM DECK DATA === */
+const D = window.DECK;
+const byLang = {};
+(D.wikipedias || []).forEach(w => byLang[w.lang] = w);
+const NAMES = l => (byLang[l] || {name: l}).name;
+
+function init(){
+  if (!D.wikipedias) return;
+
+  /* 4 · founding waves: dot timeline */
+  {
+    const svg = document.getElementById('chart-waves');
+    const W = 1740, H = 560;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const X = y => 60 + (y-2001.5)/(2027-2001.5) * (W-120);
+    el('line', {x1:40, x2:W-30, y1:H-90, y2:H-90, class:'axis'}, svg);
+    for (let y = 2002; y <= 2026; y += 4)
+      el('text', {x:X(y), y:H-46, 'text-anchor':'middle', class:'ticklabel'}, svg).textContent = y;
+    const stack = {};
+    D.wikipedias.filter(w => w.launch).sort((a,b) => a.launch < b.launch ? -1 : 1)
+      .forEach(w => {
+        const y = +w.launch.slice(0,4);
+        stack[y] = (stack[y] || 0) + 1;
+        const cy = H-130 - (stack[y]-1)*58;
+        el('circle', {cx:X(y), cy, r:12, fill:'#1e2bfa'}, svg);
+        el('text', {x:X(y), y:cy-22, 'text-anchor':'middle', class:'ticklabel',
+          style:'fill:#111;font-size:19px;font-weight:600'}, svg).textContent = w.lang;
+      });
+    el('text', {x:X(2005), y:36, 'text-anchor':'middle', class:'serieslabel'}, svg)
+      .textContent = 'Pioneer wave · 22 wikis (2002–2006)';
+    el('text', {x:X(2020), y:36, 'text-anchor':'middle', class:'serieslabel'}, svg)
+      .textContent = 'Incubator wave · 10 wikis (2014–2026)';
+    const brace = el('rect', {x:X(2009), y:H-190, width:X(2013.8)-X(2009), height:80,
+      fill:'rgba(30,43,250,.06)', rx:10}, svg);
+    el('text', {x:X(2011.4), y:H-140, 'text-anchor':'middle', class:'ticklabel',
+      style:'font-size:22px'}, svg).textContent = 'six silent years';
+  }
+
+  /* 6 · growth lines */
+  {
+    const picks = ['ur','bn','ta','hi','ml','te'];
+    lineChart('chart-growth', picks.map((l, i) => ({
+      points: byLang[l].growth,
+      label: `${NAMES(l)} ${(byLang[l].articles/1000).toFixed(0)}k`,
+      width: 5.5, opacity: 1 - i*0.13
+    })), {fmt: v => (v/1000).toFixed(0) + 'k'});
+  }
+
+  /* 7 · bot share bars */
+  barList('chart-bots',
+    ['ur','bn','ta','hi','te','mr','ml','pnb','new']
+      .map(l => ({label: NAMES(l), sub: (byLang[l].articles/1000).toFixed(0)+'k articles',
+                  v: byLang[l].bot_pct, text: byLang[l].bot_pct + '%',
+                  dim: byLang[l].bot_pct < 50}))
+      .sort((a,b) => b.v - a.v), {max: 100});
+
+  /* 8 · editors line */
+  {
+    const pts = Object.entries(D.editors_yearly).map(([y,v]) => [+y, v]);
+    lineChart('chart-editors', [{points: pts, width: 7,
+      marks: [[2020, D.editors_yearly['2020'], 'peak · ' + D.editors_yearly['2020'], -28],
+              [2025, D.editors_yearly['2025'], D.editors_yearly['2025'] + '', -28]]}]);
+  }
+
+  /* 9 · peak eras dots */
+  {
+    const svg = document.getElementById('chart-eras');
+    const W = 1740, H = 560;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const X = y => 60 + (y-2005)/(2021) * (W-120);
+    el('line', {x1:40, x2:W-30, y1:H-80, y2:H-80, class:'axis'}, svg);
+    for (let y = 2006; y <= 2026; y += 2)
+      el('text', {x:X(y), y:H-36, 'text-anchor':'middle', class:'ticklabel'}, svg).textContent = y;
+    [[2016,2018.99],[2020,2022.99]].forEach(([a,b]) =>
+      el('rect', {x:X(a)-24, y:40, width:X(b)-X(a)+24, height:H-130, fill:'rgba(30,43,250,.06)', rx:14}, svg));
+    const stack = {};
+    D.wikipedias.filter(w => w.peak >= 5).forEach(w => {
+      const y = w.peak_year;
+      stack[y] = (stack[y] || 0) + 1;
+      const cy = H-118 - (stack[y]-1)*66;
+      el('circle', {cx:X(y), cy, r:13, fill:'#1e2bfa', opacity:.85}, svg);
+      el('text', {x:X(y), y:cy-24, 'text-anchor':'middle', class:'ticklabel',
+        style:'fill:#111;font-size:20px;font-weight:600'}, svg).textContent = w.lang;
+    });
+  }
+
+  /* 10 · bn + as lines */
+  {
+    const series = ['bn','as'].map((l, i) => ({
+      points: Object.entries(byLang[l].active).filter(([y]) => y >= 2006 && y <= 2025).map(([y,v]) => [+y, v]),
+      label: NAMES(l), width: 6.5, opacity: 1 - i*.45
+    }));
+    lineChart('chart-bnas', series);
+  }
+
+  /* 11 · sobering bars: 2025 as % of peak */
+  {
+    const picks = ['bn','as','ur','te','ne','mr','hi','ml','or','sa','kn'];
+    barList('chart-sober', picks.map(l => {
+      const w = byLang[l];
+      const pct = Math.round(w.active_2025 / w.peak * 100);
+      return {label: NAMES(l), sub: 'peak ' + w.peak_year, v: pct, text: pct + '%', dim: pct >= 60};
+    }).sort((a,b) => b.v - a.v), {max: 100});
+  }
+
+  /* 12 · mobile bars */
+  barList('chart-mobile',
+    ['hi','kn','bn','mr','ta','te','ml','gu','as','si','ur']
+      .map(l => ({label: NAMES(l), v: byLang[l].mobile_pct,
+                  text: byLang[l].mobile_pct + '%', dim: byLang[l].mobile_pct < 65}))
+      .sort((a,b) => b.v - a.v), {max: 100});
+
+  /* 13 · pageview cliff */
+  {
+    const pts = Object.entries(D.pageviews_yearly).filter(([y]) => y >= 2016).map(([y,v]) => [+y, v]);
+    lineChart('chart-pv', [{points: pts, width: 7,
+      marks: [[2023, D.pageviews_yearly['2023'], '1.73B · peak', -28],
+              [2025, D.pageviews_yearly['2025'], '968M', -28]]}],
+      {fmt: v => (v/1000).toFixed(1) + 'B'});
+  }
+
+  /* 15 · identity top-article cards */
+  {
+    const box = document.getElementById('tacards');
+    ['as','ml','ta','ne','bn','hi','si','te'].forEach(l => {
+      const w = byLang[l];
+      if (!w.top_article) return;
+      const c = document.createElement('div');
+      c.className = 'tacard';
+      c.innerHTML = `<div class="l">${w.name}</div><div class="t">${w.top_article[0]}</div>
+        <div class="v">${(w.top_article[1]/1000).toFixed(0)}k views · July</div>`;
+      box.appendChild(c);
+    });
+  }
+
+  /* 16 · counter-trend indexed lines */
+  {
+    const e20 = D.editors_yearly['2020'], c20 = D.cx_yearly['2020'];
+    const ed = Object.entries(D.editors_yearly).filter(([y]) => y >= 2016 && y <= 2025)
+      .map(([y,v]) => [+y, v/e20*100]);
+    const cx = Object.entries(D.cx_yearly).filter(([y]) => y >= 2016 && y <= 2025)
+      .map(([y,v]) => [+y, v/c20*100]);
+    lineChart('chart-cx', [
+      {points: cx, label: 'Translations +' + Math.round(cx[cx.length-1][1]-100) + '%', width: 7},
+      {points: ed, label: 'Editors −' + Math.round(100-ed[ed.length-1][1]) + '%', width: 6, opacity: .45}
+    ], {fmt: v => Math.round(v)});
+  }
+
+  /* 17 · cx share bars */
+  barList('chart-cxshare',
+    ['pa','ks','bn','te','ta','kn','sd','ml']
+      .map(l => ({label: NAMES(l), v: byLang[l].cx_share, text: byLang[l].cx_share + '%'}))
+      .sort((a,b) => b.v - a.v), {max: 60});
+
+  /* 19 · english gap pills */
+  {
+    const box = document.getElementById('engap-pills');
+    D.gaps_en_common.filter(([c]) => /^[A-Za-z0-9 .'-]+$/.test(c)).slice(0,7).forEach(([c,n]) => {
+      const p = document.createElement('div');
+      p.className = 'pill';
+      p.style.fontSize = '30px';
+      p.textContent = c;
+      box.appendChild(p);
+    });
+  }
+
+  /* 20 · gap postcards (interactive) */
+  {
+    const pairs = Object.keys(D.gap_postcards);
+    const targets = [...new Set(pairs.map(p => p.split('|')[0]))].sort();
+    const selT = document.getElementById('pc-target');
+    const selR = document.getElementById('pc-ref');
+    const wname = db => NAMES(db.replace('wiki',''));
+    targets.forEach(t => selT.add(new Option(wname(t), t)));
+    function refsFor(t){
+      return pairs.filter(p => p.startsWith(t + '|')).map(p => p.split('|')[1]);
+    }
+    function renderRefs(){
+      selR.innerHTML = '';
+      refsFor(selT.value).forEach(r => selR.add(new Option(wname(r), r)));
+    }
+    function renderCards(){
+      const rows = D.gap_postcards[selT.value + '|' + selR.value] || [];
+      const box = document.getElementById('pc-cards');
+      box.innerHTML = '';
+      rows.forEach(([cat, gap]) => {
+        const c = document.createElement('div');
+        c.className = 'card';
+        c.innerHTML = `<div class="metric-value" style="font-size:52px">${gap.toLocaleString('en-IN')}</div>
+          <div class="metric-label" style="font-family:var(--indic);font-weight:400;font-size:30px">${cat}</div>
+          <div class="metric-desc">articles ${wname(selR.value)} has and ${wname(selT.value)} lacks</div>`;
+        box.appendChild(c);
+      });
+    }
+    selT.onchange = () => { renderRefs(); renderCards(); };
+    selR.onchange = renderCards;
+    selT.value = 'mlwiki'; renderRefs(); selR.value = 'tawiki'; renderCards();
+  }
+
+  /* 21 · sister project lines */
+  {
+    const mk = (proj, op) => ({
+      points: Object.entries(D.sister_yearly[proj]).map(([y,v]) => [+y, v]),
+      label: proj === 'wikisource' ? 'Wikisource' : 'Wiktionary', width: 6.5, opacity: op
+    });
+    lineChart('chart-sisters', [mk('wikisource', 1), mk('wiktionary', .45)]);
+  }
+
+  /* 22 · lexemes world top-10 */
+  barList('chart-lexemes', D.lexemes_world_top10.map(([name, n]) => ({
+    label: name, v: n, text: (n/1000).toFixed(0) + 'k', dim: name !== 'Malayalam'
+  })));
+
+  /* 23 · india label coverage */
+  barList('chart-labels', [
+    {label: 'English', v: D.india_label_en_pct, text: D.india_label_en_pct + '%', dim: true},
+    ...['hi','ml','ta','te','bn','ur'].map(l => ({
+      label: NAMES(l), v: byLang[l].india_label_pct, text: byLang[l].india_label_pct + '%'
+    }))
+  ], {max: 100});
+
+  /* 24 · find your wiki */
+  {
+    const sel = document.getElementById('fyw-select');
+    D.wikipedias.slice().sort((a,b) => a.name < b.name ? -1 : 1)
+      .forEach(w => sel.add(new Option(w.name + ' (' + w.lang + ')', w.lang)));
+    function render(){
+      const w = byLang[sel.value];
+      const cards = [
+        [w.launch ? w.launch.slice(0,4) : '—', 'founded', w.launch || ''],
+        [w.articles.toLocaleString('en-IN'), 'articles', w.bot_pct + '% lifetime bot edits'],
+        [Math.round(w.active_2025), 'active editors (2025)', 'peak ' + Math.round(w.peak) + ' in ' + w.peak_year],
+        [w.pv_2025_m + 'M', 'pageviews in 2025', (w.mobile_pct ?? '—') + '% mobile'],
+        [w.cx_share + '%', 'articles via translation', w.cx_total.toLocaleString('en-IN') + ' translated articles'],
+        [(w.india_label_pct ?? '—') + '%', 'India items labelled', 'on Wikidata, in ' + w.name],
+        [w.admins, 'administrators', ''],
+        [Object.keys(w.sisters).length, 'sister projects', Object.entries(w.sisters)
+          .map(([p,n]) => p.replace('wik','wik') + ' ' + (n >= 1000 ? (n/1000).toFixed(0) + 'k' : n)).slice(0,3).join(' · ')],
+      ];
+      const box = document.getElementById('fyw-cards');
+      box.innerHTML = '';
+      cards.forEach(([v, l, d]) => {
+        const c = document.createElement('div');
+        c.className = 'card';
+        c.innerHTML = `<div class="metric-value">${v}</div><div class="metric-label">${l}</div><div class="metric-desc">${d}</div>`;
+        box.appendChild(c);
+      });
+      const share = Math.round(w.active_2025 / w.peak * 100);
+      let line;
+      if (w.peak_year >= 2024) line = w.name + ' is at its all-time high. Say it loudly today.';
+      else if (share >= 75) line = w.name + ' holds ' + share + '% of its best year. Resilient.';
+      else line = w.name + ' was at ' + Math.round(w.peak) + ' active editors in ' + w.peak_year +
+        '. It has been there before — it can be there again.';
+      document.getElementById('fyw-celebration').textContent = line;
+    }
+    sel.onchange = render;
+    sel.value = 'ml'; render();
+  }
+}
+init();
+show(0);
+</script>
+</body>
+</html>
