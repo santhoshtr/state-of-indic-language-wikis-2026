@@ -97,6 +97,33 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   (the same files behind cxstats.toolforge.org).
 * Last fetched: 2026-08-29
 
+## topic_pageviews.csv, topic_edits.csv
+
+* What: top 25 categories per Wikipedia by pageviews and by edits,
+  for a recent 60-day window (the columns record the window), with
+  each category's top article. Category titles are English labels.
+* Caution: topictrends holds recent data only; no history.
+  magwiki is not indexed. Some small-wiki English labels resolve
+  to wrong languages; clean before charting.
+* Script: `scripts/fetch_topictrends.py`
+* Source: topictrends.wmcloud.org API.
+* Last fetched: 2026-08-30 (window 2026-07-01..2026-08-29)
+
+## gaps.csv
+
+* What: knowledge gap discovery per Wikipedia. Top 50 categories
+  where the target lacks articles the reference has, ranked by
+  estimated missing readership (reference pageviews x gap share).
+  References: enwiki for every wiki; all pairs among the eight
+  largest communities; a family anchor for smaller wikis
+  (editorial choice, see the script).
+* Caution: the ranking weight uses the REFERENCE wiki's pageviews,
+  so gaps vs English skew to high-traffic American topics. That
+  skew is a finding, not an error; peer references avoid it.
+* Script: `scripts/fetch_topictrends.py`
+* Source: topictrends.wmcloud.org, coverage snapshot 2026-06-23.
+* Last fetched: 2026-08-30
+
 ## pageviews_by_country.csv
 
 * What: pageviews by reader country per wiki, last full month.

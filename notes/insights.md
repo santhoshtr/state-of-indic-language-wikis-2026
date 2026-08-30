@@ -149,3 +149,41 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   published translations, lifetime. The tool's bad reputation for
   raw machine dumps is not supported by survival numbers on most
   Indic wikis.
+
+## From topic trends (D, window 2026-07-01..2026-08-29)
+
+* **Readers come to Indic wikis for identity.** "India" is the #1
+  reader category on most wikis, and each wiki's top article is
+  local: Zubeen Garg (as), Basheer (ml), K. Kamaraj (ta),
+  Bhanubhakta Acharya (ne), Sigiriya (si), Annabhau Sathe (mr).
+  Urdu's #1 category is Islam; Telugu and Tulu: Hinduism.
+  The Indic wikis are identity encyclopedias; English serves the
+  global topics. A defining slide.
+* **Readers and editors mostly align.** 7-8 of the top-10 reader
+  categories are also top-10 editor categories on hi, as, kn, ne.
+  Lowest alignment on the bot-built wikis (bpy, anp, new) where
+  editing is mechanical.
+* **Bhojpuri anomaly: its top reader category is Gambling, top
+  article Sports betting.** Likely SEO-driven traffic. Investigate
+  before showing; interesting either way.
+* Data quirk: some small-wiki category labels resolve to wrong
+  languages (anp shows Abkhaz labels). Clean before charting.
+
+## From knowledge gaps (E, coverage snapshot 2026-06-23)
+
+* **The gap to English is mostly a gap of American actors.**
+  For every single Indic wiki, the top gap categories vs English
+  are: United States, American people, Film actors, Television
+  actors. Measuring against English measures distance from
+  American pop culture. This VALIDATES the talk's peer-comparison
+  thesis: the English gap is not the gap communities should chase.
+* **Peer gaps are local, actionable, and asymmetric.**
+  Malayalam lacks 5,429 Tamil-cinema articles Tamil has; Tamil
+  lacks only 158 Malayalam-poet articles Malayalam has.
+  Hindi lacks 3,149 football articles Bengali has (Bengal's
+  football culture, visible in data). Kannada lacks 5,546 India
+  articles Telugu has; Telugu lacks 561 Kannada-literature
+  articles. Each pair tells both wikis what to borrow.
+  These make great "gap postcards" between communities.
+* topictrends does not index magwiki (too new). Window data is
+  recent-only by design; no historic topic shifts.

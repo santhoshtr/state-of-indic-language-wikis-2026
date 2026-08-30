@@ -39,7 +39,11 @@ def get(url, **kwargs):
             wait = min(int(resp.headers.get("Retry-After", delay)), 120)
             print(f"  rate limited, waiting {wait}s ...")
         else:
-            wait = delay
+            # A persistent 5xx usually means the data does not exist.
+            # Two quick retries cover the transient case.
+            if attempt >= 2:
+                return resp
+            wait = min(delay, 60)
             print(f"  server error {resp.status_code}, retrying in {wait}s ...")
         time.sleep(wait)
         delay *= 2
