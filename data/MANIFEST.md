@@ -150,6 +150,18 @@ Each entry: what the file is, which script makes it, when it was last fetched.
   60s limit cannot serve these counts.
 * Last fetched: 2026-08-30
 
+## ml_lexemes.csv
+
+* What: every Malayalam lexeme on Wikidata, one row per lexeme:
+  id, lemma, lexical category, sense count, form count. Sorted by
+  lemma. For manual inspection of how Malayalam is modeled.
+* Finding at fetch time: 55,723 of 67,390 lexemes (83%) have zero
+  senses, and 80% are nouns — consistent with a bulk word-list
+  import rather than curated lexicography.
+* Script: `scripts/fetch_ml_lexemes.py`
+* Source: QLever Wikidata endpoint (periodic snapshot).
+* Last fetched: 2026-08-31
+
 ## pageviews_by_country.csv
 
 * What: pageviews by reader country per wiki, last full month.

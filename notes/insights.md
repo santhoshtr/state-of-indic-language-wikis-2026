@@ -207,6 +207,12 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   active community than most Indic Wikipedias. Bengali Wikisource
   and Tulu Wikisource are at all-time highs; so is Santali
   Wiktionary (~12 active). Celebration moments by name.
+* CAUTION (added 2026-08-31): Santhosh questions the lexeme count.
+  Malayalam is morphologically productive; a materialized lexeme
+  list is a debated model for it. The dump (data/ml_lexemes.csv)
+  shows 83% of the lexemes have zero senses and 80% are nouns —
+  a bulk word-list import. Soften or reframe the slide below
+  before presenting.
 * **Malayalam is #6 in the WORLD for Wikidata lexemes** (67,372) —
   ahead of Spanish, Italian, French, and Arabic, and about 3x all
   other Indic languages combined (bn 11.8k, pa 3.8k, hi 2.6k,
