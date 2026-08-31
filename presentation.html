@@ -272,24 +272,18 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Founding waves</div></div>
   <h2 class="rise">Two founding waves</h2>
   <div class="chart rise2"><svg id="chart-waves"></svg></div>
-  <div class="note"><b>Odia was first (1 June 2002)</b>; Assamese, Nepali, Punjabi and Malayalam followed within the week.</div>
+  <div class="note"><b>Odia was first (1 June 2002)</b>; Assamese, Nepali, and Punjabi followed within the week.</div>
 </section>
 
 <!-- === 5 · NEWBORN === -->
 <section class="slide" data-name="newborn">
   <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">The newest of us</div></div>
   <h2 class="rise">A 3 months old baby wiki</h2>
-  <div class="grid2 rise2" style="margin-top:50px">
-    <div class="card">
-      <div class="metric-value" style="font-size:72px">18 June 2026</div>
-      <div class="metric-label">Magahi Wikipedia (mag) launched</div>
-      <div class="metric-desc">The 30th Indic Wikipedia — eleven weeks old today. A newborn wiki is in this room.</div>
-    </div>
-    <div class="card">
-      <div class="metric-value" style="font-size:72px">4 waiting</div>
-      <div class="metric-label">Still in the Incubator</div>
-      <div class="pillrow"><div class="pill">Dogri</div><div class="pill">Khowar</div><div class="pill">Mizo</div><div class="pill">Bodo</div></div>
-      <div class="metric-desc" style="margin-top:18px">Who in this room helps one of them graduate next?</div>
+  <div class="rise2" style="margin-top:50px;max-width:1100px">
+    <div class="card" style="padding:44px 50px">
+      <div class="metric-value" style="font-size:84px">18 June 2026</div>
+      <div class="metric-label" style="font-size:32px">Magahi Wikipedia (mag) launched</div>
+      <div class="metric-desc" style="font-size:26px;margin-top:14px">The 30th Indic Wikipedia.</div>
     </div>
   </div>
 </section>
@@ -340,6 +334,18 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <h2 class="rise">2025 activity as a share of each wiki's best year <span class="dim">— what will reverse this?</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-sober"></div></div>
   <div class="note">Not a list of failures — a list of communities whose best years prove what is possible. The agenda for these three days.</div>
+</section>
+
+<!-- === 11b · ADMIN CAPACITY === -->
+<section class="slide" data-name="admins">
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">Admin capacity</div></div>
+  <h2 class="rise">Who keeps the lights on? <span class="dim">— ten Wikipedias run on one or two administrators</span></h2>
+  <div class="chart rise2" style="top:300px;right:700px;bottom:170px"><div class="bars" id="chart-admins"></div></div>
+  <div style="position:absolute;right:90px;top:320px;width:520px" class="rise3">
+    <div class="card"><div class="metric-value">10<span style="font-size:44px;color:var(--muted)"> of 30</span></div><div class="metric-label">Wikipedias have 1-2 admins</div><div class="metric-desc">every deletion, block, and cleanup lands on the same one or two people</div></div>
+    <div class="card" style="margin-top:20px"><div class="metric-value">0</div><div class="metric-label">admins on Tulu Wiktionary</div><div class="metric-desc">for contrast: Tamil Wikipedia has 31, Bengali 16</div></div>
+  </div>
+  <div class="note">A 2025 Wikimedia Foundation study found the same pattern movement-wide: admin cohorts are aging and recruitment is not keeping up — <a href="https://meta.wikimedia.org/wiki/Research:Wikipedia_Administrator_Recruitment,_Retention,_and_Attrition/Report" style="color:var(--primary)">Research: Wikipedia Administrator Recruitment, Retention, and Attrition (2025)</a>.</div>
 </section>
 
 <!-- === 12 · MOBILE === -->
@@ -713,6 +719,16 @@ function init(){
       const pct = Math.round(w.active_2025 / w.peak * 100);
       return {label: NAMES(l), sub: 'peak ' + w.peak_year, v: pct, text: pct + '%', dim: pct >= 60};
     }).sort((a,b) => b.v - a.v), {max: 100});
+  }
+
+  /* 11b · admin capacity bars: the thin end */
+  {
+    const thin = D.wikipedias.filter(w => w.admins <= 2)
+      .sort((a,b) => a.admins - b.admins || a.articles - b.articles);
+    barList('chart-admins', thin.map(w => ({
+      label: w.name, sub: (w.articles >= 1000 ? Math.round(w.articles/1000) + 'k' : w.articles) + ' articles',
+      v: Math.max(w.admins, .15), text: String(w.admins)
+    })), {max: 31});
   }
 
   /* 12 · mobile bars */
