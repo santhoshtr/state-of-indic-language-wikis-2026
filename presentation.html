@@ -6,7 +6,7 @@
 <title>State of Indic Language Wikis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Malayalam&family=Noto+Sans+Tamil&family=Noto+Sans+Telugu&family=Noto+Sans+Bengali&family=Noto+Sans+Devanagari&family=Noto+Sans+Kannada&family=Noto+Sans+Gurmukhi&family=Noto+Sans+Oriya&family=Noto+Sans+Ol+Chiki&family=Noto+Sans+Sinhala&family=Noto+Sans+Arabic&family=Noto+Sans+Thaana&family=Noto+Sans+Meetei+Mayek&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Malayalam&family=Noto+Sans+Tamil&family=Noto+Sans+Telugu&family=Noto+Sans+Bengali&family=Noto+Sans+Devanagari&family=Noto+Sans+Kannada&family=Noto+Sans+Gurmukhi&family=Noto+Sans+Sinhala&family=Noto+Sans+Arabic&display=swap" rel="stylesheet">
 <style>
 /* ===========================================
    FIXED 16:9 STAGE: MANDATORY BASE STYLES
@@ -91,7 +91,7 @@ img, video, canvas, svg {
   --primary:#1e2bfa;
   --text:#111111;
   --muted:#6b6b6b;
-  --light:#9a9a9a;
+  --light:#6b6b6b;
   --accent-light:rgba(30,43,250,.08);
   --border:rgba(30,43,250,.2);
   --card:rgba(30,43,250,.04);
@@ -100,9 +100,8 @@ img, video, canvas, svg {
   --grot:'Space Grotesk',sans-serif;
   --inter:'Inter',sans-serif;
   --indic:'Noto Sans Malayalam','Noto Sans Tamil','Noto Sans Telugu','Noto Sans Bengali',
-          'Noto Sans Devanagari','Noto Sans Kannada','Noto Sans Gurmukhi','Noto Sans Oriya',
-          'Noto Sans Ol Chiki','Noto Sans Sinhala','Noto Sans Arabic','Noto Sans Thaana',
-          'Noto Sans Meetei Mayek','Inter',sans-serif;
+          'Noto Sans Devanagari','Noto Sans Kannada','Noto Sans Gurmukhi','Noto Sans Sinhala',
+          'Noto Sans Arabic','Inter',sans-serif;
 }
 
 /* === SLIDE SKELETON === */
@@ -157,8 +156,6 @@ h2 .dim{color:var(--muted);font-weight:500}
 .cover-inner{position:absolute;left:100px;top:230px;width:1250px}
 .cover .meta-row{font-family:var(--grot);font-size:25px;letter-spacing:.05em;color:var(--muted);margin-top:16px}
 .cover h1{font-family:var(--grot);font-weight:700;font-size:118px;line-height:1.06;letter-spacing:-.02em;margin:34px 0 0}
-.cover .scripts{font-family:var(--indic);font-size:42px;color:var(--muted);margin-top:56px;line-height:1.8;width:1150px}
-.cover .scripts b{color:var(--primary);font-weight:400}
 .cover .who{position:absolute;left:100px;bottom:90px;font-family:var(--grot);font-size:26px;color:var(--muted)}
 
 /* === QUOTE-CLASS SLIDE === */
@@ -234,9 +231,8 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="cover-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="cover-inner">
     <div class="accent-line rise"></div>
-    <div class="meta-row rise">Wiki Conference India 2026 · Keynote · Kochi · 4 September</div>
+    <div class="meta-row rise">Wiki Conference India 2026 · Kochi · 5 September</div>
     <h1 class="rise2">State of Indic<br>Language Wikis</h1>
-    <div class="scripts rise3">വിക്കി · விக்கி · উইকি · विकि · వికీ · <b>ವಿಕಿ</b> · ਵਿਕੀ · ଉଇକି · ᱣᱤᱠᱤ · විකි · ویکی</div>
   </div>
   <div class="who">Santhosh Thottingal</div>
 </section>
@@ -249,7 +245,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <ol class="insights rise2">
     <li><b>Against our own history</b> — where was each wiki at its best, and where is it now?</li>
     <li><b>Against our peers</b> — wikis with similar demography, not against English.</li>
-    <li><b>Honestly</b> — the numbers that celebrate us and the numbers that worry us, side by side.</li>
+    <li><b>Both lists</b> — the numbers that celebrate us and the numbers that worry us, side by side.</li>
   </ol>
   <div class="note rise3">All data is public and reproducible. Every chart in this deck comes from open APIs and open scripts.</div>
 </section>
@@ -315,7 +311,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 
 <!-- === 8 · EDITOR HEADLINE === -->
 <section class="slide" data-name="editors">
-  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The honest headline</div></div>
+  <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The headline</div></div>
   <h2 class="rise">Active editors grew for sixteen years.<br><span class="dim">Then 2020 happened — and we are</span> <span class="chip-neg">−27%</span> <span class="dim">since.</span></h2>
   <div class="chart rise2" style="top:340px"><svg id="chart-editors"></svg></div>
   <div class="note">Registered editors with 5+ edits per month, summed over all Indic Wikipedias (shape is reliable; a person active on two wikis counts twice).</div>
@@ -359,8 +355,8 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <h2 class="rise">Pageviews: a peak in 2023, then a cliff</h2>
   <div class="chart rise2" style="right:640px"><svg id="chart-pv"></svg></div>
   <div class="highlight rise3" style="position:absolute;right:90px;top:330px;width:460px">
-    Read this honestly: bot detection improved in 2024-25, so the old numbers were inflated —
-    and AI answers really are keeping readers away. Both things are true.
+    Two things are true at once: bot detection improved in 2024-25, so the
+    old numbers were inflated — and AI answers really are keeping readers away.
   </div>
   <div class="note">Human pageviews per year, all Indic Wikipedias, millions (Wikimedia Pageviews API).</div>
 </section>
@@ -491,7 +487,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
     <li><b>Who labels India?</b> 912k items are waiting to say their own names.</li>
   </ol>
   <div class="rise3" style="margin-top:44px">
-    <span class="cta">All data, scripts, and this deck: github.com/santhoshtr/state-of-indic-language-wikis</span>
+    <span class="cta">All data, scripts, and this deck: github.com/santhoshtr/state-of-indic-language-wikis-2026</span>
   </div>
 </section>
 
