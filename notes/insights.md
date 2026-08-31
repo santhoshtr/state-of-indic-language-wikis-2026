@@ -213,12 +213,12 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   shows 83% of the lexemes have zero senses and 80% are nouns —
   a bulk word-list import. Soften or reframe the slide below
   before presenting.
-* **Malayalam is #6 in the WORLD for Wikidata lexemes** (67,372) —
-  ahead of Spanish, Italian, French, and Arabic, and about 3x all
-  other Indic languages combined (bn 11.8k, pa 3.8k, hi 2.6k,
-  sa 1.5k, ta 1.1k). The single biggest Indic celebration in the
-  data. (Hindi and Urdu lexemes live under "Hindustani" on
-  Wikidata — a trivia point of its own.)
+* RETIRED CLAIM (2026-08-31): "Malayalam is #6 in the world for
+  Wikidata lexemes" is invalid as a celebration — the count is a
+  bulk word-list import (83% senseless, 80% nouns), and lexeme
+  materialization is a debated model for a morphologically
+  productive language. The slide now shows Indic lexeme counts
+  with that caveat. Raw counts stay in wikidata_stats.csv.
 * **India's knowledge graph speaks English.** Of 912,073 Wikidata
   items about India (country = India), 89% have an English label.
   The best Indic coverage: Hindi 7.8%, Malayalam 7.2%, Tamil 6.2%,

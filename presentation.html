@@ -469,10 +469,10 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 
 <!-- === 22 · LEXEMES === -->
 <section class="slide" data-name="lexemes">
-  <div class="slide-header"><div class="eyebrow">Sister projects · Wikidata</div><div class="tag">A world ranking</div></div>
-  <h2 class="rise">Malayalam is #6 in the world for Wikidata lexemes</h2>
+  <div class="slide-header"><div class="eyebrow">Sister projects · Wikidata</div><div class="tag">Lexicographical data</div></div>
+  <h2 class="rise">Wikidata lexemes across Indic languages <span class="dim">— counts are not coverage</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-lexemes"></div></div>
-  <div class="note">Ahead of Spanish, Italian, French, and Arabic — and ~3× all other Indic languages combined. Trivia: Hindi and Urdu lexemes live under "Hindustani".</div>
+  <div class="note"><b>The big number is hollow: 83% of the Malayalam lexemes carry no senses, and 80% are nouns</b> — a bulk word-list import, not lexicography. And Malayalam is morphologically productive: a materialized word list is a debated model for it in the first place. Hindi and Urdu lexemes live under "Hindustani".</div>
 </section>
 
 <!-- === 23 · LABEL GAP === -->
@@ -851,10 +851,16 @@ function init(){
     lineChart('chart-sisters', [mk('wikisource', 1), mk('wiktionary', .45)]);
   }
 
-  /* 22 · lexemes world top-10 */
-  barList('chart-lexemes', D.lexemes_world_top10.map(([name, n]) => ({
-    label: name, v: n, text: (n/1000).toFixed(0) + 'k', dim: name !== 'Malayalam'
-  })));
+  /* 22 · lexeme counts across Indic languages */
+  {
+    const top = D.wikipedias.filter(w => w.lexemes > 0)
+      .sort((a,b) => b.lexemes - a.lexemes).slice(0, 10);
+    barList('chart-lexemes', top.map(w => ({
+      label: w.name, v: w.lexemes,
+      text: w.lexemes >= 1000 ? (w.lexemes/1000).toFixed(1) + 'k' : String(w.lexemes),
+      dim: w.lang !== 'ml'
+    })));
+  }
 
   /* 23 · india label coverage */
   barList('chart-labels', [
