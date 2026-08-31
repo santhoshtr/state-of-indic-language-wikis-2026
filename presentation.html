@@ -292,8 +292,9 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <section class="slide" data-name="growth">
   <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Content growth</div></div>
   <h2 class="rise">Twenty-four years of building</h2>
+  <button class="pill" id="ur-toggle" style="position:absolute;right:90px;top:200px;cursor:pointer;border:1.5px solid var(--border)">Hide Urdu</button>
   <div class="chart rise2"><svg id="chart-growth"></svg></div>
-  <div class="note">Cumulative content pages created per wiki (Wikistats). <b>That vertical jump on Urdu? ~390k pages mass-created between March and July 2026</b> — hold that thought for the next slide.</div>
+  <div class="note">Cumulative content pages created per wiki (Wikistats). <b>That vertical jump on Urdu? ~390k pages created between March and July 2026</b> — a rapid human creation drive, not a bot run (verified from the recent edits).</div>
 </section>
 
 <!-- === 7 · SIZE ≠ COMMUNITY === -->
@@ -301,15 +302,15 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Size is not community</div></div>
   <h2 class="rise">The largest wikis were not written the same way <span class="dim">— bot share of lifetime edits</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-bots"></div></div>
-  <div class="note">Article count and community size are different facts. Present them together, always.</div>
+  <div class="note">Article count and community size are different facts.</div>
 </section>
 
 <!-- === 8 · EDITOR HEADLINE === -->
 <section class="slide" data-name="editors">
   <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The headline</div></div>
-  <h2 class="rise">Active editors grew for sixteen years.<br><span class="dim">Then 2020 happened — and we are</span> <span class="chip-neg">−27%</span> <span class="dim">since.</span></h2>
+  <h2 class="rise">Active editors grew for sixteen years.<br><span class="dim">Then we are</span> <span class="chip-neg">−27%</span> <span class="dim">since 2020.</span></h2>
   <div class="chart rise2" style="top:340px"><svg id="chart-editors"></svg></div>
-  <div class="note">Registered editors with 5+ edits per month, summed over all Indic Wikipedias (shape is reliable; a person active on two wikis counts twice).</div>
+  <div class="note">Registered editors with 5+ edits per month, summed over all Indic Wikipedias (A person active on two wikis counts twice).</div>
 </section>
 
 <!-- === 9 · PEAK ERAS === -->
@@ -317,7 +318,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">When each wiki peaked</div></div>
   <h2 class="rise">Peaks cluster in two eras. <span class="dim">What were the programs behind them?</span></h2>
   <div class="chart rise2"><svg id="chart-eras"></svg></div>
-  <div class="note">Each dot is one Wikipedia, placed at the year its active-editor count peaked. A question for this room, not for the data.</div>
+  <div class="note">Each dot is one Wikipedia, placed at the year its active-editor count peaked. vertical.</div>
 </section>
 
 <!-- === 10 · CELEBRATIONS === -->
@@ -353,7 +354,9 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">How we are read</div></div>
   <h2 class="rise">Our readers moved to phones. <span class="dim">Our editing culture did not.</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-mobile"></div></div>
-  <div class="note">Share of 2025 pageviews from mobile. Urdu's low share comes with a suspicious reader-country pattern — treat it as bot residue, not desktop love.</div>
+  <div class="note">Share of 2025 pageviews from mobile. Urdu's low share comes with a suspicious bot activity
+ 
+  </div>
 </section>
 
 <!-- === 13 · PAGEVIEW CLIFF === -->
@@ -362,8 +365,8 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <h2 class="rise">Pageviews: a peak in 2023, then a cliff</h2>
   <div class="chart rise2" style="right:640px"><svg id="chart-pv"></svg></div>
   <div class="highlight rise3" style="position:absolute;right:90px;top:330px;width:460px">
-    Two things are true at once: bot detection improved in 2024-25, so the
-    old numbers were inflated — and AI answers really are keeping readers away.
+    Bot detection improved in 2024-25, so the
+    old numbers were inflated. <br/> AI answers really are keeping readers away?
   </div>
   <div class="note">Human pageviews per year, all Indic Wikipedias, millions (Wikimedia Pageviews API).</div>
 </section>
@@ -579,14 +582,21 @@ function lineChart(svgId, seriesList, opts = {}){
   for (let x = x0; x <= x1; x += step)
     el('text', {x:X(x), y:H-P.b+38, 'text-anchor':'middle', class:'ticklabel'}, svg).textContent = x;
   el('line', {x1:P.l, x2:W-P.r, y1:H-P.b, y2:H-P.b, class:'axis'}, svg);
+  const labelYs = [];
   seriesList.forEach(s => {
     const d = s.points.map((p,i) => (i?'L':'M') + X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join('');
     el('path', {d, fill:'none', stroke:'#1e2bfa', 'stroke-width':s.width||6,
       'stroke-linecap':'round', opacity:s.opacity ?? 1,
       'stroke-dasharray':s.dash||'none'}, svg);
     const last = s.points[s.points.length-1];
-    if (s.label) el('text', {x:X(last[0])-8, y:Y(last[1])-18, 'text-anchor':'end',
-      class:'serieslabel', opacity:s.opacity ?? 1}, svg).textContent = s.label;
+    if (s.label) {
+      // nudge the end label down until it clears earlier labels
+      let ly = Y(last[1]) - 18;
+      while (labelYs.some(y => Math.abs(y - ly) < 30)) ly += 30;
+      labelYs.push(ly);
+      el('text', {x:X(last[0])-8, y:ly, 'text-anchor':'end',
+        class:'serieslabel', opacity:s.opacity ?? 1}, svg).textContent = s.label;
+    }
     (s.marks||[]).forEach(([mx,my,txt,dy]) => {
       el('circle', {cx:X(mx), cy:Y(my), r:11, fill:'#1e2bfa'}, svg);
       const nearEdge = X(mx) > W - 160;
@@ -654,14 +664,27 @@ function init(){
       style:'font-size:22px'}, svg).textContent = 'eight silent years';
   }
 
-  /* 6 · growth lines */
+  /* 6 · growth lines, with a hide-Urdu toggle: the 2026 Urdu
+     creation drive flattens every other wiki's curve */
   {
-    const picks = ['ur','bn','ta','hi','ml','te'];
-    lineChart('chart-growth', picks.map((l, i) => ({
-      points: byLang[l].growth,
-      label: `${NAMES(l)} ${(byLang[l].articles/1000).toFixed(0)}k`,
-      width: 5.5, opacity: 1 - i*0.13
-    })), {fmt: v => (v/1000).toFixed(0) + 'k'});
+    const drawGrowth = hideUr => {
+      const picks = (hideUr ? [] : ['ur']).concat(['bn','ta','hi','ml','te']);
+      const svg = document.getElementById('chart-growth');
+      svg.innerHTML = '';
+      lineChart('chart-growth', picks.map((l, i) => ({
+        points: byLang[l].growth,
+        label: `${NAMES(l)} ${(byLang[l].articles/1000).toFixed(0)}k`,
+        width: 5.5, opacity: 1 - i*0.13
+      })), {fmt: v => (v/1000).toFixed(0) + 'k'});
+    };
+    drawGrowth(false);
+    let hidden = false;
+    document.getElementById('ur-toggle').onclick = () => {
+      hidden = !hidden;
+      drawGrowth(hidden);
+      document.getElementById('ur-toggle').textContent =
+        hidden ? 'Show Urdu' : 'Hide Urdu';
+    };
   }
 
   /* 7 · bot share bars */

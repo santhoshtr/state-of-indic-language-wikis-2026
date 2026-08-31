@@ -67,9 +67,11 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   85%. Article count is not community. Present size
   always next to human activity.
 * **Urdu became the largest Indic Wikipedia only in 2026**: ~390k
-  content pages were mass-created between March and July 2026
-  (peak 175k in June). Before that run, Urdu had ~240k created
-  pages, similar to Bengali and Tamil. (Wikistats new_pages.)
+  content pages were created between March and July 2026 (peak
+  175k in June). Not a bot run: Santhosh verified from the recent
+  edits (2026-08-31) that this is rapid human creation. Before the
+  drive, Urdu had ~240k created pages, similar to Bengali and
+  Tamil. (Wikistats new_pages.)
 * **Indic active editors (5+/month) peaked in 2020 at ~1,450 and
   declined ~27% to ~1,060 in 2025.** Growth 2004-2020 was almost
   monotonic; the decline since is steady. The honest health headline,
