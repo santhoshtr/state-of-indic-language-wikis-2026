@@ -5,18 +5,20 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
 
 ## From the inventory (A)
 
-* **103 Indic wikis exist**: 32 Wikipedias, 25 Wiktionaries,
-  14 Wikisources, plus Wikiquote, Wikibooks, Wikinews, Wikivoyage,
+* **89 open Indic wikis exist**: 30 Wikipedias, 20 Wiktionaries,
+  14 Wikisources, plus Wikiquote, Wikibooks, Wikivoyage,
   Wikiversity. The family is much bigger than "Wikipedia".
+  (Counts exclude closed wikis, and the scope excludes pnb and dv
+  since 2026-08-31.)
 * **First revision timestamps lie.** Bhojpuri Wikipedia launched on
   21 Feb 2003 (List of Wikipedias), but its database holds a revision
   from 2001-08. Doteli shows edits from 2002 for a 2017 wiki.
   Founding dates come from the List of Wikipedias (`launch_date`
   column), never from first revisions.
-* **Two founding waves, six silent years between.** Pioneer wave
-  2002-2006: 22 Wikipedias in five years (or, as, ne, pa in June 2002
-  through bpy in 2006). Then pnb alone in 2008, and total silence
-  2009-2014. Incubator-graduation wave 2014-2026: mai 2014, gom 2015,
+* **Two founding waves, eight silent years between.** Pioneer wave
+  2002-2006: 21 Wikipedias in five years (or, as, ne, pa in June 2002
+  through bpy in 2006). Then total silence 2007-2014.
+  Incubator-graduation wave 2014-2026: mai 2014, gom 2015,
   tcy 2016, dty 2017, sat 2018, awa 2020, mni 2021,
   anp 2023, mag 2026. Cohort story: what closed the pipeline, and
   what reopened it? (Dates confirmed by List of Wikipedias and
@@ -51,7 +53,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   articles). Tamil Wiktionary: 409k entries. Gujarati Wikisource
   (66k text pages) is the largest Indic Wikisource, while Gujarati
   Wikipedia (31k) is mid-table. Celebration material, by name.
-* **Admin capacity is thin at the edges**: 12 Wikipedias run with
+* **Admin capacity is thin at the edges**: 10 Wikipedias run with
   1-2 admins; tcy.wiktionary has zero. Newar Wikipedia holds 74k
   articles with 2 admins and 32 active users (bot-created legacy?).
 * **Newar and Bishnupriya paradox**: large article counts (74k, 25k)
@@ -62,7 +64,7 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
 
 * **The Urdu paradox resolved**: the largest Indic Wikipedia (674k
   articles) has a 67% lifetime bot edit share. Newar: 91%, Bishnupriya:
-  85%, Dhivehi: 63%. Article count is not community. Present size
+  85%. Article count is not community. Present size
   always next to human activity.
 * **Urdu became the largest Indic Wikipedia only in 2026**: ~390k
   content pages were mass-created between March and July 2026

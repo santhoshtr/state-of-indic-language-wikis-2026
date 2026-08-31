@@ -42,7 +42,6 @@ ur,en,165
 ta,en,161
 bn,hi,148
 ur,pnb,143
-en,pnb,143
 ur,ks,130
 gu,en,126
 pa,ur,122
@@ -78,7 +77,6 @@ pnb,sd,49
 en,anp,48
 pa,en,46
 as,bn,45
-en,dv,44
 hi,as,42
 pnb,ur,42
 ne,dty,41
@@ -177,7 +175,6 @@ es,pa,10
 mr,sa,10
 en,bpy,10
 ta,fr,10
-ar,dv,10
 sd,en,10
 fr,si,9
 bn,uk,9
@@ -245,7 +242,6 @@ hi,zh,5
 sd,fa,5
 si,hi,5
 fr,ta,5
-fa,pnb,5
 bn,or,5
 gu,ur,5
 bn,sat,5
@@ -274,9 +270,7 @@ es,te,4
 ur,simple,4
 ta,mr,4
 ca,ks,4
-ar,pnb,4
 mai,en,4
-ru,pnb,4
 en,pi,4
 hi,id,4
 ml,ur,4
@@ -302,7 +296,6 @@ hi,cr,4
 fr,te,4
 pt,ur,4
 ta,bn,4
-simple,dv,4
 or,bn,4
 as,or,3
 nl,ur,3
@@ -331,7 +324,6 @@ de,te,3
 hi,th,3
 sat,en,3
 hi,ang,3
-pt,dv,3
 ne,bh,3
 et,bn,3
 arz,ur,3
@@ -342,7 +334,6 @@ mr,pa,3
 ta,de,3
 ml,fr,3
 bn,ru,3
-ja,dv,3
 sa,en,3
 pl,bn,3
 bh,gu,3
@@ -392,7 +383,6 @@ as,dz,2
 pl,hi,2
 ur,it,2
 sr,ur,2
-pnb,mzn,2
 simple,sat,2
 bh,as,2
 bn,de,2
@@ -401,7 +391,6 @@ hi,pt,2
 kn,gu,2
 sa,bn,2
 en-simple,ml,2
-fa,dv,2
 ar,si,2
 vi,bn,2
 fr,dty,2
@@ -457,9 +446,7 @@ sa,kn,2
 zh,ta,2
 simple,ne,2
 ps,sd,2
-es,pnb,2
 pt,ks,2
-he,dv,2
 kn,ta,2
 hu,hi,2
 fr,mr,2
@@ -474,7 +461,6 @@ ur,ta,2
 ro,ml,2
 war,ta,2
 zh,ur,2
-dv,simple,2
 hi,vi,2
 ta,pt,2
 es,new,2
@@ -564,7 +550,6 @@ ceb,tcy,1
 cr,bn,1
 awa,mai,1
 te,si,1
-fr,pnb,1
 es,as,1
 lt,bn,1
 mai,uk,1
@@ -583,11 +568,9 @@ zu,te,1
 de,mai,1
 tr,pa,1
 bn,lo,1
-skr,pnb,1
 gu,af,1
 ha,mai,1
 am,ur,1
-pt,pnb,1
 bs,te,1
 ar,awa,1
 ur,en-simple,1
@@ -596,9 +579,6 @@ ur,uk,1
 nl,bn,1
 ta,sa,1
 bcl,hi,1
-es,dv,1
-simple,pnb,1
-tr,pnb,1
 bn,bbc,1
 ee,bn,1
 gu,jv,1
@@ -612,7 +592,6 @@ ku,ur,1
 sd,io,1
 si,new,1
 pi,mai,1
-pl,pnb,1
 ml,be,1
 gu,or,1
 ur,he,1
@@ -623,7 +602,6 @@ rw,hi,1
 sd,pnb,1
 th,pi,1
 si,ta,1
-pnb,cu,1
 bn,ceb,1
 ml,en-simple,1
 el,bn,1
@@ -645,7 +623,6 @@ hi,en-simple,1
 ckb,ta,1
 fr,as,1
 fr,gom,1
-pnb,skr,1
 tr,kn,1
 ps,or,1
 bh,es,1
@@ -666,7 +643,6 @@ or,mr,1
 eo,sa,1
 simple,as,1
 mai,gu,1
-ps,pnb,1
 bh,ko,1
 bn,et,1
 ha,bh,1
@@ -720,7 +696,6 @@ awa,sa,1
 si,af,1
 bg,sd,1
 bn,ary,1
-dv,en,1
 bn,ks,1
 sl,ml,1
 ha,kn,1
@@ -811,7 +786,6 @@ ckb,te,1
 war,bn,1
 te,eo,1
 az,sd,1
-id,dv,1
 or,eu,1
 pa,zu,1
 be,new,1
@@ -823,7 +797,6 @@ iu,bn,1
 ja,ks,1
 ur,mni,1
 hi,sco,1
-ceb,pnb,1
 ne,sd,1
 kn,mr,1
 as,simple,1
@@ -843,7 +816,6 @@ ca,gu,1
 ur,mzn,1
 hi,sq,1
 ne,vec,1
-ckb,dv,1
 te,mai,1
 sa,si,1
 en-simple,te,1
@@ -925,7 +897,6 @@ az,pa,1
 sd,ku,1
 pa,hif,1
 si,sv,1
-pnb,azb,1
 bn,ca,1
 bn,oc,1
 gu,ta,1

@@ -22,7 +22,6 @@ month,target_lang,translations
 2015-06,new,1
 2015-06,or,7
 2015-06,pi,1
-2015-06,pnb,1
 2015-06,sa,1
 2015-06,sd,1
 2015-06,si,1
@@ -40,7 +39,6 @@ month,target_lang,translations
 2015-07,ne,8
 2015-07,or,6
 2015-07,pa,5
-2015-07,pnb,2
 2015-07,sa,1
 2015-07,sd,1
 2015-07,si,4
@@ -64,7 +62,6 @@ month,target_lang,translations
 2015-08,ur,34
 2015-09,as,3
 2015-09,bn,22
-2015-09,dv,1
 2015-09,gom,1
 2015-09,gu,27
 2015-09,hi,22
@@ -74,7 +71,6 @@ month,target_lang,translations
 2015-09,ne,6
 2015-09,or,4
 2015-09,pa,1
-2015-09,pnb,1
 2015-09,sd,103
 2015-09,si,7
 2015-09,ta,67
@@ -121,7 +117,6 @@ month,target_lang,translations
 2015-12,new,7
 2015-12,or,1
 2015-12,pa,129
-2015-12,pnb,1
 2015-12,sa,1
 2015-12,sd,36
 2015-12,si,6
@@ -158,7 +153,6 @@ month,target_lang,translations
 2016-02,new,1
 2016-02,or,3
 2016-02,pa,72
-2016-02,pnb,1
 2016-02,sd,3
 2016-02,si,8
 2016-02,ta,40
@@ -199,7 +193,6 @@ month,target_lang,translations
 2016-04,ur,19
 2016-05,as,3
 2016-05,bn,60
-2016-05,dv,2
 2016-05,gom,1
 2016-05,gu,26
 2016-05,hi,42
@@ -210,7 +203,6 @@ month,target_lang,translations
 2016-05,or,2
 2016-05,pa,87
 2016-05,pi,1
-2016-05,pnb,1
 2016-05,sd,8
 2016-05,si,6
 2016-05,ta,19
@@ -227,7 +219,6 @@ month,target_lang,translations
 2016-06,ne,1
 2016-06,or,1
 2016-06,pa,77
-2016-06,pnb,7
 2016-06,sd,36
 2016-06,si,2
 2016-06,ta,50
@@ -244,7 +235,6 @@ month,target_lang,translations
 2016-07,mr,5
 2016-07,ne,2
 2016-07,pa,208
-2016-07,pnb,8
 2016-07,sa,1
 2016-07,sd,151
 2016-07,si,4
@@ -280,7 +270,6 @@ month,target_lang,translations
 2016-09,ne,2
 2016-09,or,52
 2016-09,pa,49
-2016-09,pnb,1
 2016-09,sa,1
 2016-09,sd,30
 2016-09,si,19
@@ -299,7 +288,6 @@ month,target_lang,translations
 2016-10,new,1
 2016-10,or,200
 2016-10,pa,74
-2016-10,pnb,3
 2016-10,sa,1
 2016-10,sd,183
 2016-10,si,12
@@ -349,7 +337,6 @@ month,target_lang,translations
 2017-01,ne,4
 2017-01,or,179
 2017-01,pa,127
-2017-01,pnb,1
 2017-01,si,3
 2017-01,ta,70
 2017-01,te,46
@@ -395,7 +382,6 @@ month,target_lang,translations
 2017-04,new,1
 2017-04,or,10
 2017-04,pa,166
-2017-04,pnb,29
 2017-04,sa,1
 2017-04,si,4
 2017-04,ta,49
@@ -411,7 +397,6 @@ month,target_lang,translations
 2017-05,ne,4
 2017-05,or,3
 2017-05,pa,177
-2017-05,pnb,19
 2017-05,sa,1
 2017-05,sd,16
 2017-05,si,1
@@ -449,7 +434,6 @@ month,target_lang,translations
 2017-07,mr,3
 2017-07,ne,2
 2017-07,pa,86
-2017-07,pnb,1
 2017-07,sa,3
 2017-07,si,3
 2017-07,ta,3508
@@ -458,7 +442,6 @@ month,target_lang,translations
 2017-07,ur,19
 2017-08,bn,22
 2017-08,dty,1
-2017-08,dv,1
 2017-08,gu,28
 2017-08,hi,24
 2017-08,kn,1
@@ -482,7 +465,6 @@ month,target_lang,translations
 2017-09,ne,3
 2017-09,or,2
 2017-09,pa,113
-2017-09,pnb,1
 2017-09,sa,1
 2017-09,sd,1
 2017-09,si,7
@@ -523,7 +505,6 @@ month,target_lang,translations
 2017-12,as,1
 2017-12,bn,83
 2017-12,dty,2
-2017-12,dv,1
 2017-12,gu,5
 2017-12,hi,43
 2017-12,kn,77
@@ -579,7 +560,6 @@ month,target_lang,translations
 2018-03,ne,1
 2018-03,or,6
 2018-03,pa,215
-2018-03,pnb,2
 2018-03,sd,10
 2018-03,si,31
 2018-03,ta,53
@@ -588,7 +568,6 @@ month,target_lang,translations
 2018-03,ur,4
 2018-04,bn,69
 2018-04,dty,7
-2018-04,dv,1
 2018-04,gu,33
 2018-04,hi,57
 2018-04,kn,4
@@ -729,7 +708,6 @@ month,target_lang,translations
 2018-12,bh,3
 2018-12,bn,23
 2018-12,dty,1
-2018-12,dv,4
 2018-12,gom,5
 2018-12,gu,2
 2018-12,hi,24
@@ -756,7 +734,6 @@ month,target_lang,translations
 2019-01,ne,16
 2019-01,or,14
 2019-01,pa,46
-2019-01,pnb,1
 2019-01,si,4
 2019-01,ta,75
 2019-01,te,7
@@ -772,7 +749,6 @@ month,target_lang,translations
 2019-02,new,6
 2019-02,or,21
 2019-02,pa,80
-2019-02,pnb,1
 2019-02,sa,1
 2019-02,sat,3
 2019-02,sd,2
@@ -928,7 +904,6 @@ month,target_lang,translations
 2019-11,ne,4
 2019-11,or,5
 2019-11,pa,488
-2019-11,pnb,1
 2019-11,si,4
 2019-11,ta,705
 2019-11,tcy,5
@@ -945,7 +920,6 @@ month,target_lang,translations
 2019-12,new,1
 2019-12,or,8
 2019-12,pa,530
-2019-12,pnb,3
 2019-12,sat,2
 2019-12,sd,1
 2019-12,si,1
@@ -963,7 +937,6 @@ month,target_lang,translations
 2020-01,ne,6
 2020-01,or,4
 2020-01,pa,270
-2020-01,pnb,1
 2020-01,sa,1
 2020-01,si,4
 2020-01,ta,550
@@ -999,7 +972,6 @@ month,target_lang,translations
 2020-03,new,1
 2020-03,or,6
 2020-03,pa,188
-2020-03,pnb,3
 2020-03,sd,21
 2020-03,si,3
 2020-03,ta,506
@@ -1034,7 +1006,6 @@ month,target_lang,translations
 2020-05,ne,10
 2020-05,or,5
 2020-05,pa,123
-2020-05,pnb,2
 2020-05,sd,4
 2020-05,si,9
 2020-05,ta,115
@@ -1045,7 +1016,6 @@ month,target_lang,translations
 2020-06,bn,425
 2020-06,bpy,1
 2020-06,dty,2
-2020-06,dv,3
 2020-06,gu,11
 2020-06,hi,51
 2020-06,kn,55
@@ -1055,7 +1025,6 @@ month,target_lang,translations
 2020-06,ne,14
 2020-06,or,10
 2020-06,pa,76
-2020-06,pnb,1
 2020-06,sat,2
 2020-06,si,7
 2020-06,ta,146
@@ -1074,7 +1043,6 @@ month,target_lang,translations
 2020-07,ne,30
 2020-07,or,8
 2020-07,pa,130
-2020-07,pnb,2
 2020-07,ta,207
 2020-07,te,3
 2020-07,ur,420
@@ -1108,7 +1076,6 @@ month,target_lang,translations
 2020-09,ne,6
 2020-09,or,5
 2020-09,pa,42
-2020-09,pnb,1
 2020-09,sa,1
 2020-09,si,11
 2020-09,ta,408
@@ -1125,7 +1092,6 @@ month,target_lang,translations
 2020-10,ne,9
 2020-10,or,9
 2020-10,pa,67
-2020-10,pnb,1
 2020-10,sat,1
 2020-10,sd,1
 2020-10,si,11
@@ -1158,7 +1124,6 @@ month,target_lang,translations
 2020-12,ne,32
 2020-12,or,3
 2020-12,pa,70
-2020-12,pnb,1
 2020-12,sat,4
 2020-12,sd,11
 2020-12,si,5
@@ -1176,7 +1141,6 @@ month,target_lang,translations
 2021-01,ne,4
 2021-01,or,3
 2021-01,pa,106
-2021-01,pnb,2
 2021-01,sd,1
 2021-01,ta,666
 2021-01,te,290
@@ -1192,7 +1156,6 @@ month,target_lang,translations
 2021-02,ne,3
 2021-02,or,2
 2021-02,pa,147
-2021-02,pnb,3
 2021-02,sd,8
 2021-02,si,1
 2021-02,ta,527
@@ -1210,7 +1173,6 @@ month,target_lang,translations
 2021-03,ne,8
 2021-03,or,11
 2021-03,pa,292
-2021-03,pnb,4
 2021-03,sa,1
 2021-03,sat,1
 2021-03,sd,10
@@ -1229,7 +1191,6 @@ month,target_lang,translations
 2021-04,ne,13
 2021-04,or,4
 2021-04,pa,229
-2021-04,pnb,3
 2021-04,sa,1
 2021-04,sd,1
 2021-04,si,6
@@ -1248,7 +1209,6 @@ month,target_lang,translations
 2021-05,ne,43
 2021-05,or,21
 2021-05,pa,65
-2021-05,pnb,5
 2021-05,sat,2
 2021-05,sd,6
 2021-05,si,4
@@ -1286,7 +1246,6 @@ month,target_lang,translations
 2021-07,ne,63
 2021-07,or,24
 2021-07,pa,32
-2021-07,pnb,2
 2021-07,sa,2
 2021-07,sd,1
 2021-07,si,19
@@ -1309,7 +1268,6 @@ month,target_lang,translations
 2021-08,new,1
 2021-08,or,32
 2021-08,pa,84
-2021-08,pnb,5
 2021-08,sa,1
 2021-08,sd,1
 2021-08,si,13
@@ -1330,7 +1288,6 @@ month,target_lang,translations
 2021-09,ne,43
 2021-09,or,37
 2021-09,pa,73
-2021-09,pnb,7
 2021-09,sa,1
 2021-09,sd,28
 2021-09,si,36
@@ -1387,7 +1344,6 @@ month,target_lang,translations
 2021-12,ne,43
 2021-12,or,29
 2021-12,pa,124
-2021-12,pnb,2
 2021-12,sa,5
 2021-12,sat,2
 2021-12,sd,4
@@ -1412,7 +1368,6 @@ month,target_lang,translations
 2022-01,ur,36
 2022-02,as,2
 2022-02,bn,920
-2022-02,dv,1
 2022-02,gu,4
 2022-02,hi,173
 2022-02,kn,158
@@ -1422,7 +1377,6 @@ month,target_lang,translations
 2022-02,ne,7
 2022-02,or,30
 2022-02,pa,56
-2022-02,pnb,1
 2022-02,sa,3
 2022-02,sd,1
 2022-02,si,10
@@ -1431,7 +1385,6 @@ month,target_lang,translations
 2022-02,ur,254
 2022-03,as,3
 2022-03,bn,649
-2022-03,dv,3
 2022-03,gu,8
 2022-03,hi,170
 2022-03,kn,104
@@ -1459,7 +1412,6 @@ month,target_lang,translations
 2022-04,ne,23
 2022-04,or,54
 2022-04,pa,221
-2022-04,pnb,1
 2022-04,sat,5
 2022-04,sd,2
 2022-04,si,7
@@ -1486,7 +1438,6 @@ month,target_lang,translations
 2022-06,as,4
 2022-06,bh,1
 2022-06,bn,762
-2022-06,dv,5
 2022-06,gu,10
 2022-06,hi,30
 2022-06,kn,62
@@ -1513,7 +1464,6 @@ month,target_lang,translations
 2022-07,ne,54
 2022-07,or,69
 2022-07,pa,150
-2022-07,pnb,1
 2022-07,sa,2
 2022-07,sd,2
 2022-07,si,23
@@ -1534,7 +1484,6 @@ month,target_lang,translations
 2022-08,new,1
 2022-08,or,62
 2022-08,pa,144
-2022-08,pnb,1
 2022-08,sa,1
 2022-08,sat,1
 2022-08,si,11
@@ -1564,7 +1513,6 @@ month,target_lang,translations
 2022-10,as,13
 2022-10,bh,1
 2022-10,bn,635
-2022-10,dv,2
 2022-10,gu,13
 2022-10,hi,231
 2022-10,kn,309
@@ -1575,7 +1523,6 @@ month,target_lang,translations
 2022-10,ne,43
 2022-10,or,37
 2022-10,pa,146
-2022-10,pnb,4
 2022-10,sa,6
 2022-10,si,15
 2022-10,ta,298
@@ -1597,7 +1544,6 @@ month,target_lang,translations
 2022-11,ne,32
 2022-11,or,37
 2022-11,pa,129
-2022-11,pnb,3
 2022-11,sa,5
 2022-11,sd,17
 2022-11,si,22
@@ -1608,7 +1554,6 @@ month,target_lang,translations
 2022-12,as,6
 2022-12,bh,10
 2022-12,bn,895
-2022-12,dv,3
 2022-12,gom,1
 2022-12,gu,5
 2022-12,hi,180
@@ -1622,7 +1567,6 @@ month,target_lang,translations
 2022-12,or,19
 2022-12,pa,179
 2022-12,pi,1
-2022-12,pnb,3
 2022-12,sa,9
 2022-12,sd,4
 2022-12,si,4
@@ -1644,7 +1588,6 @@ month,target_lang,translations
 2023-01,ne,32
 2023-01,or,48
 2023-01,pa,148
-2023-01,pnb,2
 2023-01,sa,8
 2023-01,sat,4
 2023-01,sd,1
@@ -1655,7 +1598,6 @@ month,target_lang,translations
 2023-02,as,12
 2023-02,bh,73
 2023-02,bn,1110
-2023-02,dv,9
 2023-02,gu,10
 2023-02,hi,125
 2023-02,kn,86
@@ -1680,7 +1622,6 @@ month,target_lang,translations
 2023-03,bh,42
 2023-03,bn,1236
 2023-03,dty,2
-2023-03,dv,2
 2023-03,gu,12
 2023-03,hi,404
 2023-03,kn,61
@@ -1700,7 +1641,6 @@ month,target_lang,translations
 2023-04,as,40
 2023-04,bh,25
 2023-04,bn,518
-2023-04,dv,1
 2023-04,gu,21
 2023-04,hi,277
 2023-04,kn,28
@@ -1711,7 +1651,6 @@ month,target_lang,translations
 2023-04,ne,17
 2023-04,or,72
 2023-04,pa,2231
-2023-04,pnb,2
 2023-04,sa,6
 2023-04,sd,1
 2023-04,si,239
@@ -1722,7 +1661,6 @@ month,target_lang,translations
 2023-05,as,37
 2023-05,bh,32
 2023-05,bn,474
-2023-05,dv,1
 2023-05,gu,9
 2023-05,hi,245
 2023-05,kn,18
@@ -1755,7 +1693,6 @@ month,target_lang,translations
 2023-06,ne,49
 2023-06,or,76
 2023-06,pa,452
-2023-06,pnb,2
 2023-06,sa,5
 2023-06,sat,58
 2023-06,sd,3
@@ -1780,7 +1717,6 @@ month,target_lang,translations
 2023-07,new,1
 2023-07,or,81
 2023-07,pa,124
-2023-07,pnb,1
 2023-07,sa,4
 2023-07,sat,49
 2023-07,si,52
@@ -1805,7 +1741,6 @@ month,target_lang,translations
 2023-08,ne,50
 2023-08,or,89
 2023-08,pa,149
-2023-08,pnb,2
 2023-08,sa,19
 2023-08,sat,221
 2023-08,si,15
@@ -1817,7 +1752,6 @@ month,target_lang,translations
 2023-09,as,8
 2023-09,bh,5
 2023-09,bn,499
-2023-09,dv,6
 2023-09,gu,13
 2023-09,hi,165
 2023-09,kn,104
@@ -1828,7 +1762,6 @@ month,target_lang,translations
 2023-09,ne,28
 2023-09,or,53
 2023-09,pa,199
-2023-09,pnb,4
 2023-09,sa,6
 2023-09,sat,197
 2023-09,si,30
@@ -1839,7 +1772,6 @@ month,target_lang,translations
 2023-10,awa,1
 2023-10,bh,5
 2023-10,bn,683
-2023-10,dv,3
 2023-10,gu,10
 2023-10,hi,155
 2023-10,kn,189
@@ -1851,7 +1783,6 @@ month,target_lang,translations
 2023-10,ne,91
 2023-10,or,29
 2023-10,pa,122
-2023-10,pnb,2
 2023-10,sa,3
 2023-10,sat,71
 2023-10,sd,3
@@ -1864,7 +1795,6 @@ month,target_lang,translations
 2023-11,awa,1
 2023-11,bh,5
 2023-11,bn,992
-2023-11,dv,1
 2023-11,gom,2
 2023-11,gu,4
 2023-11,hi,145
@@ -1920,7 +1850,6 @@ month,target_lang,translations
 2024-01,ne,34
 2024-01,or,71
 2024-01,pa,122
-2024-01,pnb,2
 2024-01,sa,5
 2024-01,sat,42
 2024-01,si,42
@@ -1943,7 +1872,6 @@ month,target_lang,translations
 2024-02,new,1
 2024-02,or,112
 2024-02,pa,330
-2024-02,pnb,1
 2024-02,sa,2
 2024-02,sat,436
 2024-02,sd,163
@@ -1967,7 +1895,6 @@ month,target_lang,translations
 2024-03,new,2
 2024-03,or,119
 2024-03,pa,1668
-2024-03,pnb,2
 2024-03,sa,8
 2024-03,sat,63
 2024-03,sd,595
@@ -2000,7 +1927,6 @@ month,target_lang,translations
 2024-05,as,4
 2024-05,bh,3
 2024-05,bn,921
-2024-05,dv,1
 2024-05,gu,5
 2024-05,hi,136
 2024-05,kn,117
@@ -2046,7 +1972,6 @@ month,target_lang,translations
 2024-07,awa,1
 2024-07,bh,4
 2024-07,bn,1145
-2024-07,dv,2
 2024-07,gu,7
 2024-07,hi,255
 2024-07,kn,81
@@ -2073,7 +1998,6 @@ month,target_lang,translations
 2024-08,bn,1090
 2024-08,bpy,2
 2024-08,dty,2
-2024-08,dv,3
 2024-08,gom,2
 2024-08,gu,7
 2024-08,hi,121
@@ -2111,7 +2035,6 @@ month,target_lang,translations
 2024-09,ne,22
 2024-09,or,3
 2024-09,pa,51
-2024-09,pnb,1
 2024-09,sa,1
 2024-09,sat,12
 2024-09,sd,19
@@ -2123,7 +2046,6 @@ month,target_lang,translations
 2024-10,as,60
 2024-10,bh,4
 2024-10,bn,476
-2024-10,dv,1
 2024-10,gom,1
 2024-10,gu,5
 2024-10,hi,88
@@ -2135,7 +2057,6 @@ month,target_lang,translations
 2024-10,ne,29
 2024-10,or,1
 2024-10,pa,62
-2024-10,pnb,4
 2024-10,sa,1
 2024-10,sat,11
 2024-10,sd,123
@@ -2159,7 +2080,6 @@ month,target_lang,translations
 2024-11,new,3
 2024-11,or,4
 2024-11,pa,127
-2024-11,pnb,1
 2024-11,sa,2
 2024-11,sat,4
 2024-11,sd,114
@@ -2184,7 +2104,6 @@ month,target_lang,translations
 2024-12,ne,31
 2024-12,or,3
 2024-12,pa,545
-2024-12,pnb,1
 2024-12,sa,47
 2024-12,sat,1
 2024-12,sd,47
@@ -2221,7 +2140,6 @@ month,target_lang,translations
 2025-02,awa,5
 2025-02,bh,4
 2025-02,bn,1449
-2025-02,dv,1
 2025-02,gu,16
 2025-02,hi,148
 2025-02,kn,89
@@ -2233,7 +2151,6 @@ month,target_lang,translations
 2025-02,ne,22
 2025-02,or,10
 2025-02,pa,268
-2025-02,pnb,1
 2025-02,sa,3
 2025-02,sat,15
 2025-02,sd,15
@@ -2246,7 +2163,6 @@ month,target_lang,translations
 2025-03,awa,4
 2025-03,bh,1
 2025-03,bn,2130
-2025-03,dv,2
 2025-03,gu,42
 2025-03,hi,272
 2025-03,kn,34
@@ -2259,7 +2175,6 @@ month,target_lang,translations
 2025-03,new,71
 2025-03,or,1
 2025-03,pa,1847
-2025-03,pnb,6
 2025-03,sa,4
 2025-03,sat,8
 2025-03,sd,63
@@ -2273,7 +2188,6 @@ month,target_lang,translations
 2025-04,bh,5
 2025-04,bn,1199
 2025-04,dty,1
-2025-04,dv,1
 2025-04,gu,19
 2025-04,hi,258
 2025-04,kn,49
@@ -2286,7 +2200,6 @@ month,target_lang,translations
 2025-04,new,153
 2025-04,or,2
 2025-04,pa,155
-2025-04,pnb,8
 2025-04,sa,3
 2025-04,sat,1
 2025-04,sd,57
@@ -2298,7 +2211,6 @@ month,target_lang,translations
 2025-05,as,23
 2025-05,bh,2
 2025-05,bn,749
-2025-05,dv,1
 2025-05,gu,11
 2025-05,hi,254
 2025-05,kn,20
@@ -2311,7 +2223,6 @@ month,target_lang,translations
 2025-05,new,37
 2025-05,or,2
 2025-05,pa,166
-2025-05,pnb,41
 2025-05,sa,2
 2025-05,sat,2
 2025-05,sd,16
@@ -2324,7 +2235,6 @@ month,target_lang,translations
 2025-06,bn,1289
 2025-06,bpy,3
 2025-06,dty,1
-2025-06,dv,3
 2025-06,gu,5
 2025-06,hi,269
 2025-06,kn,8
@@ -2336,7 +2246,6 @@ month,target_lang,translations
 2025-06,new,26
 2025-06,or,3
 2025-06,pa,139
-2025-06,pnb,10
 2025-06,sa,3
 2025-06,sat,1
 2025-06,sd,24
@@ -2362,7 +2271,6 @@ month,target_lang,translations
 2025-07,new,61
 2025-07,or,2
 2025-07,pa,71
-2025-07,pnb,1
 2025-07,sa,3
 2025-07,sat,2
 2025-07,sd,29
@@ -2387,7 +2295,6 @@ month,target_lang,translations
 2025-08,new,14
 2025-08,or,8
 2025-08,pa,103
-2025-08,pnb,14
 2025-08,sa,13
 2025-08,sat,5
 2025-08,sd,16
@@ -2401,7 +2308,6 @@ month,target_lang,translations
 2025-09,bh,5
 2025-09,bn,363
 2025-09,dty,2
-2025-09,dv,1
 2025-09,gom,2
 2025-09,gu,7
 2025-09,hi,312
@@ -2414,7 +2320,6 @@ month,target_lang,translations
 2025-09,new,3
 2025-09,or,19
 2025-09,pa,107
-2025-09,pnb,6
 2025-09,sa,51
 2025-09,sat,24
 2025-09,sd,33
@@ -2441,7 +2346,6 @@ month,target_lang,translations
 2025-10,new,27
 2025-10,or,6
 2025-10,pa,104
-2025-10,pnb,3
 2025-10,sa,12
 2025-10,sat,7
 2025-10,sd,55
@@ -2466,7 +2370,6 @@ month,target_lang,translations
 2025-11,ne,12
 2025-11,new,72
 2025-11,pa,96
-2025-11,pnb,11
 2025-11,sa,6
 2025-11,sat,34
 2025-11,sd,66
@@ -2513,7 +2416,6 @@ month,target_lang,translations
 2026-01,new,12
 2026-01,or,3
 2026-01,pa,84
-2026-01,pnb,25
 2026-01,sa,3
 2026-01,sat,2
 2026-01,sd,31
@@ -2525,7 +2427,6 @@ month,target_lang,translations
 2026-02,as,23
 2026-02,bh,4
 2026-02,bn,966
-2026-02,dv,1
 2026-02,gu,20
 2026-02,hi,240
 2026-02,kn,55
@@ -2537,7 +2438,6 @@ month,target_lang,translations
 2026-02,new,2
 2026-02,or,4
 2026-02,pa,148
-2026-02,pnb,1
 2026-02,sat,6
 2026-02,sd,68
 2026-02,si,5
@@ -2548,7 +2448,6 @@ month,target_lang,translations
 2026-03,as,21
 2026-03,bh,1
 2026-03,bn,1033
-2026-03,dv,2
 2026-03,gu,6
 2026-03,hi,166
 2026-03,kn,43
@@ -2562,7 +2461,6 @@ month,target_lang,translations
 2026-03,or,5
 2026-03,pa,113
 2026-03,pi,1
-2026-03,pnb,2
 2026-03,sa,3
 2026-03,sat,8
 2026-03,sd,115
@@ -2575,7 +2473,6 @@ month,target_lang,translations
 2026-04,bh,3
 2026-04,bn,140
 2026-04,bpy,2
-2026-04,dv,1
 2026-04,gom,1
 2026-04,gu,3
 2026-04,hi,150
@@ -2599,7 +2496,6 @@ month,target_lang,translations
 2026-05,as,8
 2026-05,bh,2
 2026-05,bn,174
-2026-05,dv,2
 2026-05,gu,5
 2026-05,hi,168
 2026-05,kn,17
@@ -2611,7 +2507,6 @@ month,target_lang,translations
 2026-05,new,1
 2026-05,or,2
 2026-05,pa,117
-2026-05,pnb,2
 2026-05,sa,4
 2026-05,sat,2
 2026-05,sd,68
@@ -2633,7 +2528,6 @@ month,target_lang,translations
 2026-06,ne,37
 2026-06,or,1
 2026-06,pa,135
-2026-06,pnb,1
 2026-06,sa,4
 2026-06,sd,112
 2026-06,si,175
@@ -2656,7 +2550,6 @@ month,target_lang,translations
 2026-07,new,2
 2026-07,or,3
 2026-07,pa,50
-2026-07,pnb,16
 2026-07,sa,3
 2026-07,sat,2
 2026-07,sd,73
@@ -2681,7 +2574,6 @@ month,target_lang,translations
 2026-08,ne,16
 2026-08,new,3
 2026-08,pa,18
-2026-08,pnb,7
 2026-08,sa,8
 2026-08,sd,41
 2026-08,si,10
