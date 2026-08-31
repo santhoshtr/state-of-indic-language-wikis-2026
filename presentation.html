@@ -352,7 +352,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 12 · MOBILE === -->
 <section class="slide" data-name="mobile">
   <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">How we are read</div></div>
-  <h2 class="rise">Our readers moved to phones. <span class="dim">Our editing culture did not.</span></h2>
+  <h2 class="rise">Our readers moved to phones. <span class="dim">Our editing is at desktops.</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-mobile"></div></div>
   <div class="note">Share of 2025 pageviews from mobile. Urdu's low share comes with a suspicious bot activity
  
@@ -380,7 +380,6 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
     <div class="card"><div class="metric-value">44%</div><div class="metric-label">of Sinhala readers are in Sri Lanka</div><div class="metric-desc">19% from the United States</div></div>
     <div class="card"><div class="metric-value">#2</div><div class="metric-label">the US is the second reader country</div><div class="metric-desc">for nearly every Indic wiki</div></div>
   </div>
-  <div class="highlight rise3" style="margin-top:44px">Every reader far from home who opens their language's wiki is a vote for what you build.</div>
   <div class="note">July 2026, Pageviews API by country. Bangladesh and Pakistan are excluded by privacy policy; small residual bot traffic inflates minor countries.</div>
 </section>
 
@@ -392,12 +391,20 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="note">"India" is the #1 reading category on almost every wiki. Readers come to us for who we are — and to English for everything else.</div>
 </section>
 
-<!-- === 16 · COUNTER-TREND === -->
-<section class="slide" data-name="cxtrend">
-  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend</div></div>
-  <h2 class="rise">Fewer editors, better tools, more articles</h2>
-  <div class="chart rise2" style="top:300px"><svg id="chart-cx"></svg></div>
-  <div class="note">Indexed to 2020 = 100. Editors: active editors per year. Translations: articles published with Content Translation per year (2026 is pacing lower, ~40k annualized).</div>
+<!-- === 16a · COUNTER-TREND: TRANSLATIONS === -->
+<section class="slide" data-name="cxtrend-a">
+  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend · articles translated</div></div>
+  <h2 class="rise">Fewer editors, better tools, more articles <span class="dim">— translations per year, </span><span class="chip-pos">+184% since 2020</span></h2>
+  <div class="chart rise2" style="top:340px"><svg id="chart-cx-a"></svg></div>
+  <div class="note">Articles published with Content Translation per year, all Indic Wikipedias (2026 is pacing lower, ~40k annualized).</div>
+</section>
+
+<!-- === 16b · COUNTER-TREND: EDITORS === -->
+<section class="slide" data-name="cxtrend-b">
+  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend · active editors</div></div>
+  <h2 class="rise">Fewer editors, better tools, more articles <span class="dim">— active editors per year, </span><span class="chip-neg">−27% since 2020</span></h2>
+  <div class="chart rise2" style="top:340px"><svg id="chart-cx-b"></svg></div>
+  <div class="note">Active editors per year (5+ edits per month), all Indic Wikipedias — the same window as the previous slide: flip back and forth.</div>
 </section>
 
 <!-- === 17 · CX SHARE === -->
@@ -420,7 +427,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
     <div class="card"><div class="metric-value" style="font-family:var(--indic);font-size:56px">हिन्दी → ਪੰਜਾਬੀ</div><div class="metric-label">Hindi → Punjabi · 568 articles</div></div>
     <div class="card"><div class="metric-value" style="font-family:var(--indic);font-size:56px">ಕನ್ನಡ → ತುಳು</div><div class="metric-label">Kannada → Tulu · 334 articles</div></div>
   </div>
-  <div class="highlight rise3" style="margin-top:46px">It works — these pairs prove it. It is just rare. Arabic alone sends more into Urdu (12k) than all Indic languages send each other.</div>
+  <div class="highlight rise3" style="margin-top:46px">It works, but it is just rare. Arabic alone sends more into Urdu (12k) than all Indic languages send each other.</div>
 </section>
 
 <!-- === 19 · ENGLISH GAP === -->
@@ -785,17 +792,20 @@ function init(){
     });
   }
 
-  /* 16 · counter-trend indexed lines */
+  /* 16 · counter-trend: two raw charts on the same 2016-2025 frame,
+     meant to be flipped between */
   {
-    const e20 = D.editors_yearly['2020'], c20 = D.cx_yearly['2020'];
-    const ed = Object.entries(D.editors_yearly).filter(([y]) => y >= 2016 && y <= 2025)
-      .map(([y,v]) => [+y, v/e20*100]);
     const cx = Object.entries(D.cx_yearly).filter(([y]) => y >= 2016 && y <= 2025)
-      .map(([y,v]) => [+y, v/c20*100]);
-    lineChart('chart-cx', [
-      {points: cx, label: 'Translations +' + Math.round(cx[cx.length-1][1]-100) + '%', width: 7},
-      {points: ed, label: 'Editors −' + Math.round(100-ed[ed.length-1][1]) + '%', width: 6, opacity: .45}
-    ], {fmt: v => Math.round(v)});
+      .map(([y,v]) => [+y, v]);
+    lineChart('chart-cx-a', [{points: cx, width: 7,
+      marks: [[2020, D.cx_yearly['2020'], (D.cx_yearly['2020']/1000).toFixed(1) + 'k', -28],
+              [2025, D.cx_yearly['2025'], (D.cx_yearly['2025']/1000).toFixed(1) + 'k', -28]]}],
+      {fmt: v => (v/1000).toFixed(0) + 'k'});
+    const ed = Object.entries(D.editors_yearly).filter(([y]) => y >= 2016 && y <= 2025)
+      .map(([y,v]) => [+y, v]);
+    lineChart('chart-cx-b', [{points: ed, width: 7,
+      marks: [[2020, D.editors_yearly['2020'], String(D.editors_yearly['2020']), -28],
+              [2025, D.editors_yearly['2025'], String(D.editors_yearly['2025']), -28]]}]);
   }
 
   /* 17 · cx share bars */
