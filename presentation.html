@@ -334,7 +334,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">The other list</div></div>
   <h2 class="rise">2025 activity as a share of each wiki's best year <span class="dim">— what will reverse this?</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-sober"></div></div>
-  <div class="note">Not a list of failures — a list of communities whose best years prove what is possible. The agenda for these three days.</div>
+  <div class="note">Not a list of failures — a list of communities whose best years prove what is possible.</div>
 </section>
 
 <!-- === 11b · ADMIN CAPACITY === -->
@@ -912,7 +912,7 @@ function init(){
       if (w.peak_year >= 2024) line = w.name + ' is at its all-time high. Say it loudly today.';
       else if (share >= 75) line = w.name + ' holds ' + share + '% of its best year. Resilient.';
       else line = w.name + ' was at ' + Math.round(w.peak) + ' active editors in ' + w.peak_year +
-        '. It has been there before — it can be there again.';
+        '.';
       document.getElementById('fyw-celebration').textContent = line;
     }
     sel.onchange = render;
