@@ -66,6 +66,8 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   articles) has a 67% lifetime bot edit share. Newar: 91%, Bishnupriya:
   85%. Article count is not community. Present size
   always next to human activity.
+* (Team decision 2026-09-01: keep the Urdu growth story off the
+  slides; the data stays here and in data/.)
 * **Urdu became the largest Indic Wikipedia only in 2026**: ~390k
   content pages were created between March and July 2026 (peak
   175k in June). Not a bot run: Santhosh verified from the recent
