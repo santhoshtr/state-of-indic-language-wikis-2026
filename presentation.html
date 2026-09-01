@@ -390,20 +390,12 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
   <div class="note">"India" is the #1 reading category on almost every wiki. Readers come to us for who we are — and to English for everything else.</div>
 </section>
 
-<!-- === 16a · COUNTER-TREND: TRANSLATIONS === -->
+<!-- === 16 · COUNTER-TREND: TRANSLATIONS === -->
 <section class="slide" data-name="cxtrend-a">
   <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend · articles translated</div></div>
   <h2 class="rise">Fewer editors, better tools, more articles <span class="dim">— translations per year, </span><span class="chip-pos">+184% since 2020</span></h2>
   <div class="chart rise2" style="top:340px"><svg id="chart-cx-a"></svg></div>
   <div class="note">Articles published with Content Translation per year, all Indic Wikipedias (2026 is pacing lower, ~40k annualized).</div>
-</section>
-
-<!-- === 16b · COUNTER-TREND: EDITORS === -->
-<section class="slide" data-name="cxtrend-b">
-  <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">The counter-trend · active editors</div></div>
-  <h2 class="rise">Fewer editors, better tools, more articles <span class="dim">— active editors per year, </span><span class="chip-neg">−27% since 2020</span></h2>
-  <div class="chart rise2" style="top:340px"><svg id="chart-cx-b"></svg></div>
-  <div class="note">Active editors per year (5+ edits per month), all Indic Wikipedias — the same window as the previous slide: flip back and forth.</div>
 </section>
 
 <!-- === 17 · CX SHARE === -->
@@ -762,8 +754,7 @@ function init(){
     });
   }
 
-  /* 16 · counter-trend: two raw charts on the same 2016-2025 frame,
-     meant to be flipped between */
+  /* 16 · counter-trend: translations per year */
   {
     const cx = Object.entries(D.cx_yearly).filter(([y]) => y >= 2016 && y <= 2025)
       .map(([y,v]) => [+y, v]);
@@ -771,11 +762,6 @@ function init(){
       marks: [[2020, D.cx_yearly['2020'], (D.cx_yearly['2020']/1000).toFixed(1) + 'k', -28],
               [2025, D.cx_yearly['2025'], (D.cx_yearly['2025']/1000).toFixed(1) + 'k', -28]]}],
       {fmt: v => (v/1000).toFixed(0) + 'k'});
-    const ed = Object.entries(D.editors_yearly).filter(([y]) => y >= 2016 && y <= 2025)
-      .map(([y,v]) => [+y, v]);
-    lineChart('chart-cx-b', [{points: ed, width: 7,
-      marks: [[2020, D.editors_yearly['2020'], String(D.editors_yearly['2020']), -28],
-              [2025, D.editors_yearly['2025'], String(D.editors_yearly['2025']), -28]]}]);
   }
 
   /* 17 · cx share bars */
