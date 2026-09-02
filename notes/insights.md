@@ -229,3 +229,33 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   the whole research, and it feeds every reuse of Wikidata
   (infoboxes, search, assistants). Strong closing slide before
   "what this conference is for".
+
+## Human edits analysis (2026-09-02, no slide yet — pending decision)
+
+Question: is there a story in human edit counts (registered + IP),
+next to the active-editor story the deck already tells?
+
+* **Total human edits look healthy — but the record is borrowed.**
+  All-Indic human edits hit all-time highs in 2024 (2.24M) and 2025
+  (2.23M), above the 2020-21 peak (2.09M). Without Urdu, 2025 is
+  1.74M — 11% below the 2020-21 level. So: editors fell 27%, edits
+  (ex-Urdu) fell only 11%.
+* **The remaining editors do much more each.** Registered human
+  edits per active editor held at ~100-120 per month for a decade,
+  then rose to 148 (2024) and 165 (2025). Concentration plus better
+  tools (translation among them). Defends the -27% slide against
+  "but edit counts are fine!"
+* **Urdu's surge is human and enormous**: 134k edits/year
+  (2019-21 avg) to 491k (2025), and ~707k in seven months of 2026
+  during the creation drive. Matches Santhosh's verification that
+  the drive is human editing.
+* **Edit winners**: Bengali at an all-time high (630k, 2025);
+  Assamese all-time high (93k); Tamil at 90% of its 2013 peak.
+* **Edit decliners, sharper than the editor numbers**: Hindi at 33%
+  of its 2020 peak (389k -> 132k); Malayalam 27%; Sanskrit 8%;
+  Kannada 43%.
+* **IP editing is disappearing**: ~45% of human edits in 2004-07,
+  12% through 2015-23, 8% in 2025, 4% in 2026 so far.
+  Caveat: temporary accounts (IP masking) roll-out reclassifies
+  IP edits; the 2024-26 drop is partly measurement. Verify the
+  roll-out date per wiki before presenting this line.
