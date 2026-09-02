@@ -339,11 +339,11 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 11b · ADMIN CAPACITY === -->
 <section class="slide" data-name="admins">
   <div class="slide-header"><div class="eyebrow">Present · Editors</div><div class="tag">Admin capacity</div></div>
-  <h2 class="rise">Who keeps the lights on? <span class="dim">— ten Wikipedias run on one or two administrators</span></h2>
+  <h2 class="rise">Administrative capacity is thin at the edges <span class="dim">— ten Wikipedias have one or two administrators</span></h2>
   <div class="chart rise2" style="top:300px;right:700px;bottom:170px"><div class="bars" id="chart-admins"></div></div>
   <div style="position:absolute;right:90px;top:320px;width:520px" class="rise3">
-    <div class="card"><div class="metric-value">10<span style="font-size:44px;color:var(--muted)"> of 30</span></div><div class="metric-label">Wikipedias have 1-2 admins</div><div class="metric-desc">every deletion, block, and cleanup lands on the same one or two people</div></div>
-    <div class="card" style="margin-top:20px"><div class="metric-value">0</div><div class="metric-label">admins on Tulu Wiktionary</div><div class="metric-desc">for contrast: Tamil Wikipedia has 31, Bengali 16</div></div>
+    <div class="card"><div class="metric-value">10<span style="font-size:44px;color:var(--muted)"> of 30</span></div><div class="metric-label">Wikipedias have 1-2 admins</div><div class="metric-desc">the current administrator roster has only one or two people</div></div>
+    <div class="card" style="margin-top:20px"><div class="metric-value">0</div><div class="metric-label">admins on Tulu Wiktionary</div><div class="metric-desc">28 August 2026 snapshot; Tamil Wikipedia has 31, Bengali 16</div></div>
   </div>
   <div class="note">A 2025 Wikimedia Foundation study found the same pattern movement-wide: admin cohorts are aging and recruitment is not keeping up — <a href="https://meta.wikimedia.org/wiki/Research:Wikipedia_Administrator_Recruitment,_Retention,_and_Attrition/Report" style="color:var(--primary)">Research: Wikipedia Administrator Recruitment, Retention, and Attrition (2025)</a>.</div>
 </section>
@@ -360,14 +360,13 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 
 <!-- === 13 · PAGEVIEW CLIFF === -->
 <section class="slide" data-name="cliff">
-  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">The AI era, in our charts</div></div>
-  <h2 class="rise">Pageviews: a peak in 2023, then a cliff</h2>
+  <div class="slide-header"><div class="eyebrow">Present · Readers</div><div class="tag">A break in the series</div></div>
+  <h2 class="rise">Recorded human pageviews fell after 2023</h2>
   <div class="chart rise2" style="right:640px"><svg id="chart-pv"></svg></div>
   <div class="highlight rise3" style="position:absolute;right:90px;top:330px;width:460px">
-    Bot detection improved in 2024-25, so the
-    old numbers were inflated. <br/> AI answers really are keeping readers away?
+    Bot detection changed in 2025, and March-August data was revised. <br/> AI answers, search changes, and detection changes may all contribute.
   </div>
-  <div class="note">Human pageviews per year, all Indic Wikipedias, millions (Wikimedia Pageviews API).</div>
+  <div class="note">Human pageviews per year, all Indic Wikipedias, millions (Wikimedia Pageviews API). The 2025 bot-detection update makes earlier and later data imperfectly comparable; <a href="https://wikimediafoundation.org/news/2025/10/17/new-user-trends-on-wikipedia/" style="color:var(--primary)">the chart does not estimate AI's effect</a>.</div>
 </section>
 
 <!-- === 14 · WHO READS US === -->
@@ -401,11 +400,11 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 17 · CX SHARE === -->
 <section class="slide" data-name="cxshare">
   <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">300,000 articles</div></div>
-  <h2 class="rise">For some wikis, translation <i>is</i> how the wiki grows <span class="dim">— share of current articles created with translation</span></h2>
+  <h2 class="rise">For some wikis, translation <i>is</i> how the wiki grows <span class="dim">— lifetime published translations relative to current article count</span></h2>
   <div class="chart rise2" style="top:320px;right:640px"><div class="bars" id="chart-cxshare"></div></div>
   <div style="position:absolute;right:90px;top:340px;width:460px" class="rise3">
     <div class="card"><div class="metric-value">2,612</div><div class="metric-label">people have translated into Bengali</div><div class="metric-desc">the widest participation funnel of any editing workflow</div></div>
-    <div class="card" style="margin-top:22px"><div class="metric-value">299k</div><div class="metric-label">articles translated into Indic wikis</div><div class="metric-desc">12% of the 2.5M global Content Translation total</div></div>
+    <div class="card" style="margin-top:22px"><div class="metric-value">299k</div><div class="metric-label">lifetime translations published into Indic wikis</div><div class="metric-desc">12% of the 2.5M global Content Translation total; about 7% were later deleted</div></div>
   </div>
 </section>
 
@@ -425,7 +424,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <section class="slide" data-name="engap">
   <div class="slide-header"><div class="eyebrow">Knowledge gaps</div><div class="tag">Choose your reference</div></div>
   <h2 class="rise">The "gap to English" is mostly a gap of American actors</h2>
-  <div class="body rise2" style="max-width:1500px;margin-top:6px">Top missing categories against English, weighted by English readership — <b style="color:var(--text)">identical for all 31 wikis measured:</b></div>
+  <div class="body rise2" style="max-width:1500px;margin-top:6px">Top missing categories against English, weighted by English readership — <b style="color:var(--text)">identical across every wiki in this comparison:</b></div>
   <div class="pillrow rise2" style="margin-top:34px" id="engap-pills"></div>
   <div class="highlight rise3" style="margin-top:52px;max-width:1500px">
     Measuring against English measures your distance from American pop culture.
@@ -469,9 +468,9 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 23 · LABEL GAP === -->
 <section class="slide" data-name="labels">
   <div class="slide-header"><div class="eyebrow">Sister projects · Wikidata</div><div class="tag">The closing challenge</div></div>
-  <h2 class="rise">India's knowledge graph speaks English <span class="dim">— 912,073 Wikidata items about India; who can name them?</span></h2>
+  <h2 class="rise">Items tagged with country: India are usually labelled only in English <span class="dim">— 912,073 Wikidata items; who can name them?</span></h2>
   <div class="chart rise2" style="top:330px"><div class="bars" id="chart-labels"></div></div>
-  <div class="note">Fewer than 1 in 12 items about India carries a label in any Indian language. Every infobox, every search result, every assistant that reuses Wikidata inherits this gap.</div>
+  <div class="note">No individual Indian language labels more than 1 in 12 of these items. This measures direct <i>country (P17) = India</i> statements, not all India-related items. Every infobox, search result, and assistant that reuses Wikidata inherits this gap.</div>
 </section>
 
 <!-- === 24 · FIND YOUR WIKI === -->
