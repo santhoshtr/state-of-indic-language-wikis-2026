@@ -230,7 +230,8 @@ Each entry: the fact, the data behind it, and how it can serve the talk.
   (infoboxes, search, assistants). Strong closing slide before
   "what this conference is for".
 
-## Human edits analysis (2026-09-02, no slide yet — pending decision)
+## Human edits analysis (2026-09-02; on a slide since 2026-09-02,
+minus the IP-editing line and any Urdu mention, per team decisions)
 
 Question: is there a story in human edit counts (registered + IP),
 next to the active-editor story the deck already tells?
