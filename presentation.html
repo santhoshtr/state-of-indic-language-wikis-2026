@@ -299,7 +299,7 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 7 · SIZE ≠ COMMUNITY === -->
 <section class="slide" data-name="bots">
   <div class="slide-header"><div class="eyebrow">Past</div><div class="tag">Size is not community</div></div>
-  <h2 class="rise">The largest wikis were not written the same way <span class="dim">— bot share of lifetime edits</span></h2>
+  <h2 class="rise">The largest wikis were not written the same way <span class="dim">— bot share of  edits</span></h2>
   <div class="chart rise2" style="top:300px"><div class="bars" id="chart-bots"></div></div>
   <div class="note">Article count and community size are different facts.</div>
 </section>
@@ -421,11 +421,11 @@ select{font-family:var(--grot);font-weight:500;font-size:26px;color:var(--primar
 <!-- === 17 · CX SHARE === -->
 <section class="slide" data-name="cxshare">
   <div class="slide-header"><div class="eyebrow">Translation</div><div class="tag">300,000 articles</div></div>
-  <h2 class="rise">For some wikis, translation <i>is</i> how the wiki grows <span class="dim">— lifetime published translations relative to current article count</span></h2>
+  <h2 class="rise">For some wikis, translation <i>is</i> how the wiki grows <span class="dim">—  published translations relative to current article count</span></h2>
   <div class="chart rise2" style="top:320px;right:640px"><div class="bars" id="chart-cxshare"></div></div>
   <div style="position:absolute;right:90px;top:340px;width:460px" class="rise3">
     <div class="card"><div class="metric-value">2,612</div><div class="metric-label">people have translated into Bengali</div><div class="metric-desc">the widest participation funnel of any editing workflow</div></div>
-    <div class="card" style="margin-top:22px"><div class="metric-value">299k</div><div class="metric-label">lifetime translations published into Indic wikis</div><div class="metric-desc">12% of the 2.5M global Content Translation total; about 7% were later deleted</div></div>
+    <div class="card" style="margin-top:22px"><div class="metric-value">299k</div><div class="metric-label"> translations published into Indic wikis</div><div class="metric-desc">12% of the 2.5M global Content Translation total; about 7% were later deleted</div></div>
   </div>
 </section>
 
@@ -872,7 +872,7 @@ function init(){
       const w = byLang[sel.value];
       const cards = [
         [w.launch ? w.launch.slice(0,4) : '—', 'founded', w.launch || ''],
-        [w.articles.toLocaleString('en-IN'), 'articles', w.bot_pct + '% lifetime bot edits'],
+        [w.articles.toLocaleString('en-IN'), 'articles', w.bot_pct + '% bot edits'],
         [Math.round(w.active_2025), 'active editors (2025)', 'peak ' + Math.round(w.peak) + ' in ' + w.peak_year],
         [w.pv_2025_m + 'M', 'pageviews in 2025', (w.mobile_pct ?? '—') + '% mobile'],
         [w.cx_share + '%', 'articles via translation', w.cx_total.toLocaleString('en-IN') + ' translated articles'],
